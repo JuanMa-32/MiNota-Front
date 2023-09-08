@@ -19,7 +19,7 @@
   
   .accordion-btn {
     border: none;
-    background: none;
+    background: ·;
     font-size: 1.5rem;
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -86,3 +86,43 @@
 .boton-esquina {
   margin-right: 40px;
 }
+
+
+
+/* Estilos para el menú desplegable */
+.menu-desplegable {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: #e0e0e0; /* Color de fondo para el menú desplegable */
+}
+
+/* Estilos para las opciones del menú desplegable */
+.opcion {
+  padding: 10px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 5s;
+}
+
+.opcion:hover {
+  background-color: #d0d0d0; /* Color de fondo al pasar el ratón sobre las opciones */
+}
+
+.button-link {
+  display: inline-block;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  padding: 5px 15px; /* Ajusta el espaciado según tu preferencia */
+  background-color: #5250b7; /* Cambia el color de fondo a tu elección */
+  color: #fff; /* Cambia el color del texto a tu elección */
+  text-decoration: none;
+  border: none;
+  border-radius: 4px; /* Agrega esquinas redondeadas si lo deseas */
+  cursor: pointer;
+  font-size: 15px; /* Ajusta el tamaño de fuente según tu preferencia */
+}
+
+
+
+

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import { PublicacionView } from './PublicacionView';
-import { UserContext } from './../context/UserContext';
+import { UserContext } from '../../context/UserContext';
 import { PublicacionModal } from './PublicacionModal';
 
 export const PublicacionList = () => {
@@ -13,7 +13,7 @@ export const PublicacionList = () => {
 
 
   return (
-    <div className="App">
+    <div className="">
       {!visibleFrom || <PublicacionModal />}
       <div className="text-end mb-3">
         {visibleFrom || <button className="btn btn-sm btn-outline-secondary boton-esquina" onClick={handlerOpenForm}>

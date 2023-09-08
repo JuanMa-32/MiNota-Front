@@ -1,43 +1,19 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { UserContext } from './../../context/UserContext';
+import { UserContext } from '../../context/UserContext';
+import { Link } from 'react-router-dom';
 
-export const EscuelaForm = () => {
+export const EscuelaEditarCaracteristicas = () => {
 
-  const { hanlderAddLocalidades, localidades, escuelaFormInit, hanlderAddEscuela, escuelas, getEscuelas } = useContext(UserContext);
+  const {  localidades, escuelaFormInit, handlerUpdateCaracteristicas,escuelaSeleccionada} = useContext(UserContext);
 
   const [escuelaForm, setescuelaForm] = useState(escuelaFormInit)
 
+  useEffect(() => {
+    setescuelaForm({ ...escuelaSeleccionada })
+    
+  }, [escuelaSeleccionada])
+
   const {
-    id,
-    numero,
-    anexo,
-    cue,
-    subCue,
-    nombre,
-    direccionLinea,
-    nivel,
-    listaDeRegimenes,
-    gestion,
-    reparticion,
-    supervision,
-    regional,
-    delegacion,
-    zona,
-    comparteEdificio,
-    calle,
-    numeroCalle,
-    barrio,
-    localidad,
-    codigoPostal,
-    telefono,
-    email,
-    emailAlternativo,
-    fechaCreacion,
-    anioResolucion,
-    numeroResolucion,
-    fechaCierre,
-    anioResolucionCierre,
-    numeroResolucionCierre,
     ambito,
     modalidadCursado,
     comparteEntrada,
@@ -90,14 +66,9 @@ export const EscuelaForm = () => {
     senialCelular } = escuelaForm;
 
 
-  useEffect(() => {
-    hanlderAddLocalidades()
-    getEscuelas()
-  }, [])
-
   const onInputChange = ({ target }) => {
     const { name, value } = target;
-    console.log(name + value);
+   
     if (name === "localidad") {
       const selectedLocalidad = localidades.find(localidad => localidad.id === parseInt(value));
       console.log("Selected Localidad:", selectedLocalidad);
@@ -112,164 +83,17 @@ export const EscuelaForm = () => {
       });
     }
   }
-
   const onSubmit = (event) => {
     event.preventDefault();
-    hanlderAddEscuela(escuelaForm);
-    setescuelaForm(escuelaFormInit);
+    handlerUpdateCaracteristicas(escuelaForm);
+    //setescuelaForm(escuelaFormInit);
   }
 
 
   return (
     <div className="col-md-10">
-      <h3 className="mb-3">Formulario Escuela</h3>
+      <h3 className="mb-3">Características</h3>
       <form className="needs-validation" onSubmit={onSubmit}>
-        <div className="row g-3">
-          <div className="col-sm-2">
-          <input name="id" value={id} hidden />
-            <label htmlFor="firstName" className="form-label">Nùmero</label>
-            <input type="text" className="form-control form-control-sm" id="firstName" placeholder="" name="numero" value={numero} onChange={onInputChange} />
-          </div>
-          <div className="col-sm-1">
-            <label htmlFor="lastName" className="form-label">Anexo</label>
-            <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="anexo" value={anexo} onChange={onInputChange} />
-          </div>
-          <div className="col-sm-2">
-            <label htmlFor="lastName" className="form-label">CUE</label>
-            <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="cue" value={cue} onChange={onInputChange} />
-          </div>
-          <div className="col-sm-2">
-            <label htmlFor="lastName" className="form-label">SubCUE</label>
-            <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="subCue" value={subCue} onChange={onInputChange} />
-          </div>
-          <div className="col-sm-5">
-            <label htmlFor="lastName" className="form-label">Nombre</label>
-            <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="nombre" value={nombre} onChange={onInputChange} />
-          </div>
-          <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">Dir. Linea</label>
-            <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="direccionLinea" value={direccionLinea} onChange={onInputChange} />
-          </div>
-
-          <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">Nivel</label>
-            <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="nivel" value={nivel} onChange={onInputChange} />
-          </div>
-          <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">Lista de Regimenes</label>
-            <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="listaDeRegimenes" value={listaDeRegimenes} onChange={onInputChange} />
-          </div>
-          <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">Gestión</label>
-            <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="gestion" value={gestion} onChange={onInputChange} />
-          </div>
-          <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">Repartición</label>
-            <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="reparticion" value={reparticion} onChange={onInputChange} />
-          </div>
-          <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">supervición</label>
-            <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="supervision" value={supervision} onChange={onInputChange} />
-          </div>
-          <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">Regional</label>
-            <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="regional" value={regional} onChange={onInputChange} />
-          </div>
-          <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">Delegación</label>
-            <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="delegacion" value={delegacion} onChange={onInputChange} />
-          </div>
-
-          <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">Zona + Radio</label>
-            <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="zona" value={zona} onChange={onInputChange} />
-          </div>
-
-          <div className="col-md-8">
-            <label htmlFor="country" className="form-label">Comparte Edificio</label>
-            <select className="form-select form-select-sm" id="country" name="comparteEdificio" value={comparteEdificio} onChange={onInputChange}>
-              <option value="" disabled selected>Seleccionar escuela con quien comparte edificio</option>
-              <option value="No comparte">No comparte</option>
-              {escuelas.map(esc => (
-                <option key={esc.id} value={esc.numero}>
-                  {esc.numero}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">Calle</label>
-            <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="calle" value={calle} onChange={onInputChange} />
-          </div>
-          <div className="col-sm-1">
-            <label htmlFor="lastName" className="form-label">Número</label>
-            <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="numeroCalle" value={numeroCalle} onChange={onInputChange} />
-          </div>
-          <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">Barrio/Seccion</label>
-            <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="barrio" value={barrio} onChange={onInputChange} />
-          </div>
-          <div className="col-md-4">
-            <label htmlFor="country" className="form-label">Localidad</label>
-            <select
-              className="form-select form-select-sm"
-              id="country"
-              name="localidad"
-              value={localidad.id}
-              onChange={onInputChange}
-            >
-              {localidades.map(localidad => (
-                <option key={localidad.id} value={localidad.id}>
-                  {localidad.localidad} - {localidad.municipio}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="col-sm-1">
-            <label htmlFor="lastName" className="form-label">C.P.</label>
-            <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="codigoPostal" value={codigoPostal} onChange={onInputChange} />
-          </div>
-
-          <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">Teléfono</label>
-            <input type="number" className="form-control form-control-sm" id="lastName" placeholder="" name="telefono" value={telefono} onChange={onInputChange} />
-          </div>
-
-
-          <div className="col-4">
-            <label htmlFor="email" className="form-label">Email</label>
-            <input type="email" className="form-control form-control-sm" id="email" placeholder="you@example.com" name="email" value={email} onChange={onInputChange} />
-          </div>
-          <div className="col-4">
-            <label htmlFor="email" className="form-label">Email Alternativo</label>
-            <input type="email" className="form-control form-control-sm" id="email" placeholder="you@example.com" name="emailAlternativo" value={emailAlternativo} onChange={onInputChange} />
-          </div>
-          <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">Fecha de Creación</label>
-            <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="fechaCreacion" value={fechaCreacion} onChange={onInputChange} />
-          </div>
-          <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">Año Resolución</label>
-            <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="anioResolucion" value={anioResolucion} onChange={onInputChange} />
-          </div>
-          <div className="col-sm-4">
-            <label htmlFor="lastName" className="form-label">Número Resolución</label>
-            <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="numeroResolucion" value={numeroResolucion} onChange={onInputChange} />
-          </div>
-          <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">Fecha Cierre</label>
-            <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="fechaCierre" value={fechaCierre} onChange={onInputChange} />
-          </div>
-          <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">Año Resolución Cierre</label>
-            <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="anioResolucionCierre" value={anioResolucionCierre} onChange={onInputChange} />
-          </div>
-          <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">Número Resolución Cierre</label>
-            <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="numeroResolucionCierre" value={numeroResolucionCierre} onChange={onInputChange} />
-          </div>
-        </div>
-
         <hr className="my-4" />
         <h5>Contexto</h5>
         <div className="row g-3">
@@ -892,7 +716,7 @@ export const EscuelaForm = () => {
                 id="sistemaSeguridad-si"
                 name="sistemaSeguridad"
                 value={true}
-
+                
                 onChange={onInputChange}
               />
               <label className="form-check-label" htmlFor="sistemaSeguridad-si">Sí</label>
@@ -904,7 +728,7 @@ export const EscuelaForm = () => {
                 id="sistemaSeguridad-no"
                 name="sistemaSeguridad"
                 value={false}
-
+                
                 onChange={onInputChange}
               />
               <label className="form-check-label" htmlFor="sistemaSeguridad-no">No</label>
@@ -912,8 +736,9 @@ export const EscuelaForm = () => {
           </div>
         </div>
 
-        <button className="btn btn-primary btn-sm mt-3" type="submit">Cargar Escuela</button>
-        <button className="btn btn-danger btn-sm mt-3" type="submit">cancelar</button>
+        <button className="btn btn-primary btn-sm mt-3" type="submit">Guardar</button>
+        <Link to={`/`} className='btn btn-danger btn-sm mt-3 ms-2'>Cancelar</Link>
+
       </form>
     </div>
 

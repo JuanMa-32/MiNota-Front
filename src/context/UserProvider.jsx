@@ -1,3 +1,4 @@
+import { useDivision } from "../hooks/useDivision";
 import { useEscuela } from "../hooks/useEscuela";
 import { usePublicacion } from "../hooks/usePublicacion"
 import { UserContext } from "./UserContext"
@@ -15,7 +16,7 @@ export const UserProvider = ({ children }) => {
         publicaciones,
         publicacionInitial,
         visibleFrom,
-        errors,
+        
         publicacionSelected
     } = usePublicacion();
 
@@ -24,11 +25,26 @@ export const UserProvider = ({ children }) => {
         hanlderAddLocalidades,
         hanlderAddEscuela,
         hanlderEscuelaSeleccionada,
+        getEscuelas,
+        handlerUpdate,
+        handlerUpdateCaracteristicas,
         //variables
         localidades,
         escuelaFormInit,
-        escuelaSeleccionada
+        escuelaSeleccionada,
+        escuelas
     } = useEscuela();
+
+    const {
+        //Variables
+        divisionFormInit,
+        divisiones,
+        errors,
+
+        //Funciones
+        hanlderAddDivision,
+        getDivisiones
+    } = useDivision();
 
     return (
         <UserContext.Provider value={
@@ -47,17 +63,31 @@ export const UserProvider = ({ children }) => {
                 errors,
                 publicacionSelected,
 
-
-
                 //ESCUELA
                 //funciones
                 hanlderAddLocalidades,
                 hanlderAddEscuela,
                 hanlderEscuelaSeleccionada,
+                getEscuelas,
+                handlerUpdate,
+                handlerUpdateCaracteristicas,
                 //variables
                 localidades,
                 escuelaFormInit,
-                escuelaSeleccionada
+                escuelaSeleccionada,
+                escuelas,
+
+
+
+                //DIVISION
+                //Variables
+                divisionFormInit,
+                divisiones,
+                errors,
+
+                //Funciones
+                hanlderAddDivision,
+                getDivisiones
             }
         }>
             {children}

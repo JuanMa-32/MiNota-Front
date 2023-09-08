@@ -1,10 +1,11 @@
 import { useReducer, useState } from "react"
-import { getEscuelaId, getLocalidades, save } from './../services/escuelaService';
+import { editar, editarCaracteristicas, findAllEscuelas, getEscuelaId, getLocalidades, save } from './../services/escuelaService';
 import { escuelaReducer } from './../reducers/escuelaReducer';
 import Swal from "sweetalert2"
+import { useNavigate } from "react-router-dom";
 
 const escuelaFormInit = {
-  
+  id:0,
   numero:'',
   anexo:'',
   cue:'',
@@ -90,16 +91,12 @@ export const useEscuela = () => {
   const [escuelas, dispatch] = useReducer(escuelaReducer, [])
   const [localidades, setlocalidades] = useState([])
   const [escuelaSeleccionada, setescuelaSeleccionada] = useState(escuelaFormInit)
+  const navigate = useNavigate();
 
   const hanlderAddEscuela = async (escuela) => {
-   
     let response;
     try {
-     
-        console.log('entre');
-        console.log(escuela);
         response =await save(escuela)
-      
         // response = update(escuela)
       
       dispatch({
@@ -109,6 +106,56 @@ export const useEscuela = () => {
       Swal.fire(
         'Escuela cargada' , 'Escuela subida al sistema!',  'success'
       )
+      navigate('/');
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const handlerUpdate = async (escuela) => {
+    const {id} = escuela;
+    console.log(id);
+    try {
+      const response = await editar(escuela,id);
+      dispatch({
+        type:'update',
+        payload:response.data
+      })
+      Swal.fire(
+        'Escuela Actualizada' , `${escuela.nombre} fue actualizada!`,  'success'
+      )
+      navigate('/');
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const handlerUpdateCaracteristicas = async (escuela) => {
+    const {id} = escuela;
+    console.log(id);
+    try {
+      const response = await editarCaracteristicas(escuela,id);
+      dispatch({
+        type:'update',
+        payload:response.data
+      })
+      Swal.fire(
+        'Escuela Actualizada' , `${escuela.nombre} fue actualizada!`,  'success'
+      )
+      navigate('/');
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const getEscuelas = async () => {
+    try {
+      const response = await findAllEscuelas();
+      console.log(response.data);
+      dispatch({
+        type:'loadingEscuelas',
+        payload:response.data
+      })
     } catch (error) {
       console.log(error);
     }
@@ -125,7 +172,7 @@ export const useEscuela = () => {
       const response = await getEscuelaId(id);
 
       setescuelaSeleccionada({...response.data});
-      console.log(escuelaSeleccionada);
+      
     } catch (error) {
       console.log(error);
     }
@@ -136,9 +183,13 @@ export const useEscuela = () => {
     hanlderAddLocalidades,
     hanlderAddEscuela,
     hanlderEscuelaSeleccionada,
+    getEscuelas,
+    handlerUpdate,
+    handlerUpdateCaracteristicas,
     //variables
     localidades,
     escuelaFormInit,
-    escuelaSeleccionada
+    escuelaSeleccionada,
+    escuelas
   }
 }

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { UserContext } from '../context/UserContext'
+import { UserContext } from '../../context/UserContext'
 
 export const FormPublicacion = () => {
 
@@ -20,7 +20,7 @@ export const FormPublicacion = () => {
 
     const onInputChange = ({ target }) => {
         const { name, value } = target;
-        console.log(name + value);
+       
         setpublicacionForm({
             ...publicacionForm,
             [name]: value

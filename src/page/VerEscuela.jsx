@@ -8,7 +8,6 @@ export const VerEscuela = () => {
     const {hanlderEscuelaSeleccionada} = useContext(UserContext);
     const {id} = useParams();
     useEffect(() => {
-        console.log('hola');
         hanlderEscuelaSeleccionada(id);
     }, [id])
   return (

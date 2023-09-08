@@ -1,7 +1,7 @@
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext, useState } from 'react'
-import { UserContext } from './../context/UserContext';
+import { UserContext } from '../../context/UserContext';
 
 export const PublicacionView = ({ publicacion }) => {
 

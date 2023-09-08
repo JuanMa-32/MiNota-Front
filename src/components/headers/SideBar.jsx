@@ -1,6 +1,6 @@
-import { faBus, faDesktop, faMagnifyingGlass, faNewspaper, faRightToBracket, faSchool, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faAngleDown, faAngleUp, faBus, faDesktop, faMagnifyingGlass, faNewspaper, faRightToBracket, faSchool, faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
 
@@ -8,6 +8,16 @@ import { NavLink } from 'react-router-dom'
 
 
 export const SideBar = () => {
+
+
+  const [menuAbierto, setMenuAbierto] = useState(false);
+
+  // Función para alternar la visibilidad del menú
+  const toggleMenu = () => {
+    setMenuAbierto(!menuAbierto);
+  };
+
+
   return (
     <div className="d-flex">
       <div className="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style={{ width: '280px' }}>
@@ -17,6 +27,8 @@ export const SideBar = () => {
             <p></p>
           </div>
         </a>
+        <hr />
+
 
         <ul className="nav nav-pills flex-column mb-auto">
           <li>
@@ -28,15 +40,36 @@ export const SideBar = () => {
               Escritorio
             </NavLink>
           </li>
-          <li>
-          <NavLink to="/escuela/registrar" className="nav-link link-body-emphasis">
-              <svg className="bi pe-none me-2" width="5" height="16">
+
+
+          <li onClick={toggleMenu}>
+            <a className="nav-link link-body-emphasis">
+              <svg className="bi pe-none" width="13" height="16">
                 <use xlinkHref="#speedometer2" />
               </svg>
               <FontAwesomeIcon icon={faSchool} className="icon-spacing" />
               Esc.
-            </NavLink>
+              <span className="flecha ">
+                {menuAbierto ? (
+                  <FontAwesomeIcon icon={faAngleUp} className="icon-spacing" />
+                ) : (
+                  <FontAwesomeIcon icon={faAngleDown} className="icon-spacing" />
+                )}
+              </span>
+            </a>
           </li>
+          {menuAbierto && (
+            <ul className="menu-desplegable">
+              <li className="opcion">
+              <NavLink to="/escuela/listar" className="nav-link link-body-emphasis" >Listar escuelas</NavLink>
+              </li>
+              <li className="opcion">
+              <NavLink to="/escuela/registrar" className="nav-link link-body-emphasis" >Agregar escuela</NavLink>
+              </li>
+            </ul>
+          )}
+
+
           <li>
             <a href="#" className="nav-link link-body-emphasis">
               <svg className="bi pe-none me-2" width="5" height="16"><use xlinkHref="#table" /></svg>
