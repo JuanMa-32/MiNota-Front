@@ -23,7 +23,7 @@ export const SideBar = () => {
       <div className="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style={{ width: '280px' }}>
         <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
           <div className="d-flex justify-content-center mb-3">
-            <img src="logo.png" alt="Logo de la compañía" width="100" height="100" />
+            <img src="public/logo.png" alt="Logo de la compañía" width="100" height="100" />
             <p></p>
           </div>
         </a>

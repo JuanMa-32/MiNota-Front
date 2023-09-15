@@ -4,16 +4,18 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export const DivisionRow = ({division}) => {
+
+  const {curso,divisionCurso,turno,carrera,modalidad,alta,id} = division;
   return (
     <tr> 
-    <td>{division.curso}</td>
-    <td>{division.division} </td>
-    <td>{division.turno} </td>
-    <td>{division.carrera} </td>
-    <td>{division.modalidad} </td>
-    <td>{division.alta}</td>
-    <td>horario</td>
-    <td><Link to={`/`} className='btn btn-light btn-sm p-1'><FontAwesomeIcon icon={faMagnifyingGlass} size="2xs"/> Ver</Link></td>
+    <td>{curso}</td>
+    <td>{divisionCurso} </td>
+    <td>{turno} </td>
+    <td>{carrera} </td>
+    <td>{modalidad} </td>
+    <td>{alta}</td>
+    <td>COMPLETAR!</td>
+    <td><Link to={`/division/ver/${id}`} className='btn btn-light btn-sm p-1'><FontAwesomeIcon icon={faMagnifyingGlass} size="2xs"/> Ver</Link></td>
   </tr>
   )
 }

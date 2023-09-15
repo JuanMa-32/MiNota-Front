@@ -3,12 +3,18 @@ import { UserContext } from '../../context/UserContext';
 import { Link } from 'react-router-dom';
 
 
-export const DivisionForm = ({ idEscuela }) => {
+export const DivisionEdit = () => {
 
-  const { divisionFormInit, hanlderAddDivision, errors } = useContext(UserContext)
+  const { divisionFormInit, hanlderAddDivision, errors,divisionSelected } = useContext(UserContext)
 
   const [divisionForm, setdivisionForm] = useState(divisionFormInit)
-  const { curso, divisionCurso, turno, resolucion, carrera, modalidad, alta, baja } = divisionForm;
+  const {id, curso, division, turno, resolucion, carrera, modalidad, alta, baja } = divisionForm;
+
+  useEffect(() => {
+    setdivisionForm({
+      ...divisionSelected
+    })
+  }, [divisionSelected])
 
   const onInputChange = ({ target }) => {
     const { name, value } = target;
@@ -19,17 +25,18 @@ export const DivisionForm = ({ idEscuela }) => {
   }
   const onSubmit = (event) => {
     event.preventDefault();
-    hanlderAddDivision(divisionForm, idEscuela);
+    hanlderAddDivision(divisionForm);
   }
   return (
     <div className="col-md-10">
       <h4 className="mb-3">División</h4>
       <hr />
       <form className="needs-validation" onSubmit={onSubmit}>
+        <input hidden name="id" value={id} />
         <div className="row g-3">
           <div className="col-md-3">
             <label htmlFor="country" className="form-label">Curso</label>
-            <select className="form-select form-select-sm" id="country" name="curso" value={curso} onChange={onInputChange}>
+            <select className="form-select form-select-sm" id="country" name="curso" value={curso} onChange={onInputChange} disabled>
               <option value="" disabled selected>Seleccionar Curso</option>
               <option value="1º Primario">1º Primario </option>
               <option value="2º Primario">2º Primario</option>
@@ -39,12 +46,12 @@ export const DivisionForm = ({ idEscuela }) => {
               <option value="6º Primario">6º Primario</option>
               <option value="7º Primario">7º Primario</option>
             </select>
-            <p className='text-danger'>{errors?.curso}</p>
+
           </div>
           <div className="col-sm-1">
             <label htmlFor="lastName" className="form-label">División</label>
-            <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="divisionCurso" value={divisionCurso} onChange={onInputChange} />
-            <p className='text-danger'>{errors?.divisionCurso}</p>
+            <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="division" value={division} onChange={onInputChange} disabled />
+
           </div>
 
           <div className="col-sm-2">
@@ -59,11 +66,11 @@ export const DivisionForm = ({ idEscuela }) => {
           </div>
           <div className="col-md-3">
             <label htmlFor="country" className="form-label">Carrera</label>
-            <select className="form-select form-select-sm" id="country" name="carrera" value={carrera} onChange={onInputChange}>
+            <select className="form-select form-select-sm" id="country" name="carrera" disabled value={carrera} onChange={onInputChange}>
               <option value="" disabled selected>Seleccionar</option>
               <option value="Educacion primaria (Res. 3556/19)">Educacion primaria (Res. 3556/19)</option>
             </select>
-            <p className='text-danger'>{errors?.carrera}</p>
+
           </div>
           <div className="col-md-3">
             <label htmlFor="country" className="form-label">Modalidad</label>
@@ -75,7 +82,7 @@ export const DivisionForm = ({ idEscuela }) => {
             </select>
             <p className='text-danger'>{errors?.modalidad}</p>
           </div>
-         
+
           <div className="col-sm-3">
             <div className="form-group">
               <label htmlFor="fecha">Fecha de Alta</label>
@@ -92,7 +99,7 @@ export const DivisionForm = ({ idEscuela }) => {
 
         </div>
         <button className="btn btn-primary btn-sm mt-3" type="submit">Cargar </button>
-        <Link to={`/division/listar/${idEscuela}`} className='btn btn-danger btn-sm mt-3 ms-2'>Volver</Link>
+        <Link to={`/division/ver/${id}`} className='btn btn-danger btn-sm mt-3 ms-2'>Cancelar</Link>
       </form>
     </div>
   )

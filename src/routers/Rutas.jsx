@@ -13,6 +13,9 @@ import { EditarCaracteristicasEscuela } from '../page/EditarCaracteristicasEscue
 import { FormDivision } from '../page/FormDivision';
 import { DivisionList } from '../components/division/DivisionList';
 import { DivisionesCursos } from './../page/DivisionesCursos';
+import { DivisionPage } from './../page/DivisionPage';
+import { DivisionEditPage } from './../page/DivisionEditPage';
+import { CargoFormPage } from '../page/CargoFormPage';
 
 
 export const Rutas = () => {
@@ -32,6 +35,9 @@ export const Rutas = () => {
                         <Route path="/escuela/caracteristicas/:id" element={<EditarCaracteristicasEscuela/>}/>
                         <Route path="/division/agregar/:id" element={<FormDivision />} />
                         <Route path="/division/listar/:id" element={<DivisionesCursos />} />
+                        <Route path="/division/ver/:id" element={<DivisionPage />} />
+                        <Route path="/division/editar/:id" element={<DivisionEditPage />} />
+                        <Route path="/cargo/agregar" element={<CargoFormPage />} />
                     </Routes>
                 </div>
                 <Footer></Footer>

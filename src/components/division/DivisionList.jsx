@@ -23,7 +23,7 @@ export const DivisionList = () => {
           </tr>
         </thead>
         <tbody>
-          {divisiones.map(division => 
+          {divisiones?.map(division => 
             <DivisionRow  key={division.id} division={division}/>
            )}
 

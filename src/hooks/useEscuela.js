@@ -114,7 +114,7 @@ export const useEscuela = () => {
 
   const handlerUpdate = async (escuela) => {
     const {id} = escuela;
-    console.log(id);
+    
     try {
       const response = await editar(escuela,id);
       dispatch({
@@ -132,7 +132,7 @@ export const useEscuela = () => {
 
   const handlerUpdateCaracteristicas = async (escuela) => {
     const {id} = escuela;
-    console.log(id);
+    
     try {
       const response = await editarCaracteristicas(escuela,id);
       dispatch({
@@ -151,7 +151,7 @@ export const useEscuela = () => {
   const getEscuelas = async () => {
     try {
       const response = await findAllEscuelas();
-      console.log(response.data);
+   
       dispatch({
         type:'loadingEscuelas',
         payload:response.data
@@ -168,7 +168,7 @@ export const useEscuela = () => {
 
   const hanlderEscuelaSeleccionada =async (id) => {
     try {
-      console.log(id);
+     
       const response = await getEscuelaId(id);
 
       setescuelaSeleccionada({...response.data});

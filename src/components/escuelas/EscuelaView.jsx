@@ -97,6 +97,7 @@ export const EscuelaView = () => {
     sistemaSeguridad,
     senialCelular } = escuelaForm;
 
+    sessionStorage.setItem('idEscuela', id);
 
   useEffect(() => {
     hanlderAddLocalidades()

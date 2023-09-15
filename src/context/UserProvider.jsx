@@ -16,7 +16,7 @@ export const UserProvider = ({ children }) => {
         publicaciones,
         publicacionInitial,
         visibleFrom,
-        
+
         publicacionSelected
     } = usePublicacion();
 
@@ -40,10 +40,15 @@ export const UserProvider = ({ children }) => {
         divisionFormInit,
         divisiones,
         errors,
+        divisionSelected,
+
 
         //Funciones
         hanlderAddDivision,
-        getDivisiones
+        getDivisiones,
+        hanlderDivisionSelected,
+        handlerDeleteDivision
+
     } = useDivision();
 
     return (
@@ -60,7 +65,6 @@ export const UserProvider = ({ children }) => {
                 publicaciones,
                 publicacionInitial,
                 visibleFrom,
-                errors,
                 publicacionSelected,
 
                 //ESCUELA
@@ -84,10 +88,14 @@ export const UserProvider = ({ children }) => {
                 divisionFormInit,
                 divisiones,
                 errors,
+                divisionSelected,
+
 
                 //Funciones
                 hanlderAddDivision,
-                getDivisiones
+                getDivisiones,
+                hanlderDivisionSelected,
+                handlerDeleteDivision
             }
         }>
             {children}

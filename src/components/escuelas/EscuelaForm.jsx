@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { UserContext } from './../../context/UserContext';
+import { Link } from 'react-router-dom';
 
 export const EscuelaForm = () => {
 
@@ -913,7 +914,7 @@ export const EscuelaForm = () => {
         </div>
 
         <button className="btn btn-primary btn-sm mt-3" type="submit">Cargar Escuela</button>
-        <button className="btn btn-danger btn-sm mt-3" type="submit">cancelar</button>
+        <Link to={`/`} className='btn btn-danger btn-sm mt-3 ms-2'>Cancelar</Link>
       </form>
     </div>
 

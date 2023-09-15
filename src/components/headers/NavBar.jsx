@@ -8,7 +8,7 @@ export const NavBar = () => {
       <div className="container-fluid d-grid gap-3 align-items-center" style={{ gridTemplateColumns: 'auto 1fr' }}>
         <div className="d-flex align-items-center">
           <div className="logo-container" style={{ maxWidth: '60px' }}>
-            <img src="horizontal.png" alt="Logo de la empresa" style={{ width: '1250%' }} />
+            <img src="public/horizontal.png" alt="Logo de la empresa" style={{ width: '1250%' }} />
           </div>
         </div>
         <div className="d-flex justify-content-end">

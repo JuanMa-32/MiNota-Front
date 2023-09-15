@@ -15,6 +15,23 @@ export const divisionReducer = (state = [], action) => {
                 }
             ];
 
+        case 'updateDivision':
+
+            return state.map(u => {
+
+                if (u.id === action.payload.id) {
+                    return {
+                        ...action.payload,
+
+                    };
+                }
+                return u;
+            })
+
+            case 'RemoveDivision':
+            return state.filter(division=>division.id !== action.payload)
+            
+
         default:
             state;
     }
