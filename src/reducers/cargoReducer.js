@@ -4,7 +4,7 @@ export const cargoReducer = (state = [],action) => {
  
     switch (action.type) {
         case 'loadingCargos':
-            return action.payload
+            return action.payload.content
 
         case 'addCargo':
             return [

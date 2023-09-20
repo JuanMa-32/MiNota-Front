@@ -2,6 +2,7 @@ import { useDivision } from "../hooks/useDivision";
 import { useEscuela } from "../hooks/useEscuela";
 import { usePublicacion } from "../hooks/usePublicacion"
 import { UserContext } from "./UserContext"
+import { useCargo } from './../hooks/useCargo';
 
 export const UserProvider = ({ children }) => {
 
@@ -51,6 +52,19 @@ export const UserProvider = ({ children }) => {
 
     } = useDivision();
 
+    const {
+        //funciones
+        handlerAddCargo,
+        getCargos,
+        handlerCargoSelected,
+        //variables
+        cargoFormInit,
+        errorsCargo,
+        cargos,
+        paginator,
+        cargoSelected
+    } = useCargo();
+
     return (
         <UserContext.Provider value={
             {
@@ -95,7 +109,20 @@ export const UserProvider = ({ children }) => {
                 hanlderAddDivision,
                 getDivisiones,
                 hanlderDivisionSelected,
-                handlerDeleteDivision
+                handlerDeleteDivision,
+
+
+                //CARGO
+                //funciones
+                handlerAddCargo,
+                getCargos,
+                handlerCargoSelected,
+                //variables
+                cargoFormInit,
+                errorsCargo,
+                cargos,
+                paginator,
+                cargoSelected
             }
         }>
             {children}

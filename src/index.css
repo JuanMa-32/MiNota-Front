@@ -124,5 +124,21 @@
 }
 
 
+.nav-title {
+  font-size: 18px; 
+  margin-right: 10Px; 
+  padding-top: 9px;
+}
+
+.d-flex {
+  display: flex;
+  align-items: flex-start; /* Alinea los elementos en la parte superior */
+}
+
+.content-container {
+  flex-grow: 1; /* Permite que el contenido crezca para llenar el espacio disponible */
+  padding: 10px; /* Agrega espacio interno al contenido para separarlo del Sidebar */
+ 
+}
 
 

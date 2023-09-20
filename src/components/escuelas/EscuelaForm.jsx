@@ -101,7 +101,7 @@ export const EscuelaForm = () => {
     console.log(name + value);
     if (name === "localidad") {
       const selectedLocalidad = localidades.find(localidad => localidad.id === parseInt(value));
-      console.log("Selected Localidad:", selectedLocalidad);
+    
       setescuelaForm({
         ...escuelaForm,
         [name]: selectedLocalidad

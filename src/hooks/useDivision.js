@@ -72,6 +72,7 @@ export const useDivision = () => {
     navigate(`/division/listar/${id}`)
     } catch (error) {
       if(error.response && error.response.status == 400){
+        console.log(error);
         seterrors(error.response.data)
       }else{
         throw error;

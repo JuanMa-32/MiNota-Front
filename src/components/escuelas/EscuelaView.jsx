@@ -97,7 +97,7 @@ export const EscuelaView = () => {
     sistemaSeguridad,
     senialCelular } = escuelaForm;
 
-    sessionStorage.setItem('idEscuela', id);
+  sessionStorage.setItem('idEscuela', id);
 
   useEffect(() => {
     hanlderAddLocalidades()
@@ -121,14 +121,12 @@ export const EscuelaView = () => {
 
   return (
     <div className="col-md-10">
-    
-       
-        <Link className="dropdown-item" to={`/division/listar/${id}`}>ver Cursos y divisiones</Link>
-       
-      <h4 className="mb-3"> Escuela {nombre}</h4>
+    <NavBarSecundario id={id} ></NavBarSecundario>
+
+
       <Link to={`/escuela/editar/${id}`} className='btn btn-primary btn-sm p-1 ms-4 mt-3 mb-5'>Editar Datos</Link>
-      <Link to={`/escuela/caracteristicas/${id}`}className='btn btn-primary btn-sm p-1 ms-1 mt-3 mb-5'>Editar Caracteristicas</Link>
-    
+      <Link to={`/escuela/caracteristicas/${id}`} className='btn btn-primary btn-sm p-1 ms-1 mt-3 mb-5'>Editar Caracteristicas</Link>
+
 
       <form className="needs-validation" onSubmit={onSubmit}>
         <div className="row g-3">

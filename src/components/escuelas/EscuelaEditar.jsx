@@ -120,7 +120,7 @@ export const EscuelaEditar = () => {
 
   return (
     <div className="col-md-10">
-      <h3 className="mb-3"> Escuela {nombre}</h3>
+     <br></br> <br></br>
      
      
       <form className="needs-validation" onSubmit={onSubmit}>

@@ -16,6 +16,8 @@ import { DivisionesCursos } from './../page/DivisionesCursos';
 import { DivisionPage } from './../page/DivisionPage';
 import { DivisionEditPage } from './../page/DivisionEditPage';
 import { CargoFormPage } from '../page/CargoFormPage';
+import { CargoListPage } from '../page/CargoListPage';
+import { CargoVerPage } from '../page/CargoVerPage';
 
 
 export const Rutas = () => {
@@ -25,6 +27,7 @@ export const Rutas = () => {
                 <NavBar></NavBar>
                 <div className="d-flex">
                     <SideBar></SideBar>
+                    <div className="content-container">
                     <Routes>
                         <Route path="escritorio" element={<PublicacionList />} />
                         <Route path="/" element={<Navigate to="/escritorio" />} />
@@ -37,8 +40,11 @@ export const Rutas = () => {
                         <Route path="/division/listar/:id" element={<DivisionesCursos />} />
                         <Route path="/division/ver/:id" element={<DivisionPage />} />
                         <Route path="/division/editar/:id" element={<DivisionEditPage />} />
-                        <Route path="/cargo/agregar" element={<CargoFormPage />} />
+                        <Route path="/cargo/agregar/:id" element={<CargoFormPage />} />
+                        <Route path="/cargo/listar/:id/:page" element={<CargoListPage />} />
+                        <Route path="/cargo/ver/:id" element={<CargoVerPage />} />
                     </Routes>
+                    </div>
                 </div>
                 <Footer></Footer>
             </UserProvider>

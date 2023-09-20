@@ -5,11 +5,11 @@ import { UserContext } from '../context/UserContext';
 import { useParams, Link } from 'react-router-dom';
 
 export const DivisionesCursos = () => {
-    const {getDivisiones,escuelaSeleccionada,divisiones} = useContext(UserContext);
+    const {getDivisiones,escuelaSeleccionada} = useContext(UserContext);
     const {id} = useParams();
     useEffect(() => {
         getDivisiones(id);
-       console.log(divisiones);
+      
     }, [id])
   return (
   <div className='container'>
