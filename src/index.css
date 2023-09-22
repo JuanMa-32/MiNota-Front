@@ -1,7 +1,7 @@
 .accordion {
     border: 1px solid #ccc;
     margin: 20px;
-    width: 1600px;
+    width: 1500px;
   }
   
   .accordion-header {
@@ -132,12 +132,12 @@
 
 .d-flex {
   display: flex;
-  align-items: flex-start; /* Alinea los elementos en la parte superior */
+  align-items: flex-start; 
 }
 
 .content-container {
-  flex-grow: 1; /* Permite que el contenido crezca para llenar el espacio disponible */
-  padding: 10px; /* Agrega espacio interno al contenido para separarlo del Sidebar */
+  flex-grow: 1; 
+  padding: 10px; 
  
 }
 

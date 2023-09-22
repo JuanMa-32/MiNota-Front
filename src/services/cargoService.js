@@ -10,6 +10,22 @@ export const save = async (id,cargo) => {
         throw error;
     }
 }
+export const update = async (idCargo,cargo) => {
+    try {
+        const response = await axios.put(`${URL}/${idCargo}`,cargo)
+        return response;
+    } catch (error) {
+        throw error;
+    }
+}
+
+export const remove = async (id,idEscuela) => {
+    try {
+        await axios.delete(`${URL}/${id}/${idEscuela}`)
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 export const findAll = async (id,page=0) => {
     try {

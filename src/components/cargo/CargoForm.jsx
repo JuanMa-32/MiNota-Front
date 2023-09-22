@@ -57,11 +57,12 @@ export const CargoForm = ({ idEscuela }) => {
                             <option value="Aprobado por supervicion">Aprobado por supervicion</option>
                             <option value="Aprobado por direccion de linea">Aprobado por direccion de linea</option>
                         </select>
-                        <p>{errorsCargo?.motivo}</p>
+                        <p  className='text-danger'>{errorsCargo?.motivo}</p>
                     </div>
                     <div className="col-sm-6">
                         <label htmlFor="lastName" className="form-label">Fundamento</label>
                         <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="fundamento" value={fundamento} onChange={onInputChange} />
+                        <p  className='text-danger'>{errorsCargo?.fundamento}</p>
                     </div>
                 </div>
 
@@ -130,6 +131,7 @@ export const CargoForm = ({ idEscuela }) => {
                             <option value="122115 DIRECTOR LIBRE COMUN">122115 DIRECTOR LIBRE COMUN</option>
                             <option value="122116 HORAS CATEDRA COMUNES">122116 HORAS CATEDRA COMUNES</option>
                         </select>
+                        <p  className='text-danger'>{errorsCargo?.regimen}</p>
                     </div>
                     <div className="col-md-3">
                         <label htmlFor="country" className="form-label">Condición de cargo</label>
@@ -153,6 +155,7 @@ export const CargoForm = ({ idEscuela }) => {
                             <option value="Coordicnación de Área">Coordicnación de Área</option>
                             <option value="PPAP">PPAP</option>
                         </select>
+                        <p  className='text-danger'>{errorsCargo?.condicionCargo}</p>
                     </div>
                     <div className="col-md-3">
                         <label htmlFor="country" className="form-label">Turno</label>
@@ -161,16 +164,18 @@ export const CargoForm = ({ idEscuela }) => {
                             <option value="Mañana">Mañana </option>
                             <option value="Completo">Completo</option>
                             <option value="Indefinido">Indefinido</option>
-
                         </select>
+                        <p  className='text-danger'>{errorsCargo?.turno}</p>
                     </div>
                     <div className="col-sm-5">
                         <label htmlFor="lastName" className="form-label">Resolución de creación</label>
                         <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="resolucionCreacion" value={resolucionCreacion} onChange={onInputChange} />
+                        <p  className='text-danger'>{errorsCargo?.resolucionCreacion}</p>
                     </div>
                     <div className="col-sm-5">
                         <label htmlFor="lastName" className="form-label">Código junta</label>
                         <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="codigoJunta" value={codigoJunta} onChange={onInputChange} />
+                        <p  className='text-danger'>{errorsCargo?.codigoJunta}</p>
                     </div>
                 </div>
                 <button className="btn btn-primary btn-sm mt-3" type="submit">Cargar </button>

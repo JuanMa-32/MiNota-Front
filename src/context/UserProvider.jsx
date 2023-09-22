@@ -57,6 +57,8 @@ export const UserProvider = ({ children }) => {
         handlerAddCargo,
         getCargos,
         handlerCargoSelected,
+        handlerEditCargo,
+        handlerDeleteCargo,
         //variables
         cargoFormInit,
         errorsCargo,
@@ -117,6 +119,8 @@ export const UserProvider = ({ children }) => {
                 handlerAddCargo,
                 getCargos,
                 handlerCargoSelected,
+                handlerEditCargo,
+                handlerDeleteCargo,
                 //variables
                 cargoFormInit,
                 errorsCargo,

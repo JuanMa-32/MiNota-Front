@@ -11,13 +11,13 @@ import { EscuelasList } from '../components/escuelas/EscuelasList';
 import { EditarEscuela } from '../page/EditarEscuela';
 import { EditarCaracteristicasEscuela } from '../page/EditarCaracteristicasEscuela';
 import { FormDivision } from '../page/FormDivision';
-import { DivisionList } from '../components/division/DivisionList';
 import { DivisionesCursos } from './../page/DivisionesCursos';
 import { DivisionPage } from './../page/DivisionPage';
 import { DivisionEditPage } from './../page/DivisionEditPage';
 import { CargoFormPage } from '../page/CargoFormPage';
 import { CargoListPage } from '../page/CargoListPage';
 import { CargoVerPage } from '../page/CargoVerPage';
+import { CargoEditPage } from './../page/CargoEditPage';
 
 
 export const Rutas = () => {
@@ -43,6 +43,7 @@ export const Rutas = () => {
                         <Route path="/cargo/agregar/:id" element={<CargoFormPage />} />
                         <Route path="/cargo/listar/:id/:page" element={<CargoListPage />} />
                         <Route path="/cargo/ver/:id" element={<CargoVerPage />} />
+                        <Route path="/cargo/editar/:id" element={<CargoEditPage />} />
                     </Routes>
                     </div>
                 </div>

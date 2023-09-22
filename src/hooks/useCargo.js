@@ -1,6 +1,6 @@
 import { useReducer, useState } from "react";
 import { cargoReducer } from './../reducers/cargoReducer';
-import { findAll, findById, save } from './../services/cargoService';
+import { findAll, findById, remove, save, update } from './../services/cargoService';
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
@@ -43,10 +43,28 @@ export const useCargo = () => {
         payload: response.data
       })
       Swal.fire('Cargo agregado', 'el cargo fue agregado', 'success')
+      seterrorsCargo(errorsInit)
       navigate(`/cargo/listar/${id}/0`)
     } catch (error) {
       if (error.response && error.response.status == 400) {
-
+        console.log(error);
+        seterrorsCargo(error.response.data)
+      } else {
+        throw error;
+      }
+    }
+  }
+  const handlerEditCargo = async (id, cargo) => {
+    try {
+      const response = await update(id, cargo);
+      dispatch({
+        type: 'updateCargo',
+        payload: response.data
+      })
+      Swal.fire('Cargo Actualizado', 'el cargo fue editado', 'success')
+    } catch (error) {
+      if (error.response && error.response.status == 400) {
+        seterrorsCargo(error.response.data)
       } else {
         throw error;
       }
@@ -67,6 +85,43 @@ export const useCargo = () => {
     }
   }
 
+  const hanlderDivisionSelected =async (id) => {
+    const response = await findById(id);
+    setdivisionSelected(response.data)
+  }
+
+  const handlerDeleteCargo = async (id,idEsc) => {
+    console.log(id,idEsc);
+    Swal.fire({
+      title: 'Esta seguro que desea eliminar?',
+      text: "Cuidado la division sera eliminada!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, eliminar!'
+  }).then( async(result) => {
+      if (result.isConfirmed) {
+
+          try {
+              await remove(id,idEsc);
+              dispatch({
+                  type: 'RemoveCargo',
+                  payload: id,
+              });
+              Swal.fire(
+                  'Cargo Eliminado!',
+                  'El cargo ha sido eliminado con exito!',
+                  'success'
+              );
+              navigate(`/cargo/listar/${idEsc}/${0}`)
+          } catch (error) {
+              console.log(error);
+          }
+      }
+  })
+  }
+
   const handlerCargoSelected = async (id) => {
     try {
       const response = await findById(id);
@@ -81,6 +136,8 @@ export const useCargo = () => {
     handlerAddCargo,
     getCargos,
     handlerCargoSelected,
+    handlerEditCargo,
+    handlerDeleteCargo,
     //variables
     cargoFormInit,
     errorsCargo,
