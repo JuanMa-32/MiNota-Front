@@ -39,9 +39,10 @@ export const CargoList = () => {
         (!division || cargo?.division?.divisionCurso?.toLowerCase().includes(division.toLowerCase())) &&
         (!turno || cargo.turno?.toLowerCase().includes(turno.toLowerCase())) &&
         (!regimen || cargo.regimen?.toLowerCase().includes(regimen.toLowerCase())) &&
-        (!servicio || cargo.servicio?.toLowerCase().includes(servicio.toLowerCase()))
+        (!servicio || cargo?.servicio.some(serv => serv.usuario.nombre.toLowerCase().includes(servicio.toLowerCase())))
       );
     });
+    
   }
   const restaurarFiltros = () => {
     setFiltros(filtroInit)

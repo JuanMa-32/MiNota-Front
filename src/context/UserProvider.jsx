@@ -3,6 +3,8 @@ import { useEscuela } from "../hooks/useEscuela";
 import { usePublicacion } from "../hooks/usePublicacion"
 import { UserContext } from "./UserContext"
 import { useCargo } from './../hooks/useCargo';
+import { useServicio } from './../hooks/useServicio';
+import { useUsuario } from "../hooks/useUsuario";
 
 export const UserProvider = ({ children }) => {
 
@@ -67,6 +69,25 @@ export const UserProvider = ({ children }) => {
         cargoSelected
     } = useCargo();
 
+    const {
+        //variables
+        servicios,
+        servicioInit,
+        //funciones
+        handlerAddServicio
+    } = useServicio();
+
+    const {
+        //variables
+        usuarios,
+        usuarioDni,
+
+        //funciones
+        getUsuarios,
+        handlerUsuarioDni,
+        restablecerUsuario
+    } = useUsuario();
+
     return (
         <UserContext.Provider value={
             {
@@ -126,7 +147,25 @@ export const UserProvider = ({ children }) => {
                 errorsCargo,
                 cargos,
                 paginator,
-                cargoSelected
+                cargoSelected,
+
+
+                //SERVICIO
+                //variables
+                servicios,
+                servicioInit,
+                //funciones
+                handlerAddServicio,
+
+
+                //USUARIO
+                //variables
+                usuarios,
+                usuarioDni,
+                //funciones
+                getUsuarios,
+                handlerUsuarioDni,
+                restablecerUsuario
             }
         }>
             {children}

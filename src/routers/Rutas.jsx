@@ -18,6 +18,7 @@ import { CargoFormPage } from '../page/CargoFormPage';
 import { CargoListPage } from '../page/CargoListPage';
 import { CargoVerPage } from '../page/CargoVerPage';
 import { CargoEditPage } from './../page/CargoEditPage';
+import { ServicioFormPage } from '../page/ServicioFormPage';
 
 
 export const Rutas = () => {
@@ -44,6 +45,7 @@ export const Rutas = () => {
                         <Route path="/cargo/listar/:id/:page" element={<CargoListPage />} />
                         <Route path="/cargo/ver/:id" element={<CargoVerPage />} />
                         <Route path="/cargo/editar/:id" element={<CargoEditPage />} />
+                        <Route path="/servicio/cargar/:id" element={<ServicioFormPage />} />
                     </Routes>
                     </div>
                 </div>
