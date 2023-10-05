@@ -12,9 +12,18 @@ export const save = async (servicio,idCargo) => {
     }
 }
 
-export const findAllServicio = async () => {
+export const findAllServicio = async (idEscuela,page) => {
     try {
-        const response = await axios.get(URL)
+        const response = await axios.get(`${URL}/${idEscuela}/${page}`)
+        return response;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const findByIdServicio = async (id) => {
+    try {
+        const response = await axios.get(`${URL}/${id}`)
         return response;
     } catch (error) {
         console.log(error);

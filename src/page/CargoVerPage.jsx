@@ -13,7 +13,7 @@ export const CargoVerPage = () => {
   return (
     <>
     <CargoView></CargoView>
-    <h6>aca iria la tabla de servicios...</h6>
+    
     </>
 
   )

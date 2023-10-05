@@ -73,8 +73,12 @@ export const UserProvider = ({ children }) => {
         //variables
         servicios,
         servicioInit,
+        paginatorServicio,
+        servicioSelected,
         //funciones
-        handlerAddServicio
+        handlerAddServicio,
+        getServicio,
+        handlerServicioSelected
     } = useServicio();
 
     const {
@@ -154,8 +158,12 @@ export const UserProvider = ({ children }) => {
                 //variables
                 servicios,
                 servicioInit,
+                paginatorServicio,
+                servicioSelected,
                 //funciones
                 handlerAddServicio,
+                getServicio,
+                handlerServicioSelected,
 
 
                 //USUARIO

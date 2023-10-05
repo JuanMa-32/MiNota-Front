@@ -123,7 +123,7 @@ export const EscuelaView = () => {
     <div className="col-md-10">
     <NavBarSecundario id={id} ></NavBarSecundario>
 
-
+  
       <Link to={`/escuela/editar/${id}`} className='btn btn-primary btn-sm p-1 ms-4 mt-3 mb-5'>Editar Datos</Link>
       <Link to={`/escuela/caracteristicas/${id}`} className='btn btn-primary btn-sm p-1 ms-1 mt-3 mb-5'>Editar Caracteristicas</Link>
 

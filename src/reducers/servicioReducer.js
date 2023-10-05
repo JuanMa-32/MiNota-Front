@@ -2,7 +2,7 @@ export const servicioReducer = (state = [], action) => {
 
     switch (action.type) {
         case 'loadingServicio':
-            return state.payload
+            return action.payload.content
 
         case 'addServicio':
             return [

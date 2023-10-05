@@ -11,7 +11,7 @@ export const NavBarSecundario = ({id}) => {
       <h6 className="nav-title">Esc. {escuelaSeleccionada.nombre}</h6>
         <li className="nav-item"><Link to={`/division/listar/${id}`} className='nav-link link-body-emphasis px-2'>Cursos y Divisiones</Link></li>
         <li className="nav-item"><Link to={`/cargo/listar/${id}/0`} className='nav-link link-body-emphasis px-2'>Cargo</Link></li>
-        <li className="nav-item"><Link to={`/`} className='nav-link link-body-emphasis px-2'>Volver</Link></li>
+        <li className="nav-item"><Link to={`/servicio/listar/${id}/0`} className='nav-link link-body-emphasis px-2'>servicios</Link></li>
       </ul>
     </div>
   </nav>

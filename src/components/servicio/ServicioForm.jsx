@@ -14,6 +14,7 @@ export const ServicioForm = ({ idCargo }) => {
 
     const [departamentos, setdepartamentos] = useState([])
     const [usuario2, setusuario2] = useState({})
+    const [isUser, setisUser] = useState(false)
     const getDpto = async () => {
         try {
             const response = await departamentosMdz();
@@ -31,13 +32,18 @@ export const ServicioForm = ({ idCargo }) => {
 
     useEffect(() => {
         setusuario2(usuarioDni)
-        console.log(usuario2);
+        if (usuarioDni.cuil) {
+
+            setisUser(true)
+        } else {
+            setisUser(false)
+        }
     }, [usuarioDni])
 
 
     const onInputChange = ({ target }) => {
         const { name, value } = target;
-        console.log(name + value);
+      
         setservicioForm({
             ...servicioForm,
             [name]: value
@@ -45,7 +51,6 @@ export const ServicioForm = ({ idCargo }) => {
     };
     const onInputUsuarioChange = ({ target }) => {
         const { name, value } = target;
-        console.log(name + value);
         if (name === "localidad") {
             const selectedLocalidad = localidades.find(localidad => localidad.id === parseInt(value));
             console.log(selectedLocalidad);
@@ -67,7 +72,7 @@ export const ServicioForm = ({ idCargo }) => {
         const updatedServicioForm2 = { ...servicioForm };
         updatedServicioForm2.usuario = usuario2;
         setservicioForm(updatedServicioForm2);
-        console.log(updatedServicioForm2);
+       
         handlerAddServicio(idCargo, updatedServicioForm2)
     }
 
@@ -102,27 +107,31 @@ export const ServicioForm = ({ idCargo }) => {
             <br />
             <form className="needs-validation" onSubmit={onSubmit}>
                 <div className="row g-3">
-
                     <div className="col-sm-2">
                         <label htmlFor="lastName" className="form-label-sm">CUIL</label>
-                        <input type="number" className="form-control form-control-sm" id="lastName" placeholder="" name="cuil" value={usuario2?.cuil} onChange={onInputUsuarioChange} />
+                        <input type="number" className="form-control form-control-sm" id="lastName"
+                            name="cuil" value={usuario2?.cuil} onChange={onInputUsuarioChange}
+                            disabled={isUser}
+                        />
                     </div>
                     <div className="col-sm-2">
                         <label htmlFor="lastName" className="form-label-sm">dni</label>
-                        <input type="number" className="form-control form-control-sm" id="lastName" placeholder="" name="dni" value={usuario2?.dni} onChange={onInputUsuarioChange} />
+                        <input type="number" className="form-control form-control-sm" disabled={isUser}
+                            name="dni" value={usuario2?.dni} onChange={onInputUsuarioChange} />
                     </div>
                     <div className="col-sm-3">
                         <label htmlFor="lastName" className="form-label-sm">Apellido</label>
-                        <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="apellido" value={usuario2?.apellido} onChange={onInputUsuarioChange} />
-
+                        <input type="text" className="form-control form-control-sm" disabled={isUser}
+                            name="apellido" value={usuario2?.apellido} onChange={onInputUsuarioChange} />
                     </div>
                     <div className="col-sm-3">
                         <label htmlFor="lastName" className="form-label-sm">Nombre</label>
-                        <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="nombre" value={usuario2?.nombre} onChange={onInputUsuarioChange} />
+                        <input type="text" className="form-control form-control-sm"
+                            disabled={isUser} name="nombre" value={usuario2?.nombre} onChange={onInputUsuarioChange} />
                     </div>
                     <div className="col-md-2">
                         <label htmlFor="country" className="form-label-sm ">Género</label>
-                        <select className="form-select form-select-sm" id="country" name="genero" value={usuario2?.genero} onChange={onInputUsuarioChange}>
+                        <select className="form-select form-select-sm" disabled={isUser} name="genero" value={usuario2?.genero} onChange={onInputUsuarioChange}>
                             <option value="" disabled selected>Seleccionar</option>
                             <option value="Masculino">Masculino</option>
                             <option value="Femenino">Femenino</option>
@@ -131,7 +140,8 @@ export const ServicioForm = ({ idCargo }) => {
                     </div>
                     <div className="col-sm-2">
                         <label htmlFor="lastName" className="form-label-sm">Fecha de Nacimiento</label>
-                        <input type="date" className="form-control form-control-sm" id="lastName" placeholder="" name="nacimiento" value={usuario2?.nacimiento} onChange={onInputUsuarioChange} />
+                        <input type="date" className="form-control form-control-sm" disabled={isUser}
+                            name="nacimiento" value={usuario2?.nacimiento} onChange={onInputUsuarioChange} />
                     </div>
                 </div>
 
@@ -140,29 +150,34 @@ export const ServicioForm = ({ idCargo }) => {
                 <div className="row g-3">
                     <div className="col-sm-3">
                         <label htmlFor="lastName" className="form-label-sm">Calle</label>
-                        <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="calle" value={usuario2?.calle} onChange={onInputUsuarioChange} />
+                        <input type="text" className="form-control form-control-sm" disabled={isUser}
+                            name="calle" value={usuario2?.calle} onChange={onInputUsuarioChange} />
                     </div>
                     <div className="col-sm-2">
                         <label htmlFor="lastName" className="form-label-sm">Número</label>
-                        <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="numero" value={usuario2?.numero} onChange={onInputUsuarioChange} />
+                        <input type="text" className="form-control form-control-sm" disabled={isUser}
+                            name="numero" value={usuario2?.numero} onChange={onInputUsuarioChange} />
                     </div>
                     <div className="col-sm-2">
                         <label htmlFor="lastName" className="form-label-sm">Depto</label>
-                        <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="depto" value={usuario2?.depto} onChange={onInputUsuarioChange} />
+                        <input type="text" className="form-control form-control-sm" disabled={isUser}
+                            name="depto" value={usuario2?.depto} onChange={onInputUsuarioChange} />
                     </div>
                     <div className="col-sm-2">
                         <label htmlFor="lastName" className="form-label-sm">Piso</label>
-                        <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="piso" value={usuario2?.piso} onChange={onInputUsuarioChange} />
+                        <input type="text" className="form-control form-control-sm" disabled={isUser} name="piso" value={usuario2?.piso} onChange={onInputUsuarioChange} />
+
                     </div>
                     <div className="col-md-4">
                         <label htmlFor="country" className="form-label-sm">Localidad</label>
                         <select
                             className="form-select form-select-sm"
-                            id="country"
+                            disabled={isUser}
                             name="localidad"
                             value={usuario?.localidad?.id}
                             onChange={onInputUsuarioChange}
                         >
+                            <option value="" disabled selected>Seleccionar</option>
                             {localidades.map(localidad => (
                                 <option key={localidad.id} value={localidad.id}>
                                     {localidad.localidad} - {localidad.municipio}
@@ -172,27 +187,32 @@ export const ServicioForm = ({ idCargo }) => {
                     </div>
                     <div className="col-sm-2">
                         <label htmlFor="lastName" className="form-label-sm">C.P</label>
-                        <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="codigoPostal" value={usuario2?.codigoPostal} onChange={onInputUsuarioChange} />
+                        <input type="text" className="form-control form-control-sm" disabled={isUser}
+                            name="codigoPostal" value={usuario2?.codigoPostal} onChange={onInputUsuarioChange} />
                     </div>
                     <div className="col-sm-2">
                         <label htmlFor="lastName" className="form-label-sm">Barrio</label>
-                        <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="barrio" value={usuario2?.barrio} onChange={onInputUsuarioChange} />
+                        <input type="text" className="form-control form-control-sm" disabled={isUser}
+                            name="barrio" value={usuario2?.barrio} onChange={onInputUsuarioChange} />
                     </div>
                     <div className="col-sm-2">
                         <label htmlFor="lastName" className="form-label-sm">Manzana</label>
-                        <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="manzana" value={usuario2?.manzana} onChange={onInputUsuarioChange} />
+                        <input type="text" className="form-control form-control-sm" disabled={isUser}
+                            name="manzana" value={usuario2?.manzana} onChange={onInputUsuarioChange} />
                     </div>
                     <div className="col-sm-2">
                         <label htmlFor="lastName" className="form-label-sm">Casa</label>
-                        <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="casa" value={usuario2?.casa} onChange={onInputUsuarioChange} />
+                        <input type="text" className="form-control form-control-sm" disabled={isUser}
+                            name="casa" value={usuario2?.casa} onChange={onInputUsuarioChange} />
                     </div>
                     <div className="col-sm-12">
                         <label htmlFor="lastName" className="form-label-sm">Referencia de Domicilio</label>
-                        <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="referenciaDomicilio" value={usuario2?.referenciaDomicilio} onChange={onInputUsuarioChange} />
+                        <input type="text" className="form-control form-control-sm" disabled={isUser}
+                            name="referenciaDomicilio" value={usuario2?.referenciaDomicilio} onChange={onInputUsuarioChange} />
                     </div>
                     <div className="col-md-3">
                         <label htmlFor="country" className="form-label-sm ">Nivel de estudios</label>
-                        <select className="form-select form-select-sm" id="country" name="nivelEstudio" onChange={onInputUsuarioChange} value={usuario2?.nivelEstudio} >
+                        <select className="form-select form-select-sm" disabled={isUser} name="nivelEstudio" onChange={onInputUsuarioChange} value={usuario2?.nivelEstudio} >
                             <option value="" disabled selected>Seleccionar</option>
                             <option value="ANALFABETO">ANALFABETO</option>
                             <option value="CAPC. LABORAL">CAPC. LABORAL</option>
@@ -210,7 +230,7 @@ export const ServicioForm = ({ idCargo }) => {
                     </div>
                     <div className="col-md-3">
                         <label htmlFor="country" className="form-label-sm ">Ocupación</label>
-                        <select className="form-select form-select-sm" id="country" name="ocupacion" onChange={onInputUsuarioChange} value={usuario2?.ocupacion} >
+                        <select className="form-select form-select-sm" disabled={isUser} name="ocupacion" onChange={onInputUsuarioChange} value={usuario2?.ocupacion} >
                             <option value="" disabled selected>Seleccionar</option>
                             <option value="***FALLECIDO***">***FALLECIDO***</option>
                             <option value="AMA DE CASA">AMA DE CASA</option>
@@ -226,11 +246,12 @@ export const ServicioForm = ({ idCargo }) => {
                     </div>
                     <div className="col-sm-3">
                         <label htmlFor="lastName" className="form-label-sm">Teléfono fijo</label>
-                        <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="telefonoFijo" value={usuario2?.telefonoFijo} onChange={onInputUsuarioChange} />
+                        <input type="text" className="form-control form-control-sm" disabled={isUser}
+                            name="telefonoFijo" value={usuario2?.telefonoFijo} onChange={onInputUsuarioChange} />
                     </div>
                     <div className="col-md-3">
                         <label htmlFor="country" className="form-label-sm ">Prestadora</label>
-                        <select className="form-select form-select-sm" id="country" name="prestadora" onChange={onInputUsuarioChange} value={usuario2?.prestadora} >
+                        <select className="form-select form-select-sm" disabled={isUser} name="prestadora" onChange={onInputUsuarioChange} value={usuario2?.prestadora} >
                             <option value="" disabled selected>Seleccionar</option>
                             <option value="Claro">Claro</option>
                             <option value="Personal">Personal</option>
@@ -241,11 +262,12 @@ export const ServicioForm = ({ idCargo }) => {
                     </div>
                     <div className="col-sm-3">
                         <label htmlFor="lastName" className="form-label-sm">Celular</label>
-                        <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="celular" value={usuario2?.celular} onChange={onInputUsuarioChange} />
+                        <input type="text" className="form-control form-control-sm" disabled={isUser}
+                            name="celular" value={usuario2?.celular} onChange={onInputUsuarioChange} />
                     </div>
                     <div className="col-md-3">
                         <label htmlFor="country" className="form-label-sm ">Estado Civil</label>
-                        <select className="form-select form-select-sm" id="country" name="estadoCivil" onChange={onInputUsuarioChange} value={usuario2?.estadoCivil} >
+                        <select className="form-select form-select-sm" disabled={isUser} name="estadoCivil" onChange={onInputUsuarioChange} value={usuario2?.estadoCivil} >
                             <option value="" disabled selected>Seleccionar</option>
                             <option value="Casado/a">Casado/a</option>
                             <option value="Casado/a 2º Nupcias">Casado/a 2º Nupcias</option>
@@ -260,7 +282,7 @@ export const ServicioForm = ({ idCargo }) => {
                     </div>
                     <div className="col-md-3">
                         <label htmlFor="country" className="form-label-sm ">Obra social</label>
-                        <select className="form-select form-select-sm" id="country" name="obraSocial" value={usuario2?.obraSocial} onChange={onInputUsuarioChange}>
+                        <select className="form-select form-select-sm" disabled={isUser} name="obraSocial" value={usuario2?.obraSocial} onChange={onInputUsuarioChange}>
                             <option value="" disabled selected>Seleccionar</option>
                             <option value="osde">OSDE</option>
                             <option value="swiss_medical">Swiss Medical</option>
@@ -301,7 +323,7 @@ export const ServicioForm = ({ idCargo }) => {
                     </div>
                     <div className="col-md-3">
                         <label htmlFor="country" className="form-label-sm ">Grupo sanguíneo</label>
-                        <select className="form-select form-select-sm" id="country" name="grupoSanguineo" value={usuario2?.grupoSanguineo} onChange={onInputUsuarioChange}>
+                        <select className="form-select form-select-sm" disabled={isUser} name="grupoSanguineo" value={usuario2?.grupoSanguineo} onChange={onInputUsuarioChange}>
                             <option value="" disabled selected>Seleccionar</option>
                             <option value="A+">A+</option>
                             <option value="A-">A-</option>
@@ -315,7 +337,7 @@ export const ServicioForm = ({ idCargo }) => {
                     </div>
                     <div className="col-md-3">
                         <label htmlFor="country" className="form-label-sm ">Lugar Nacimiento</label>
-                        <select className="form-select form-select-sm" id="country" name="lugarNacimiento" value={usuario2?.lugarNacimiento?.id} onChange={onInputUsuarioChange}>
+                        <select className="form-select form-select-sm" disabled={isUser} name="lugarNacimiento" value={usuario2?.lugarNacimiento?.id} onChange={onInputUsuarioChange}>
                             <option value="" disabled selected>Seleccionar</option>
 
                             {departamentos?.map(departamento => (
@@ -328,7 +350,7 @@ export const ServicioForm = ({ idCargo }) => {
 
                     <div className="col-md-3">
                         <label htmlFor="country" className="form-label-sm ">Nacionalidad</label>
-                        <select className="form-select form-select-sm" id="country" name="nacionalidad" value={usuario2?.nacionalidad} onChange={onInputUsuarioChange}>
+                        <select className="form-select form-select-sm" disabled={isUser} name="nacionalidad" value={usuario2?.nacionalidad} onChange={onInputUsuarioChange}>
                             <option value="" disabled selected>Seleccionar</option>
                             <option value="argentina">Argentina</option>
                             <option value="brasil">Brasil</option>
@@ -409,7 +431,7 @@ export const ServicioForm = ({ idCargo }) => {
                     </div>
 
                 </div>
-                <button className="btn btn-primary btn-sm mt-3" type="submit">Cargar </button>
+                <button className="btn btn-primary btn-sm mt-3" type="submit">Agregar                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </button>
             </form>
         </div>
     )
