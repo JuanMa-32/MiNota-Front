@@ -49,7 +49,7 @@ export const CargoForm = ({ idEscuela }) => {
             <form className="needs-validation" onSubmit={onSubmit}>
                 <div className="row g-3">
                     <div className="col-md-3">
-                        <label htmlFor="country" className="form-label">Motivo</label>
+                        <label htmlFor="country" className="form-label-sm">Motivo</label>
                         <select className="form-select form-select-sm" id="country" name="motivo" value={motivo} onChange={onInputChange}>
                             <option value="" disabled selected>Seleccionar</option>
                             <option value="Alta por baja de cargo">Alta por baja de cargo</option>
@@ -60,7 +60,7 @@ export const CargoForm = ({ idEscuela }) => {
                         <p  className='text-danger'>{errorsCargo?.motivo}</p>
                     </div>
                     <div className="col-sm-6">
-                        <label htmlFor="lastName" className="form-label">Fundamento</label>
+                        <label htmlFor="lastName" className="form-label-sm">Fundamento</label>
                         <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="fundamento" value={fundamento} onChange={onInputChange} />
                         <p  className='text-danger'>{errorsCargo?.fundamento}</p>
                     </div>
@@ -70,7 +70,7 @@ export const CargoForm = ({ idEscuela }) => {
                 <h5>Cargo a solicitar</h5>
                 <div className="row g-3">
                     <div className="col-md-3">
-                        <label htmlFor="country" className="form-label">División</label>
+                        <label htmlFor="country" className="form-label-sm">División</label>
                         <select className="form-select form-select-sm" id="country" name="division" value={division?.id} onChange={onInputChange}>
                             <option value="">SIN DIVISION</option>
                             {divisiones.map(div => (
@@ -82,14 +82,14 @@ export const CargoForm = ({ idEscuela }) => {
                         </select>
                     </div>
                     <div className="col-md-3">
-                        <label htmlFor="country" className="form-label">Carrera</label>
+                        <label htmlFor="country" className="form-label-sm">Carrera</label>
                         <select className="form-select form-select-sm" id="country" name="carrera" value={carrera} onChange={onInputChange}>
                             <option value="" disabled selected>Seleccionar</option>
                             <option value="Educacion Primaria (Res. 3556/19)">Educacion Primaria (Res. 3556/19)</option>
                         </select>
                     </div>
                     <div className="col-md-3">
-                        <label htmlFor="country" className="form-label">Materia</label>
+                        <label htmlFor="country" className="form-label-sm">Materia</label>
                         <select className="form-select form-select-sm" id="country" name="materia" value={materia} onChange={onInputChange} >
                             <option value="" disabled selected>Seleccionar</option>
                             <option value="Educación Compensatoria y Optimizadora (Espacio Abierto)">Educación Compensatoria y Optimizadora (Espacio Abierto)</option>
@@ -119,7 +119,7 @@ export const CargoForm = ({ idEscuela }) => {
                         </select>
                     </div>
                     <div className="col-md-5">
-                        <label htmlFor="country" className="form-label">Régimen</label>
+                        <label htmlFor="country" className="form-label-sm">Régimen</label>
                         <select className="form-select form-select-sm" id="country" name="regimen" value={regimen} onChange={onInputChange}>
                             <option value="" disabled selected>Seleccionar</option>
                             <option value="0111125 CELADOR">0111125 CELADOR</option>
@@ -134,7 +134,7 @@ export const CargoForm = ({ idEscuela }) => {
                         <p  className='text-danger'>{errorsCargo?.regimen}</p>
                     </div>
                     <div className="col-md-3">
-                        <label htmlFor="country" className="form-label">Condición de cargo</label>
+                        <label htmlFor="country" className="form-label-sm">Condición de cargo</label>
                         <select className="form-select form-select-sm" id="country" name="condicionCargo" value={condicionCargo} onChange={onInputChange} >
                             <option value="" disabled selected>Seleccionar</option>
                             <option value="Normal">Normal </option>
@@ -158,7 +158,7 @@ export const CargoForm = ({ idEscuela }) => {
                         <p  className='text-danger'>{errorsCargo?.condicionCargo}</p>
                     </div>
                     <div className="col-md-3">
-                        <label htmlFor="country" className="form-label">Turno</label>
+                        <label htmlFor="country" className="form-label-sm">Turno</label>
                         <select className="form-select form-select-sm" id="country" name="turno" value={turno} onChange={onInputChange}>
                             <option value="" disabled selected>Seleccionar</option>
                             <option value="Mañana">Mañana </option>
@@ -168,18 +168,18 @@ export const CargoForm = ({ idEscuela }) => {
                         <p  className='text-danger'>{errorsCargo?.turno}</p>
                     </div>
                     <div className="col-sm-5">
-                        <label htmlFor="lastName" className="form-label">Resolución de creación</label>
+                        <label htmlFor="lastName" className="form-label-sm">Resolución de creación</label>
                         <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="resolucionCreacion" value={resolucionCreacion} onChange={onInputChange} />
                         <p  className='text-danger'>{errorsCargo?.resolucionCreacion}</p>
                     </div>
                     <div className="col-sm-5">
-                        <label htmlFor="lastName" className="form-label">Código junta</label>
+                        <label htmlFor="lastName" className="form-label-sm">Código junta</label>
                         <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="codigoJunta" value={codigoJunta} onChange={onInputChange} />
                         <p  className='text-danger'>{errorsCargo?.codigoJunta}</p>
                     </div>
                 </div>
                 <button className="btn btn-primary btn-sm mt-3" type="submit">Cargar </button>
-                <Link className='btn btn-secondary btn-sm mt-3 ms-2' to={`/cargo/listar/${idEscuela}/0`}>Cancelar</Link>
+                <Link className='btn btn-light btn-sm mt-3 ms-2' to={`/cargo/listar/${idEscuela}/0`}>Cancelar</Link>
             </form>
         </div>
     )

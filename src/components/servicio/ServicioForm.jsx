@@ -6,7 +6,8 @@ import { departamentosMdz } from '../../services/ServicioService';
 
 export const ServicioForm = ({ idCargo }) => {
 
-    const { servicioInit, handlerAddServicio, localidades, hanlderAddLocalidades, usuarioDni, handlerUsuarioDni, restablecerUsuario } = useContext(UserContext);
+    const {errorsServicio,servicioInit,handlerAddServicio,localidades,
+         hanlderAddLocalidades,usuarioDni,handlerUsuarioDni,restablecerUsuario} = useContext(UserContext);
 
     const [servicioForm, setservicioForm] = useState(servicioInit)
     const { usuario, alta, baja, diasCumplir, obligacion, funcion, observacion, situacionRevista } = servicioForm;
@@ -74,6 +75,7 @@ export const ServicioForm = ({ idCargo }) => {
         setservicioForm(updatedServicioForm2);
        
         handlerAddServicio(idCargo, updatedServicioForm2)
+        setusuario2({})
     }
 
     const onInputDni = ({ target }) => {
@@ -113,6 +115,7 @@ export const ServicioForm = ({ idCargo }) => {
                             name="cuil" value={usuario2?.cuil} onChange={onInputUsuarioChange}
                             disabled={isUser}
                         />
+                           <p  className='text-danger'>{errorsServicio?.cuil}</p>
                     </div>
                     <div className="col-sm-2">
                         <label htmlFor="lastName" className="form-label-sm">dni</label>
@@ -378,13 +381,15 @@ export const ServicioForm = ({ idCargo }) => {
                         <label htmlFor="country" className="form-label-sm">Situación de revista</label>
                         <select className="form-select form-select-sm" id="country" name="situacionRevista" value={situacionRevista} onChange={onInputChange}>
                             <option value="" disabled selected>Seleccionar</option>
-                            <option value="urbano">Titular</option>
+                            <option value="Titular">Titular</option>
                             <option value="Reemplazo">Reemplazo</option>
                         </select>
+                        <p  className='text-danger'>{errorsServicio?.situacionRevista}</p>
                     </div>
                     <div className="col-sm-2">
                         <label htmlFor="lastName" className="form-label-sm">Fecha Alta</label>
                         <input type="date" className="form-control form-control-sm" id="lastName" placeholder="" name="alta" value={alta} onChange={onInputChange} />
+                        <p  className='text-danger'>{errorsServicio?.alta}</p>
                     </div>
                     <div className="col-sm-2">
                         <label htmlFor="lastName" className="form-label-sm">Fecha Baja</label>
@@ -393,10 +398,12 @@ export const ServicioForm = ({ idCargo }) => {
                     <div className="col-sm-2">
                         <label htmlFor="lastName" className="form-label-sm">Dias a cumplir en mes</label>
                         <input type="number" className="form-control form-control-sm" id="lastName" placeholder="" name="diasCumplir" value={diasCumplir} onChange={onInputChange} />
+                        <p  className='text-danger'>{errorsServicio?.diasCumplir}</p>
                     </div>
                     <div className="col-sm-3">
                         <label htmlFor="lastName" className="form-label-sm">Oblig. a cumplir en mes</label>
                         <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="obligacion" value={obligacion} onChange={onInputChange} />
+                        <p  className='text-danger'>{errorsServicio?.obligacion}</p>
                     </div>
                     <br />
 
@@ -424,10 +431,12 @@ export const ServicioForm = ({ idCargo }) => {
                             <option value="Psicologo">Psicologo</option>
                             <option value="Tutoria">Tutoria</option>
                         </select>
+                        <p  className='text-danger'>{errorsServicio?.funcion}</p>
                     </div>
                     <div className="col-sm-12">
                         <label htmlFor="lastName" className="form-label-sm">Observaciones</label>
                         <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="observacion" value={observacion} onChange={onInputChange} />
+                        <p  className='text-danger'>{errorsServicio?.observacion}</p>
                     </div>
 
                 </div>

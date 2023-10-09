@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { UserContext } from '../context/UserContext';
 
 export const CargoVerPage = () => {
-    const {handlerCargoSelected} = useContext(UserContext);
+    const {handlerCargoSelected,escuelaSeleccionada} = useContext(UserContext);
     const {id} = useParams();
     useEffect(() => {
         handlerCargoSelected(id);
@@ -12,8 +12,9 @@ export const CargoVerPage = () => {
     
   return (
     <>
+    <h5>Cargo de Esc.{escuelaSeleccionada.numero}</h5>
+    <br></br>
     <CargoView></CargoView>
-    
     </>
 
   )

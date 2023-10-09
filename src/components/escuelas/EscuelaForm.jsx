@@ -122,72 +122,72 @@ export const EscuelaForm = () => {
 
 
   return (
-    <div className="col-md-10">
+    <div className="col-md-12">
       <h3 className="mb-3">Formulario Escuela</h3>
       <form className="needs-validation" onSubmit={onSubmit}>
         <div className="row g-3">
           <div className="col-sm-2">
           <input name="id" value={id} hidden />
-            <label htmlFor="firstName" className="form-label">Nùmero</label>
+            <label htmlFor="firstName" className="form-label-sm">Nùmero</label>
             <input type="text" className="form-control form-control-sm" id="firstName" placeholder="" name="numero" value={numero} onChange={onInputChange} />
           </div>
           <div className="col-sm-1">
-            <label htmlFor="lastName" className="form-label">Anexo</label>
+            <label htmlFor="lastName" className="form-label-sm">Anexo</label>
             <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="anexo" value={anexo} onChange={onInputChange} />
           </div>
           <div className="col-sm-2">
-            <label htmlFor="lastName" className="form-label">CUE</label>
+            <label htmlFor="lastName" className="form-label-sm">CUE</label>
             <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="cue" value={cue} onChange={onInputChange} />
           </div>
           <div className="col-sm-2">
-            <label htmlFor="lastName" className="form-label">SubCUE</label>
+            <label htmlFor="lastName" className="form-label-sm">SubCUE</label>
             <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="subCue" value={subCue} onChange={onInputChange} />
           </div>
           <div className="col-sm-5">
-            <label htmlFor="lastName" className="form-label">Nombre</label>
+            <label htmlFor="lastName" className="form-label-sm">Nombre</label>
             <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="nombre" value={nombre} onChange={onInputChange} />
           </div>
           <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">Dir. Linea</label>
+            <label htmlFor="lastName" className="form-label-sm">Dir. Linea</label>
             <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="direccionLinea" value={direccionLinea} onChange={onInputChange} />
           </div>
 
           <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">Nivel</label>
+            <label htmlFor="lastName" className="form-label-sm">Nivel</label>
             <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="nivel" value={nivel} onChange={onInputChange} />
           </div>
           <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">Lista de Regimenes</label>
+            <label htmlFor="lastName" className="form-label-sm">Lista de Regimenes</label>
             <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="listaDeRegimenes" value={listaDeRegimenes} onChange={onInputChange} />
           </div>
           <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">Gestión</label>
+            <label htmlFor="lastName" className="form-label-sm">Gestión</label>
             <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="gestion" value={gestion} onChange={onInputChange} />
           </div>
           <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">Repartición</label>
+            <label htmlFor="lastName" className="form-label-sm">Repartición</label>
             <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="reparticion" value={reparticion} onChange={onInputChange} />
           </div>
           <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">supervición</label>
+            <label htmlFor="lastName" className="form-label-sm">supervición</label>
             <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="supervision" value={supervision} onChange={onInputChange} />
           </div>
           <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">Regional</label>
+            <label htmlFor="lastName" className="form-label-sm">Regional</label>
             <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="regional" value={regional} onChange={onInputChange} />
           </div>
           <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">Delegación</label>
+            <label htmlFor="lastName" className="form-label-sm">Delegación</label>
             <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="delegacion" value={delegacion} onChange={onInputChange} />
           </div>
 
           <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">Zona + Radio</label>
+            <label htmlFor="lastName" className="form-label-sm">Zona + Radio</label>
             <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="zona" value={zona} onChange={onInputChange} />
           </div>
 
           <div className="col-md-8">
-            <label htmlFor="country" className="form-label">Comparte Edificio</label>
+            <label htmlFor="country" className="form-label-sm">Comparte Edificio</label>
             <select className="form-select form-select-sm" id="country" name="comparteEdificio" value={comparteEdificio} onChange={onInputChange}>
               <option value="" disabled selected>Seleccionar escuela con quien comparte edificio</option>
               <option value="No comparte">No comparte</option>
@@ -199,19 +199,19 @@ export const EscuelaForm = () => {
             </select>
           </div>
           <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">Calle</label>
+            <label htmlFor="lastName" className="form-label-sm">Calle</label>
             <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="calle" value={calle} onChange={onInputChange} />
           </div>
           <div className="col-sm-1">
-            <label htmlFor="lastName" className="form-label">Número</label>
+            <label htmlFor="lastName" className="form-label-sm">Número</label>
             <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="numeroCalle" value={numeroCalle} onChange={onInputChange} />
           </div>
           <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">Barrio/Seccion</label>
+            <label htmlFor="lastName" className="form-label-sm">Barrio/Seccion</label>
             <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="barrio" value={barrio} onChange={onInputChange} />
           </div>
           <div className="col-md-4">
-            <label htmlFor="country" className="form-label">Localidad</label>
+            <label htmlFor="country" className="form-label-sm">Localidad</label>
             <select
               className="form-select form-select-sm"
               id="country"
@@ -227,46 +227,46 @@ export const EscuelaForm = () => {
             </select>
           </div>
           <div className="col-sm-1">
-            <label htmlFor="lastName" className="form-label">C.P.</label>
+            <label htmlFor="lastName" className="form-label-sm">C.P.</label>
             <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="codigoPostal" value={codigoPostal} onChange={onInputChange} />
           </div>
 
           <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">Teléfono</label>
+            <label htmlFor="lastName" className="form-label-sm">Teléfono</label>
             <input type="number" className="form-control form-control-sm" id="lastName" placeholder="" name="telefono" value={telefono} onChange={onInputChange} />
           </div>
 
 
           <div className="col-4">
-            <label htmlFor="email" className="form-label">Email</label>
+            <label htmlFor="email" className="form-label-sm">Email</label>
             <input type="email" className="form-control form-control-sm" id="email" placeholder="you@example.com" name="email" value={email} onChange={onInputChange} />
           </div>
           <div className="col-4">
-            <label htmlFor="email" className="form-label">Email Alternativo</label>
+            <label htmlFor="email" className="form-label-sm">Email Alternativo</label>
             <input type="email" className="form-control form-control-sm" id="email" placeholder="you@example.com" name="emailAlternativo" value={emailAlternativo} onChange={onInputChange} />
           </div>
           <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">Fecha de Creación</label>
+            <label htmlFor="lastName" className="form-label-sm">Fecha de Creación</label>
             <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="fechaCreacion" value={fechaCreacion} onChange={onInputChange} />
           </div>
           <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">Año Resolución</label>
+            <label htmlFor="lastName" className="form-label-sm">Año Resolución</label>
             <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="anioResolucion" value={anioResolucion} onChange={onInputChange} />
           </div>
           <div className="col-sm-4">
-            <label htmlFor="lastName" className="form-label">Número Resolución</label>
+            <label htmlFor="lastName" className="form-label-sm">Número Resolución</label>
             <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="numeroResolucion" value={numeroResolucion} onChange={onInputChange} />
           </div>
           <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">Fecha Cierre</label>
+            <label htmlFor="lastName" className="form-label-sm">Fecha Cierre</label>
             <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="fechaCierre" value={fechaCierre} onChange={onInputChange} />
           </div>
           <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">Año Resolución Cierre</label>
+            <label htmlFor="lastName" className="form-label-sm">Año Resolución Cierre</label>
             <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="anioResolucionCierre" value={anioResolucionCierre} onChange={onInputChange} />
           </div>
           <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">Número Resolución Cierre</label>
+            <label htmlFor="lastName" className="form-label-sm">Número Resolución Cierre</label>
             <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="numeroResolucionCierre" value={numeroResolucionCierre} onChange={onInputChange} />
           </div>
         </div>
@@ -275,7 +275,7 @@ export const EscuelaForm = () => {
         <h5>Contexto</h5>
         <div className="row g-3">
           <div className="col-md-3">
-            <label htmlFor="country" className="form-label">Ámbito</label>
+            <label htmlFor="country" className="form-label-sm">Ámbito</label>
             <select className="form-select form-select-sm" id="country" name="ambito" value={ambito} onChange={onInputChange}>
               <option value="" disabled selected>Seleccionar</option>
               <option value="urbano">Urbano </option>
@@ -289,7 +289,7 @@ export const EscuelaForm = () => {
           </div>
 
           <div className="col-md-3">
-            <label htmlFor="country" className="form-label">Modalidad de Cursado</label>
+            <label htmlFor="country" className="form-label-sm">Modalidad de Cursado</label>
             <select className="form-select form-select-sm" id="country" name="modalidadCursado" value={modalidadCursado} onChange={onInputChange} >
               <option value="" disabled selected>Seleccionar</option>
               <option value="presencial">Presencial</option>
@@ -302,7 +302,7 @@ export const EscuelaForm = () => {
           </div>
 
           <div className="col-md-3">
-            <label htmlFor="country" className="form-label">Servicio Nutricional</label>
+            <label htmlFor="country" className="form-label-sm">Servicio Nutricional</label>
             <select className="form-select form-select-sm" id="country" onChange={onInputChange} name="servicioNutricional" value={servicioNutricional} >
               <option value="" disabled selected>No</option>
               <option value="comedor">Comedor</option>
@@ -313,7 +313,7 @@ export const EscuelaForm = () => {
           </div>
 
           <div className="col-md-3">
-            <label htmlFor="country" className="form-label">Si comparte edificio ¿también comparte la entrada?</label>
+            <label htmlFor="country" className="form-label-sm">Si comparte edificio ¿también comparte la entrada?</label>
             <select className="form-select form-select-sm" id="country" onChange={onInputChange} name="comparteEntrada" value={comparteEntrada}>
               <option value="" disabled selected>Seleccionar</option>
               <option value="si">Si</option>
@@ -323,7 +323,7 @@ export const EscuelaForm = () => {
           </div>
 
           <div className="col-md-3">
-            <label htmlFor="country" className="form-label">Especialidad (SOLO Educación Especial)</label>
+            <label htmlFor="country" className="form-label-sm">Especialidad (SOLO Educación Especial)</label>
             <select className="form-select form-select-sm" id="country" onChange={onInputChange} name="especialidad" value={especialidad}>
               <option value="" disabled selected>Seleccionar</option>
               <option value="si">SI CORRESPONDE</option>
@@ -336,7 +336,7 @@ export const EscuelaForm = () => {
         <h5>Datos Institucionales</h5>
         <div className="row g-3">
           <div className="col-md-3">
-            <label htmlFor="country" className="form-label">Beneficiario servicio alimentación gratuita</label>
+            <label htmlFor="country" className="form-label-sm">Beneficiario servicio alimentación gratuita</label>
             <select className="form-select form-select-sm" id="country" onChange={onInputChange} name="alimentacionGratuita" value={alimentacionGratuita}>
               <option value="" disabled selected>No</option>
               <option value="copa leche">Copa leche</option>
@@ -348,7 +348,7 @@ export const EscuelaForm = () => {
             </select>
           </div>
           <div className="col-md-3">
-            <label htmlFor="country" className="form-label">Escuela frontera</label>
+            <label htmlFor="country" className="form-label-sm">Escuela frontera</label>
             <select className="form-select form-select-sm" id="country" onChange={onInputChange} name="escuelaFrontera" value={escuelaFrontera}>
               <option value="" disabled selected>Seleccionar</option>
               <option value="si">Si</option>
@@ -356,7 +356,7 @@ export const EscuelaForm = () => {
             </select>
           </div>
           <div className="col-md-3">
-            <label htmlFor="country" className="form-label">Sector</label>
+            <label htmlFor="country" className="form-label-sm">Sector</label>
             <select className="form-select form-select-sm" id="country" onChange={onInputChange} name="sector" value={sector}>
               <option value="" disabled selected>Seleccionar</option>
               <option value="Estatal Provincial">Estatal Provincial</option>
@@ -368,7 +368,7 @@ export const EscuelaForm = () => {
             </select>
           </div>
           <div className="col-md-3">
-            <label htmlFor="country" className="form-label">Programas/Proyectos asignados</label>
+            <label htmlFor="country" className="form-label-sm">Programas/Proyectos asignados</label>
             <select className="form-select form-select-sm" id="country" onChange={onInputChange} name="proyectosAsignados" value={proyectosAsignados}>
               <option value="" disabled selected>Seleccionar</option>
               <option value="MENDOZA EDUCA">MENDOZA EDUCA</option>
@@ -378,7 +378,7 @@ export const EscuelaForm = () => {
             </select>
           </div>
           <div className="col-md-3">
-            <label htmlFor="country" className="form-label">Jornada extendida</label>
+            <label htmlFor="country" className="form-label-sm">Jornada extendida</label>
             <select className="form-select form-select-sm" id="country" onChange={onInputChange} name="jornadaExtendida" value={jornadaExtendida}>
               <option value="" disabled selected>Seleccionar</option>
               <option value="si">Si</option>
@@ -386,7 +386,7 @@ export const EscuelaForm = () => {
             </select>
           </div>
           <div className="col-md-3">
-            <label htmlFor="country" className="form-label">Medio de Acceso</label>
+            <label htmlFor="country" className="form-label-sm">Medio de Acceso</label>
             <select className="form-select form-select-sm" id="country" onChange={onInputChange} name="medioDeAcceso" value={medioDeAcceso}>
               <option value="" disabled selected>Seleccionar</option>
               <option value="Transporte público">Transporte público</option>
@@ -394,11 +394,11 @@ export const EscuelaForm = () => {
             </select>
           </div>
           <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">Líneas de colectivo de acceso</label>
+            <label htmlFor="lastName" className="form-label-sm">Líneas de colectivo de acceso</label>
             <input type="text" className="form-control form-control-sm" id="lastName" placeholder="Sin lineas" name="lineasDeColectivosDeAcceso" value={lineasDeColectivosDeAcceso} onChange={onInputChange} />
           </div>
           <div className="col-md-3">
-            <label htmlFor="country" className="form-label">Escuela Albergue</label>
+            <label htmlFor="country" className="form-label-sm">Escuela Albergue</label>
             <select className="form-select form-select-sm" id="country" onChange={onInputChange} name="escuelaAlbergue" value={escuelaAlbergue}>
               <option value="si">Si</option>
               <option value="no">No</option>
@@ -410,7 +410,7 @@ export const EscuelaForm = () => {
         <h5>Infraestructura Tecnológica-Equipamiento</h5>
         <div className="row g-3">
           <div className="col-md-3">
-            <label htmlFor="country" className="form-label">Equipamiento informático Alumnos</label>
+            <label htmlFor="country" className="form-label-sm">Equipamiento informático Alumnos</label>
             <select className="form-select form-select-sm" id="country" onChange={onInputChange} name="equipamientoAlumnos" value={equipamientoAlumnos}>
               <option value="" disabled selected>No tiene</option>
               <option value="Aula Digital Movil">Aula Digital Movil</option>
@@ -420,7 +420,7 @@ export const EscuelaForm = () => {
             </select>
           </div>
           <div className="col-md-3">
-            <label htmlFor="country" className="form-label">Equipamiento informático Administrativos</label>
+            <label htmlFor="country" className="form-label-sm">Equipamiento informático Administrativos</label>
             <select className="form-select form-select-sm" id="country" onChange={onInputChange} name="equipamientoAdministrativos" value={equipamientoAdministrativos}>
               <option value="" disabled selected>No tiene</option>
               <option value="Computadora ">Computadora </option>
@@ -432,7 +432,7 @@ export const EscuelaForm = () => {
             </select>
           </div>
           <div className="col-md-3">
-            <label htmlFor="country" className="form-label">Equipamiento Informático Docente</label>
+            <label htmlFor="country" className="form-label-sm">Equipamiento Informático Docente</label>
             <select className="form-select form-select-sm" id="country" onChange={onInputChange} name="equipamientoDocentes" value={equipamientoDocentes}>
               <option value="" disabled selected>No tiene</option>
               <option value="notbook ">Notbook </option>
@@ -446,7 +446,7 @@ export const EscuelaForm = () => {
         <h5>Infraestructura Tecnológica-Conectividad</h5>
         <div className="row g-3">
           <div className="col-md-3">
-            <label htmlFor="country" className="form-label">Conectividad</label>
+            <label htmlFor="country" className="form-label-sm">Conectividad</label>
             <select className="form-select form-select-sm" id="country" onChange={onInputChange} name="conectividad" value={conectividad}>
               <option value="" disabled selected>Seleccionar</option>
               <option value="si">Si</option>
@@ -454,7 +454,7 @@ export const EscuelaForm = () => {
             </select>
           </div>
           <div className="col-md-3">
-            <label htmlFor="country" className="form-label">Proveedor del servicio</label>
+            <label htmlFor="country" className="form-label-sm">Proveedor del servicio</label>
             <select className="form-select form-select-sm" id="country" onChange={onInputChange} name="proveedorServicio" value={proveedorServicio}>
               <option value="" disabled selected>Seleccionar</option>
               <option value="telefonica">Telefonica</option>
@@ -466,11 +466,11 @@ export const EscuelaForm = () => {
             </select>
           </div>
           <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">Ancho de banda</label>
+            <label htmlFor="lastName" className="form-label-sm">Ancho de banda</label>
             <input type="text" className="form-control form-control-sm" id="lastName" placeholder="-- Seleccionar --" name="anchoBanda" value={anchoBanda} onChange={onInputChange} />
           </div>
           <div className="col-md-3">
-            <label htmlFor="country" className="form-label">Financiado por</label>
+            <label htmlFor="country" className="form-label-sm">Financiado por</label>
             <select className="form-select form-select-sm" id="country" onChange={onInputChange} name="financiado" value={financiado} >
               <option value="" disabled selected>Seleccionar</option>
               <option value="Red WAN-DGE">Red WAN-DGE</option>
@@ -481,7 +481,7 @@ export const EscuelaForm = () => {
             </select>
           </div>
           <div className="col-md-3">
-            <label htmlFor="country" className="form-label">Tipo de conexión Interna</label>
+            <label htmlFor="country" className="form-label-sm">Tipo de conexión Interna</label>
             <select className="form-select form-select-sm" id="country" onChange={onInputChange} name="tipoDeConexion" value={tipoDeConexion}>
               <option value="" disabled selected>Seleccionar</option>
               <option value="WIFI">WIFI</option>
@@ -489,7 +489,7 @@ export const EscuelaForm = () => {
             </select>
           </div>
           <div className="col-md-3">
-            <label htmlFor="country" className="form-label">Acceso de conexión a Internet</label>
+            <label htmlFor="country" className="form-label-sm">Acceso de conexión a Internet</label>
             <select className="form-select form-select-sm" id="country" onChange={onInputChange} name="accesodeConexion" value={accesodeConexion}>
               <option value="" disabled selected>Seleccionar</option>
               <option value="Fibra optica" >Fibra optica</option>
@@ -501,11 +501,11 @@ export const EscuelaForm = () => {
             </select>
           </div>
           <div className="col-sm-3">
-            <label htmlFor="lastName" className="form-label">Cantidad de Aulas con conexión a Internet</label>
+            <label htmlFor="lastName" className="form-label-sm">Cantidad de Aulas con conexión a Internet</label>
             <input type="number" className="form-control form-control-sm" id="lastName" placeholder="" onChange={onInputChange} name="aulasConConexion" value={aulasConConexion} />
           </div>
           <div className="col-md-3">
-            <label htmlFor="country" className="form-label">Funciona Internet?</label>
+            <label htmlFor="country" className="form-label-sm">Funciona Internet?</label>
             <select className="form-select form-select-sm" id="country" onChange={onInputChange} name="funciona" value={funciona}>
               <option value="" disabled selected>Seleccionar</option>
               <option value="si">Si</option>
@@ -519,15 +519,15 @@ export const EscuelaForm = () => {
 
 
         <hr className="my-4" />
-        <h5>Infraestructura Edificia</h5>
+        <h5>Infraestructura Edilicia</h5>
         <div className="row g-3">
 
           <div className="col-sm-2">
-            <label htmlFor="lastName" className="form-label">Cantidad de aulas (espacio físico)</label>
+            <label htmlFor="lastName" className="form-label-sm">Cantidad de aulas (espacio físico)</label>
             <input type="number" className="form-control form-control-sm" id="lastName" placeholder="" onChange={onInputChange} name="aulas" value={aulas} />
           </div>
           <div className="col-md-2">
-            <label htmlFor="country" className="form-label">Cierre Perimetral</label>
+            <label htmlFor="country" className="form-label-sm">Cierre Perimetral</label>
             <select className="form-select form-select-sm" id="country" onChange={onInputChange} name="cierrePerimetral" value={cierrePerimetral}>
               <option value="" disabled selected>Seleccionar</option>
               <option value="si">Si</option>
@@ -536,7 +536,7 @@ export const EscuelaForm = () => {
           </div>
 
           <div className="col-md-2">
-            <label htmlFor="country" className="form-label">Calefacción/Refrigeración</label>
+            <label htmlFor="country" className="form-label-sm">Calefacción/Refrigeración</label>
             <select className="form-select form-select-sm" id="country" onChange={onInputChange} name="calefaccion" value={calefaccion} >
               <option value="" disabled selected>Seleccionar</option>
               <option value="Estufas">Estufas</option>
@@ -550,7 +550,7 @@ export const EscuelaForm = () => {
             </select>
           </div>
           <div className="col-md-2">
-            <label htmlFor="country" className="form-label">Ventilación</label>
+            <label htmlFor="country" className="form-label-sm">Ventilación</label>
             <select className="form-select form-select-sm" id="country" onChange={onInputChange} name="ventilacion" value={ventilacion} >
               <option value="" disabled selected>Seleccionar</option>
               <option value="Ventilador de techo">Ventilador de techo</option>
@@ -560,7 +560,7 @@ export const EscuelaForm = () => {
           </div>
 
           <div className="col-md-2">
-            <label htmlFor="country" className="form-label">Alarma</label>
+            <label htmlFor="country" className="form-label-sm">Alarma</label>
             <select className="form-select form-select-sm" id="country" onChange={onInputChange} name="alarma" value={alarma}>
               <option value="" disabled selected>Seleccionar</option>
               <option value="si">Si</option>
@@ -568,7 +568,7 @@ export const EscuelaForm = () => {
             </select>
           </div>
           <div className="col-md-2">
-            <label htmlFor="country" className="form-label">Edificio</label>
+            <label htmlFor="country" className="form-label-sm">Edificio</label>
             <select className="form-select form-select-sm" id="country" onChange={onInputChange} name="edificio" value={edificio}>
               <option value="" disabled selected>Seleccionar</option>
               <option value="propio">Propio</option>
@@ -579,7 +579,7 @@ export const EscuelaForm = () => {
             </select>
           </div>
           <div className="col-md-2">
-            <label htmlFor="country" className="form-label">Tipo gas</label>
+            <label htmlFor="country" className="form-label-sm">Tipo gas</label>
             <select className="form-select form-select-sm" id="country" onChange={onInputChange} name="tipoGas" value={tipoGas}>
               <option value="" disabled selected>Seleccionar</option>
               <option value="Zeppelin">Zeppelin</option>
@@ -590,7 +590,7 @@ export const EscuelaForm = () => {
             </select>
           </div>
           <div className="col-md-2">
-            <label htmlFor="country" className="form-label">Tipo luz</label>
+            <label htmlFor="country" className="form-label-sm">Tipo luz</label>
             <select className="form-select form-select-sm" id="country" onChange={onInputChange} name="tipoLuz" value={tipoLuz} >
               <option value="" disabled selected>Seleccionar</option>
               <option value="Red Eléctrica">Red Eléctrica </option>
@@ -602,7 +602,7 @@ export const EscuelaForm = () => {
             </select>
           </div>
           <div className="col-md-2">
-            <label htmlFor="country" className="form-label">Agua</label>
+            <label htmlFor="country" className="form-label-sm">Agua</label>
             <select className="form-select form-select-sm" id="country" onChange={onInputChange} name="agua" value={agua}>
               <option value="" disabled selected>Seleccionar</option>
               <option value="potable">Potable</option>
@@ -614,7 +614,7 @@ export const EscuelaForm = () => {
             </select>
           </div>
           <div className="col-md-2">
-            <label htmlFor="country" className="form-label">Cloacas</label>
+            <label htmlFor="country" className="form-label-sm">Cloacas</label>
             <select className="form-select form-select-sm" id="country" onChange={onInputChange} name="cloacas" value={cloacas}>
               <option value="" disabled selected>Seleccionar</option>
               <option value="si">Si</option>
@@ -622,7 +622,7 @@ export const EscuelaForm = () => {
             </select>
           </div>
           <div className="col-md-2">
-            <label htmlFor="country" className="form-label">Servicios Municipales</label>
+            <label htmlFor="country" className="form-label-sm">Servicios Municipales</label>
             <select className="form-select form-select-sm" id="country" onChange={onInputChange} name="serviciosMunicipales" value={serviciosMunicipales}>
               <option value="" disabled selected>Seleccionar</option>
               <option value="si">Si</option>
@@ -630,7 +630,7 @@ export const EscuelaForm = () => {
             </select>
           </div>
           <div className="col-md-2">
-            <label htmlFor="country" className="form-label">Laboratorio de Informática</label>
+            <label htmlFor="country" className="form-label-sm">Laboratorio de Informática</label>
             <select className="form-select form-select-sm" id="country" onChange={onInputChange} name="laboratorioInformatica" value={laboratorioInformatica}>
               <option value="" disabled selected>Seleccionar</option>
               <option value="Externo">Externo</option>
@@ -639,7 +639,7 @@ export const EscuelaForm = () => {
             </select>
           </div>
           <div className="col-md-2">
-            <label htmlFor="country" className="form-label">Laboratorio de ciencias</label>
+            <label htmlFor="country" className="form-label-sm">Laboratorio de ciencias</label>
             <select className="form-select form-select-sm" id="country" onChange={onInputChange} name="laboratorioCiencias" value={laboratorioCiencias}>
               <option value="" disabled selected>Seleccionar</option>
               <option value="si">Si</option>
@@ -648,7 +648,7 @@ export const EscuelaForm = () => {
           </div>
 
           <div className="col-md-2">
-            <label htmlFor="country" className="form-label">Espacio techado</label>
+            <label htmlFor="country" className="form-label-sm">Espacio techado</label>
             <select className="form-select form-select-sm" id="country" onChange={onInputChange} name="espacioTechado" value={espacioTechado}>
               <option value="" disabled selected>Seleccionar</option>
               <option value="si">Si</option>
@@ -659,7 +659,7 @@ export const EscuelaForm = () => {
 
 
           <div className="col-md-2">
-            <label htmlFor="cancha" className="form-label">Cancha</label>
+            <label htmlFor="cancha" className="form-label-sm">Cancha</label>
             <div className="form-check ">
               <input
                 className="form-check-input"
@@ -689,17 +689,17 @@ export const EscuelaForm = () => {
 
 
           <div className="col-sm-2">
-            <label htmlFor="lastName" className="form-label">Nº de medidor luz</label>
+            <label htmlFor="lastName" className="form-label-sm">Nº de medidor luz</label>
             <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="medidorLuz" value={medidorLuz} onChange={onInputChange} />
           </div>
           <div className="col-sm-2">
-            <label htmlFor="lastName" className="form-label">Nº de medidor gas / Nº boca de gas</label>
+            <label htmlFor="lastName" className="form-label-sm">Nº de medidor gas / Nº boca de gas</label>
             <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="medidorGaz" value={medidorGaz} onChange={onInputChange} />
           </div>
 
 
           <div className="col-md-2">
-            <label htmlFor="country" className="form-label">Cocina</label>
+            <label htmlFor="country" className="form-label-sm">Cocina</label>
             <select className="form-select form-select-sm" id="country" onChange={onInputChange} name="cocina" value={cocina} >
               <option value="" disabled selected>Seleccionar</option>
               <option value="si">Si</option>
@@ -707,7 +707,7 @@ export const EscuelaForm = () => {
             </select>
           </div>
           <div className="col-md-2">
-            <label htmlFor="country" className="form-label">Comedor</label>
+            <label htmlFor="country" className="form-label-sm">Comedor</label>
             <select className="form-select form-select-sm" id="country" onChange={onInputChange} name="comedor" value={comedor} >
               <option value="" disabled selected>Seleccionar</option>
               <option value="si">Si</option>
@@ -716,7 +716,7 @@ export const EscuelaForm = () => {
           </div>
 
           <div className="col-md-2">
-            <label className="form-label">SUM (Salón Usos Múltiples)</label>
+            <label className="form-label-sm">SUM (Salón Usos Múltiples)</label>
             <div className="form-check ">
               <input
                 className="form-check-input"
@@ -744,7 +744,7 @@ export const EscuelaForm = () => {
           </div>
 
           <div className="col-md-2">
-            <label className="form-label">Bomba de agua</label>
+            <label className="form-label-sm">Bomba de agua</label>
             <div className="form-check ">
               <input
                 className="form-check-input"
@@ -773,7 +773,7 @@ export const EscuelaForm = () => {
 
 
           <div className="col-md-2">
-            <label className="form-label">Biblioteca</label>
+            <label className="form-label-sm">Biblioteca</label>
             <div className="form-check ">
               <input
                 className="form-check-input"
@@ -802,7 +802,7 @@ export const EscuelaForm = () => {
 
 
           <div className="col-md-2">
-            <label className="form-label">Salon de Musica</label>
+            <label className="form-label-sm">Salon de Musica</label>
             <div className="form-check ">
               <input
                 className="form-check-input"
@@ -829,7 +829,7 @@ export const EscuelaForm = () => {
             </div>
           </div>
           <div className="col-md-2">
-            <label className="form-label">Sereno</label>
+            <label className="form-label-sm">Sereno</label>
             <div className="form-check ">
               <input
                 className="form-check-input"
@@ -857,7 +857,7 @@ export const EscuelaForm = () => {
           </div>
 
           <div className="col-md-2">
-            <label className="form-label">Señal de celular</label>
+            <label className="form-label-sm">Señal de celular</label>
             <div className="form-check ">
               <input
                 className="form-check-input"
@@ -885,7 +885,7 @@ export const EscuelaForm = () => {
           </div>
 
           <div className="col-md-2">
-            <label className="form-label">Sistema contra Incendios (mangueras)</label>
+            <label className="form-label-sm">Sistema contra Incendios (mangueras)</label>
             <div className="form-check ">
               <input
                 className="form-check-input"

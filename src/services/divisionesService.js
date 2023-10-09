@@ -46,3 +46,12 @@ export const findById = async (id) => {
         console.log(error);
     }
 }
+
+export const findCargoDivision = async (id) => {
+    try {
+        const response = await axios.get(`${URL}/cargoDivision/${id}`)
+        return response;
+    } catch (error) {
+        console.log(error);
+    }
+}

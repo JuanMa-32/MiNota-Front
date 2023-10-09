@@ -12,15 +12,15 @@ export const ServicioRow = ({ servicio }) => {
       <td style={{ fontSize: '13px' }}>{servicio.alta} </td>
       <td style={{ fontSize: '13px' }}>--</td>
       <td style={{ fontSize: '13px' }}>{servicio.situacionRevista} </td>
-      <td style={{ fontSize: '13px' }}>{servicio?.cargo?.turno} </td>
-      <td style={{ fontSize: '13px' }}>--</td>
-      <td style={{ fontSize: '13px' }}>--</td>
+      <td style={{ fontSize: '13px' }}>{servicio?.cargo?.division?.curso} </td>
+      <td style={{ fontSize: '13px' }}>{servicio?.cargo?.division?.divisionCurso} </td>
+      <td style={{ fontSize: '13px' }}>{servicio?.cargo?.regimen}<br></br>{servicio?.cargo?.materia}</td>
       <td style={{ fontSize: '13px' }}>{servicio?.baja}-------</td>
       <td style={{ fontSize: '13px' }}>{servicio?.baja}</td>
 
       <td style={{ fontSize: '13px' }}>
         <div className="btn-group">
-          <Link className="btn btn-light btn-sm p-1" to={`/`}>
+          <Link className="btn btn-light btn-sm p-1" to={`/servicio/ver/${servicio.id}`}>
             <FontAwesomeIcon icon={faMagnifyingGlass} size="2xs" /> ver
           </Link>
           <button type="button" className="btn btn-light btn-sm dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">

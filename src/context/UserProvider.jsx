@@ -75,6 +75,7 @@ export const UserProvider = ({ children }) => {
         servicioInit,
         paginatorServicio,
         servicioSelected,
+        errorsServicio,
         //funciones
         handlerAddServicio,
         getServicio,
@@ -160,6 +161,7 @@ export const UserProvider = ({ children }) => {
                 servicioInit,
                 paginatorServicio,
                 servicioSelected,
+                errorsServicio,
                 //funciones
                 handlerAddServicio,
                 getServicio,

@@ -142,3 +142,35 @@
 }
 
 
+
+/* Estilos para las pestañas */
+.tabs {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.tab {
+  padding: 5px 10px;
+  cursor: pointer;
+  background-color:white;
+  border: 1px solid #ccc;
+  border-radius: 5px 5px 0 0;
+  margin-right: 5px;
+  user-select: none;
+  color: #007bff;
+}
+
+.tab.active {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-bottom: 1px solid #fff;
+  color: black;
+}
+
+/* Estilos para el contenido de las pestañas */
+.tab-content {
+  border: 1px solid #ccc;
+  border-radius: 0 0 5px 5px;
+  padding: 15px;
+  background-color: #fff;
+}

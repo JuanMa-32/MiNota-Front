@@ -9,7 +9,6 @@ import { NavLink } from 'react-router-dom'
 
 export const SideBar = () => {
 
-
   const [menuAbierto, setMenuAbierto] = useState(false);
 
   // Función para alternar la visibilidad del menú
@@ -19,8 +18,8 @@ export const SideBar = () => {
 
 
   return (
-    <div className="d-flex">
-      <div className="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style={{ width: '280px' }}>
+    <div className="d-flex" >
+      <div className="d-flex flex-column flex-shrink-0 p-3 bg-white" style={{ width: '275px' }}>
         <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
           <div className="d-flex justify-content-center mb-3">
             <img src="public/logo.png" alt="Logo de la compañía" width="100" height="100" />

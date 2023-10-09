@@ -43,11 +43,38 @@ const servicioInit = {
     observacion: ''
 }
 
+const errorsServicioInit = {
+    situacionRevista: '',
+    usuario: {
+        cuil: 0,
+        dni: 0,
+        apellido: '',
+        nombre: '',
+        genero: '',
+        nacimiento: '',
+        calle: '',
+        numero: 0,
+        depto: '',
+        piso: '',
+        localidad: '',
+        codigoPostal: 0,
+        barrio: '',
+        manzana: '',
+        casa: '',
+    },
+    alta: '',
+    baja: '',
+    diasCumplir: 0,
+    obligacion: '',
+    funcion: '',
+    observacion: ''
+}
+
 export const useServicio = () => {
 
     const [servicios, dispatch] = useReducer(servicioReducer, [])
     const [paginatorServicio, setpaginatorServicio] = useState([])
-    const [errorsServicio, seterrorsServicio] = useState({})
+    const [errorsServicio, seterrorsServicio] = useState(errorsServicioInit)
     const [servicioSelected, setservicioSelected] = useState(servicioInit)
     const navigate = useNavigate();
 
@@ -100,6 +127,7 @@ export const useServicio = () => {
         servicioInit,
         paginatorServicio,
         servicioSelected,
+        errorsServicio,
         //funciones
         handlerAddServicio,
         getServicio,

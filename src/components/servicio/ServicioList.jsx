@@ -12,13 +12,13 @@ const filtroInit = {
     curso: '',
     division: '',
     regimen: '',
-
+    baja:''
 }
 export const ServicioList = () => {
 
     const { servicios } = useContext(UserContext);
     const [filtros, setFiltros] = useState(filtroInit)
-    const { persona, alta, liquidacion, situacionRevista, curso, division, regimen, } = filtros;
+    const { persona, alta, liquidacion, situacionRevista, curso, division, regimen,baja } = filtros;
 
     const onChangeFiltros = ({ target }) => {
         const { name, value } = target;
@@ -39,8 +39,11 @@ export const ServicioList = () => {
           (!persona || servicio.usuario.nombre?.toLowerCase().includes(filtros.persona.toLowerCase())) &&
           (!alta || servicio.alta.toLowerCase().includes(alta.toLowerCase())) &&
           (!liquidacion || servicio?.division?.divisionCurso?.toLowerCase().includes(division.toLowerCase())) &&
-          (!situacionRevista || servicio.turno?.toLowerCase().includes(turno.toLowerCase())) &&
-          (!curso || servicio.regimen?.toLowerCase().includes(regimen.toLowerCase())) 
+          (!situacionRevista || servicio.situacionRevista?.toLowerCase().includes(situacionRevista.toLowerCase())) &&
+          (!curso|| servicio?.cargo?.division?.curso?.toLowerCase().includes(curso.toLowerCase())) &&
+          (!division || servicio?.cargo?.division?.divisionCurso?.toLowerCase().includes(division.toLowerCase())) &&
+          (!regimen || servicio.cargo?.regimen?.toLowerCase().includes(regimen.toLowerCase())) &&
+          (!baja || servicio.baja.toLowerCase().includes(baja.toLowerCase())) 
         );
       });
     }
@@ -50,7 +53,7 @@ export const ServicioList = () => {
     }
 
     return (
-        <div className='container'>
+        
             <table className="table table-sm table-bordered table-hover">
                 <thead>
                     <tr>
@@ -100,7 +103,7 @@ export const ServicioList = () => {
                             <input
                                 type="text"
                                 name="situacionRevista"
-                                placeholder="situacion Revista"
+                                placeholder="Situacion Revista"
                                 value={situacionRevista}
                                 onChange={onChangeFiltros}
                             />
@@ -108,29 +111,37 @@ export const ServicioList = () => {
                         <th scope="col" style={{ fontSize: '10px' }}>
                             <input
                                 type="text"
-                                name="regimen"
-                                placeholder="Regimen/Materia"
-                                value={regimen}
-                                onChange={onChangeFiltros}
-                            />
-                        </th>
-                        <th scope="col" style={{ fontSize: '10px' }}>
-                            <input
-                                type="text"
-                                name="regimen"
-                                placeholder="Regimen/Materia"
-                                value={regimen}
-                                onChange={onChangeFiltros}
-                            />
-                        </th>
-                        <th scope="col" style={{ fontSize: '14px' }}></th>
-                        <th scope="col" style={{ fontSize: '14px' }}></th>
-                        <th scope="col" style={{ fontSize: '10px' }}>
-                            <input
-                                type="text"
                                 name="curso"
-                                placeholder="curso curso"
+                                placeholder="Curso"
                                 value={curso}
+                                onChange={onChangeFiltros}
+                            />
+                        </th>
+                        <th scope="col" style={{ fontSize: '10px' }}>
+                            <input
+                                type="text"
+                                name="division"
+                                placeholder="Division"
+                                value={division}
+                                onChange={onChangeFiltros}
+                            />
+                        </th>
+                        <th scope="col" style={{ fontSize: '10px' }}>
+                            <input
+                                type="text"
+                                name="regimen"
+                                placeholder="Regimen"
+                                value={regimen}
+                                onChange={onChangeFiltros}
+                            />
+                        </th>
+                        <th scope="col" style={{ fontSize: '14px' }}></th>
+                        <th scope="col" style={{ fontSize: '10px' }}>
+                            <input
+                                type="text"
+                                name="baja"
+                                placeholder="Baja"
+                                value={baja}
                                 onChange={onChangeFiltros}
                             />
                         </th>
@@ -144,6 +155,5 @@ export const ServicioList = () => {
                     )}
                 </tbody>
             </table>
-        </div>
     )
 }
