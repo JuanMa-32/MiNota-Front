@@ -119,7 +119,7 @@ export const EscuelaEditar = () => {
 
 
   return (
-    <div className="col-md-10">
+    <div className="col-md-12">
      <br></br> <br></br>
      
      

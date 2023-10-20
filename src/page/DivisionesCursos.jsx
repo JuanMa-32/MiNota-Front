@@ -12,7 +12,7 @@ export const DivisionesCursos = () => {
       
     }, [id])
   return (
-  <div className='container'>
+  <div className=''>
     <h6>Divisiones de Esc.  {escuelaSeleccionada.numero} {escuelaSeleccionada.nombre}</h6>
     <Link to={`/division/agregar/${id}`}className='btn btn-success btn-sm mt-3 ms-2'>Agregar</Link>
     <hr />

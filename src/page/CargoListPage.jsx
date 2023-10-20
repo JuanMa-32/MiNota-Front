@@ -7,17 +7,18 @@ import { NavBarSecundario } from './../components/headers/NavBarSecundario';
 
 export const CargoListPage = () => {
   const { id, page } = useParams();
-  const { getCargos,cargos,escuelaSeleccionada,paginator } = useContext(UserContext);
+  const { getCargos, escuelaSeleccionada, paginator } = useContext(UserContext);
   useEffect(() => {
-    getCargos(id,page)
-  }, [ page,id])
-const url = '/cargo/listar'
+    getCargos(id, page)
+  }, [page, id])
+  const url = '/cargo/listar'
   return (
     <>
       <NavBarSecundario id={id} ></NavBarSecundario>
       <br></br>
-    <h6>Cargos de Esc. {escuelaSeleccionada.nombre}</h6>
-    <Link className='btn btn-success btn-sm mt-4 ms-2' to={`/cargo/agregar/${id}`}>Agregar</Link>
+      <h6>Cargos de Esc. {escuelaSeleccionada.nombre}</h6>
+      <Link className='btn btn-success btn-sm mt-3 ms-3' to={`/cargo/agregar/${id}`}>Agregar</Link>
+      <br></br><br></br>
       <CargoList></CargoList>
       <Paginator id={id} url={url} paginator={paginator}></Paginator>
     </>

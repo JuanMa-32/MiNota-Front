@@ -10,9 +10,10 @@ export const DivisionEditPage = () => {
   useEffect(() => {
     hanlderDivisionSelected(id)
   }, [id])
+  const idEscuela = sessionStorage.getItem('idEscuela');
   return (
     <div>
-      <DivisionEdit></DivisionEdit>
+      <DivisionEdit idEscuela={idEscuela}></DivisionEdit>
     </div>
   )
 }

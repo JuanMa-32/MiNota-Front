@@ -7,11 +7,11 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 export const CargoView = () => {
 
     const { cargoSelected } = useContext(UserContext);
-    const { division, carrera, materia, regimen, condicionCargo, turno, resolucionCreacion, codigoJunta } = cargoSelected;
-   
+    const { division, carrera, materia, regimen, condicionCargo, turno, resolucionCreacion, codigoJunta,observacion } = cargoSelected;
+
     return (
         <div className="row g-3">
-            
+
             <div className="col-md-3">
                 <label htmlFor="country" className="form-label-sm">División</label>
                 <select className="form-select form-select-sm" id="country" name="division" value={division} disabled >
@@ -25,7 +25,7 @@ export const CargoView = () => {
 
                 </select>
             </div>
-            <div className="col-md-3">
+            <div className="col-md-5">
                 <label htmlFor="country" className="form-label-sm">Materia</label>
                 <select className="form-select form-select-sm" id="country" name="materia" value={materia} disabled >
                     <option value="" disabled selected>{materia} </option>
@@ -50,7 +50,7 @@ export const CargoView = () => {
 
                 </select>
             </div>
-            <div className="col-sm-5">
+            <div className="col-sm-6">
                 <label htmlFor="lastName" className="form-label-sm">Resolución de creación</label>
                 <input type="text" diseabled className="form-control form-control-sm" id="lastName" disabled placeholder="" name="resolucionCreacion" value={resolucionCreacion} />
             </div>
@@ -58,8 +58,12 @@ export const CargoView = () => {
                 <label htmlFor="lastName" className="form-label-sm">Código junta</label>
                 <input type="text" diseabled className="form-control form-control-sm" id="lastName" disabled placeholder="" name="codigoJunta" value={codigoJunta} />
             </div>
+            <div className="col-sm-6">
+                <label htmlFor="lastName" className="form-label-sm">Observaciones</label>
+                <input type="text" diseabled className="form-control form-control-sm" id="lastName" disabled placeholder="" name="observacion" value={observacion} />
+            </div>
 
-<br /><br /><br /><br />
+            <br /><br /><br /><br />
             <table className="table table-sm table-bordered table-hover">
                 <thead>
                     <tr>

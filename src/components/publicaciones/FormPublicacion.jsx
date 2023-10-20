@@ -44,7 +44,7 @@ export const FormPublicacion = () => {
             />
             <p className='text-danger'>{errors?.titulo} </p>
             <div className="mb-6">
-                <label htmlhtmlFor="exampleFormControlTextarea1" className="form-label">Texto</label>
+                <label htmlFor="exampleFormControlTextarea1" className="form-label">Texto</label>
                 <textarea className="form-control" id="exampleFormControlTextarea1" rows="10"
                     name='cuerpo'
                     value={cuerpo}
@@ -52,10 +52,10 @@ export const FormPublicacion = () => {
                 ></textarea>
                 <p className='text-danger'>{errors?.cuerpo} </p>
             </div>
-            <button type='submit' className='btn btn-primary'>
+            <button type='submit' className='btn btn-primary btn-sm '>
                 Publicar
             </button>
-            <button className='btn btn-primary mx-2' type='button' onClick={handlerCloseForm}>
+            <button className='btn btn-light btn-sm ' type='button' onClick={handlerCloseForm}>
                 Cerrar
             </button>
         </form>

@@ -48,7 +48,7 @@ export const DivisionList = () => {
     setFiltros(filtroInit)
   }
   return (
-    <div className='container'>
+    <div className=''>
       <table className="table table-sm table-bordered table-hover">
         <thead>
           <tr>

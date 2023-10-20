@@ -3,6 +3,7 @@ import { PublicacionView } from './PublicacionView';
 import { UserContext } from '../../context/UserContext';
 import { PublicacionModal } from './PublicacionModal';
 
+
 export const PublicacionList = () => {
 
   const { getPublicaciones, publicaciones, visibleFrom, handlerOpenForm } = useContext(UserContext)
@@ -14,6 +15,7 @@ export const PublicacionList = () => {
 
   return (
     <div className="">
+     
       {!visibleFrom || <PublicacionModal />}
       <div className="text-end mb-3">
         {visibleFrom || <button className="btn btn-sm btn-outline-secondary boton-esquina" onClick={handlerOpenForm}>

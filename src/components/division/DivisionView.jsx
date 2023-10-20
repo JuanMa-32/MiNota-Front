@@ -38,7 +38,7 @@ export const DivisionView = () => {
       <form className="needs-validation" >
         <div className="row g-3">
           <div className="col-md-3">
-            <label htmlFor="country" className="form-label">Curso</label>
+            <label htmlFor="country" className="form-label-sm">Curso</label>
             <select className="form-select form-select-sm" id="country" name="curso" value={curso} disabled>
               <option value="" disabled selected>Seleccionar Curso</option>
               <option value="1º Primario">1º Primario </option>
@@ -52,34 +52,34 @@ export const DivisionView = () => {
 
           </div>
           <div className="col-sm-1">
-            <label htmlFor="lastName" className="form-label">División</label>
+            <label htmlFor="lastName" className="form-label-sm">División</label>
             <input type="text" className="form-control form-control-sm" name="division" value={divisionCurso} disabled />
 
           </div>
 
           <div className="col-sm-2">
-            <label htmlFor="lastName" className="form-label">Turno</label>
+            <label htmlFor="lastName" className="form-label-sm">Turno</label>
             <input disabled type="text" className="form-control form-control-sm" name="turno" value={turno} />
 
           </div>
           <div className="col-sm-2">
-            <label htmlFor="lastName" className="form-label">Numero Resolución</label>
+            <label htmlFor="lastName" className="form-label-sm">Numero Resolución</label>
             <input type="text" className="form-control form-control-sm" name="resolucion" value={resolucion} disabled />
 
           </div>
           <div className="col-md-3">
-            <label htmlFor="country" className="form-label">Carrera</label>
+            <label htmlFor="country" className="form-label-sm">Carrera</label>
             <select className="form-select form-select-sm" name="carrera" value={carrera} disabled>
-              <option value="" disabled selected>Seleccionar</option>
-              <option value="Educacion primaria (Res. 3556/19)">Educacion primaria (Res. 3556/19)</option>
+             
+              <option value="Educacion primaria (Res. 3556/19)"> {carrera}</option>
             </select>
 
           </div>
           <div className="col-md-3">
-            <label htmlFor="country" className="form-label">Modalidad</label>
+            <label htmlFor="country" className="form-label-sm">Modalidad</label>
             <select className="form-select form-select-sm" name="modalidad" value={modalidad} disabled>
-              <option value="" disabled selected>Seleccionar</option>
-              <option value="presencial">Presencial</option>
+             
+              <option value="presencial">{modalidad}</option>
             </select>
 
           </div>

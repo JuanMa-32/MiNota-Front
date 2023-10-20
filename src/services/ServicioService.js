@@ -30,6 +30,15 @@ export const findByIdServicio = async (id) => {
     }
 }
 
+export const darBaja = async (id,{motivoBaja,baja}) =>{
+    try {
+         await axios.put(`${URL}/baja/${id}?motivoBaja=${motivoBaja}&baja=${baja}`);
+        
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 //me traigo los departamentos de mendoza para luego llenar en el formulario
 export const departamentosMdz = async () => {
     try {

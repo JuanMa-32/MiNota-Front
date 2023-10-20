@@ -52,18 +52,7 @@ export const ServicioView = () => {
                 <label htmlFor="lastName" className="form-label-sm">Motivo Baja</label>
                 <input type="text" diseabled className="form-control form-control-sm" id="lastName" disabled placeholder="" name="cuil" value={usuario.cuil} />
             </div>
-            <div className="col-sm-5">
-                <label htmlFor="lastName" className="form-label-sm">Reemplaza a </label>
-                <input type="text" diseabled className="form-control form-control-sm" id="lastName" disabled placeholder="" name="cuil" value={usuario.cuil} />
-            </div>
-            <div className="col-sm-6">
-                <label htmlFor="lastName" className="form-label-sm">Artículo reemplazo</label>
-                <input type="text" diseabled className="form-control form-control-sm" id="lastName" disabled placeholder="" name="cuil" value={usuario.cuil} />
-            </div>
-            <div className="col-sm-6">
-                <label htmlFor="lastName" className="form-label-sm">Concepto celador</label>
-                <input type="text" diseabled className="form-control form-control-sm" id="lastName" disabled placeholder="" name="cuil" value={usuario.cuil} />
-            </div>
+         
             <div className="col-sm-12">
                 <label htmlFor="lastName" className="form-label-sm">Observaciones</label>
                 <input type="text" diseabled className="form-control form-control-sm" id="lastName" disabled placeholder="" name="cuil" value={observacion} />

@@ -3,7 +3,7 @@ import { UserContext } from '../../context/UserContext';
 import { Link } from 'react-router-dom';
 
 
-export const DivisionEdit = () => {
+export const DivisionEdit = ({idEscuela}) => {
 
   const { divisionFormInit, hanlderAddDivision, errors,divisionSelected } = useContext(UserContext)
 
@@ -25,7 +25,7 @@ export const DivisionEdit = () => {
   }
   const onSubmit = (event) => {
     event.preventDefault();
-    hanlderAddDivision(divisionForm);
+    hanlderAddDivision(divisionForm,idEscuela);
   }
   return (
     <div className="col-md-10">
@@ -73,7 +73,7 @@ export const DivisionEdit = () => {
 
           </div>
           <div className="col-md-3">
-            <label htmlFor="country" className="form-label">Modalidad</label>
+            <label htmlFor="country" className="form-label-sm">Modalidad</label>
             <select className="form-select form-select-sm" id="country" name="modalidad" value={modalidad} onChange={onInputChange}>
               <option value="" disabled selected>Seleccionar</option>
               <option value="presencial">Presencial</option>
@@ -86,14 +86,14 @@ export const DivisionEdit = () => {
           <div className="col-sm-3">
             <div className="form-group">
               <label htmlFor="fecha">Fecha de Alta</label>
-              <input type="date" className="form-control" id="fecha" name="alta" value={alta} onChange={onInputChange} />
+              <input type="date" className="form-control  form-control-sm" id="fecha" name="alta" value={alta} onChange={onInputChange} />
             </div>
             <p className='text-danger'>{errors?.alta}</p>
           </div>
           <div className="col-sm-3">
             <div className="form-group">
               <label htmlFor="fecha">Fecha de Baja</label>
-              <input type="date" className="form-control" id="fecha" name="baja" value={baja} disabled onChange={onInputChange} />
+              <input type="date" className="form-control  form-control-sm" id="fecha" name="baja" value={baja} disabled onChange={onInputChange} />
             </div>
           </div>
 

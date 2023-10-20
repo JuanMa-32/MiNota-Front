@@ -14,7 +14,7 @@ const filtroInit = {
     regimen: '',
     baja:''
 }
-export const ServicioList = () => {
+export const ServicioList = ({handlerOpenFormBaja}) => {
 
     const { servicios } = useContext(UserContext);
     const [filtros, setFiltros] = useState(filtroInit)
@@ -151,7 +151,8 @@ export const ServicioList = () => {
                 </thead>
                 <tbody>
                     {serviciosFiltrados?.map(servicio =>
-                        <ServicioRow key={servicio.id} servicio={servicio} />
+                        <ServicioRow key={servicio.id} servicio={servicio} handlerOpenFormBaja={handlerOpenFormBaja} />
+                        
                     )}
                 </tbody>
             </table>

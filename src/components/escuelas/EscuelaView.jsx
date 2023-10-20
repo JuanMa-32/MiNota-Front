@@ -43,7 +43,6 @@ export const EscuelaView = () => {
 
   const onInputChange = ({ target }) => {
     const { name, value } = target;
-    console.log(name + value);
     setescuelaForm({
       ...escuelaForm,
       [name]: value
@@ -201,12 +200,11 @@ export const EscuelaView = () => {
           </div>
           <div className="col-sm-3">
             <label htmlFor="lastName" className="form-label-sm">Año Resolución Cierre</label>
-            <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="anioResolucionCierre" value={anioResolucionCierre} onChange={onInputChange} disabled />
+            <input type="text" className="form-control form-control-sm"  placeholder="" name="anioResolucionCierre" value={anioResolucionCierre} onChange={onInputChange} disabled />
           </div>
-          <div className="col-sm-4
-          ">
+          <div className="col-sm-4">
             <label htmlFor="lastName" className="form-label-sm">Número Resolución Cierre</label>
-            <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="numeroResolucionCierre" value={numeroResolucionCierre} onChange={onInputChange} disabled />
+            <input type="text" className="form-control form-control-sm" placeholder="" name="numeroResolucionCierre" value={numeroResolucionCierre} onChange={onInputChange} disabled />
           </div>
         </div>
         <br /><br />

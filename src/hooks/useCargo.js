@@ -16,6 +16,7 @@ const cargoFormInit = {
   resolucionCreacion: '',
   codigoJunta: '',
   division: null,
+  observacion:''
 };
 const errorsInit = {
   motivo: '',
@@ -46,10 +47,11 @@ export const useCargo = () => {
       seterrorsCargo(errorsInit)
       navigate(`/cargo/listar/${id}/0`)
     } catch (error) {
-      if (error.response && error.response.status == 400) {
-        console.log(error);
+      if (error.response && error.response.status == 400){
         seterrorsCargo(error.response.data)
-      } else {
+      }else if(error.response && error.response.status == 500) {
+        Swal.fire('Cargo', 'La division que selecciono ya tiene un cargo correspondiente', 'error')
+      }else {
         throw error;
       }
     }
@@ -62,6 +64,7 @@ export const useCargo = () => {
         payload: response.data
       })
       Swal.fire('Cargo Actualizado', 'el cargo fue editado', 'success')
+      
     } catch (error) {
       if (error.response && error.response.status == 400) {
         seterrorsCargo(error.response.data)
