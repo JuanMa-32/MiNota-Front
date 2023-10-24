@@ -11,6 +11,16 @@ export const servicioReducer = (state = [], action) => {
                     ...action.payload,//el payload es el valor
                 }
             ];
+
+            case 'updateServicio':
+                return state.map(p => {
+                    if (p.id === action.payload.id) {
+                        return {
+                            ...action.payload
+                        };
+                    }
+                    return p;
+                })
         default:
             state;
     }

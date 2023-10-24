@@ -21,6 +21,7 @@ import { CargoEditPage } from './../page/CargoEditPage';
 import { ServicioFormPage } from '../page/ServicioFormPage';
 import { ServicioListPage } from '../page/ServicioListPage';
 import { ServicioViewPage } from '../page/ServicioViewPage';
+import { ServicioEditPage } from './../page/ServicioEditPage';
 
 
 export const Rutas = () => {
@@ -50,6 +51,7 @@ export const Rutas = () => {
                         <Route path="/servicio/cargar/:id" element={<ServicioFormPage />} />
                         <Route path="/servicio/listar/:id/:page" element={<ServicioListPage />} />
                         <Route path="/servicio/ver/:id" element={<ServicioViewPage />} />
+                        <Route path="/servicio/editar/:id" element={<ServicioEditPage />} />
                     </Routes>
                     </div>
                 </div>

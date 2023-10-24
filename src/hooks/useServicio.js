@@ -1,6 +1,6 @@
 import { useContext, useReducer, useState } from "react"
 import { servicioReducer } from './../reducers/servicioReducer';
-import { darBaja, findAllServicio, findByIdServicio, save } from "../services/ServicioService";
+import { agregarNovedad, darBaja, edit, findAllServicio, findByIdServicio, save } from "../services/ServicioService";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
@@ -41,7 +41,8 @@ const servicioInit = {
     diasCumplir: 0,
     obligacion: '',
     funcion: '',
-    observacion: ''
+    observacion: '',
+    motivoBaja:''
 }
 
 const errorsServicioInit = {
@@ -71,11 +72,19 @@ const errorsServicioInit = {
     observacion: ''
 }
 
+const errorsNovedadInit ={
+    articulo:'',
+    desde:'',
+    hasta:''
+}
+
 export const useServicio = () => {
+    const idEscuela = sessionStorage.getItem('idEscuela');
 
     const [servicios, dispatch] = useReducer(servicioReducer, [])
     const [paginatorServicio, setpaginatorServicio] = useState([])
     const [errorsServicio, seterrorsServicio] = useState(errorsServicioInit)
+    const [errorsNovedad, seterrorsNovedad] = useState(errorsNovedadInit)
     const [servicioSelected, setservicioSelected] = useState(servicioInit)
     const navigate = useNavigate();
 
@@ -102,7 +111,7 @@ export const useServicio = () => {
                 payload: response.data
             })
             Swal.fire('Servicio', 'Servicio agregado con exito', 'success')
-            navigate('/')
+            navigate(`/servicio/listar/${idEscuela}/0`)
             seterrorsServicio(errorsServicioInit)
         } catch (error) {
             if (error.response && error.response.status == 400) {
@@ -114,8 +123,20 @@ export const useServicio = () => {
             }
         }
     }
+    const handlerEditServicio =async (id,servicio) => {
+        try {
+            const response = await edit(id,servicio)
+            dispatch({
+                type:'updateServicio',
+                payload:response.data
+            })
+            Swal.fire('Servicio', 'Editado con exito!', 'success')
+            navigate(`/servicio/listar/${idEscuela}/0`)
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
-    const idEscuela = sessionStorage.getItem('idEscuela');
     const handlerBaja = async (id, bajaFormulario) => {
         try {
             await darBaja(id, bajaFormulario);
@@ -136,6 +157,19 @@ export const useServicio = () => {
         }
     }
 
+    const handlerAddNovedad =async (id,novedad) => {
+        try {
+            await agregarNovedad(id,novedad)
+            Swal.fire('Novedad', 'Novedad agregada al servicio.', 'success')
+        } catch (error) {
+            if (error.response && error.response.status == 400) {
+                seterrorsNovedad(error.response.data)
+            }else {
+                throw error;
+            }
+        }
+    }
+
 
 
     return {
@@ -145,11 +179,14 @@ export const useServicio = () => {
         paginatorServicio,
         servicioSelected,
         errorsServicio,
+        errorsNovedad,
 
         //funciones
         handlerAddServicio,
         getServicio,
         handlerServicioSelected,
-        handlerBaja
+        handlerBaja,
+        handlerAddNovedad,
+        handlerEditServicio
     }
 }

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { UserContext } from './../../context/UserContext';
 import { BajaModal } from './BajaModal';
 
-export const ServicioRow = ({ servicio,handlerOpenFormBaja }) => {
+export const ServicioRow = ({ servicio,handlerOpenFormBaja,handlerOpenFormNovedad }) => {
 
 
   return (
@@ -31,12 +31,12 @@ export const ServicioRow = ({ servicio,handlerOpenFormBaja }) => {
           </button>
           <ul className="dropdown-menu"  style={{ margin: '0', padding: '0' }}>
             <li >
-              <Link className="dropdown-item" to={`/`} style={{ background:'#FFA500',color : 'white'}}>
+              <Link className="dropdown-item" to={`/servicio/editar/${servicio.id}`} style={{ background:'#FFA500',color : 'white'}}>
               <FontAwesomeIcon icon={faPen} size="xs" /> Editar
               </Link>
             </li>
             <li>
-              <button className="dropdown-item"  style={{ background:'#6699CC',color : 'white'}}>
+              <button  type='button' className="dropdown-item" onClick={ () => handlerOpenFormNovedad(servicio.id)}  style={{ background:'#6699CC',color : 'white'}}>
               <FontAwesomeIcon icon={faCalendarPlus} size="xs" /> Agregar novedad
               </button>
             </li>

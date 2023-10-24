@@ -43,7 +43,7 @@ const {handlerBaja} = useContext(UserContext);
   }
 
   return (
-    <form onSubmit={onSubmit} className="d-flex flex-column">
+    <form onSubmit={onSubmit} className="">
    
 
       <label htmlFor="country" className="form-label-sm">Motivo baja</label>

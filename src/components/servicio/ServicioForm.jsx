@@ -74,7 +74,7 @@ export const ServicioForm = ({ idCargo }) => {
         setservicioForm(updatedServicioForm2);
 
         handlerAddServicio(idCargo, updatedServicioForm2)
-        
+        setusuario2({})
     }
 
     const onInputDni = ({ target }) => {

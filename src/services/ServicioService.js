@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const URL = 'http://localhost:8080/servicio'
+const URL_NOVEDAD = 'http://localhost:8080/novedad'
 const URL_DEPARTAMENTOS = 'https://apis.datos.gob.ar/georef/api/municipios?provincia=mendoza&campos=id,nombre&max=100'
 
 export const save = async (servicio,idCargo) => {
@@ -9,6 +10,15 @@ export const save = async (servicio,idCargo) => {
         return response;
     } catch (error) {
         throw error;
+    }
+}
+
+export const edit = async (id,servicio) => {
+    try {
+        const response = await axios.put(`${URL}/edit/${id}`,servicio)
+        return response;
+    } catch (error) {
+        console.log(error);
     }
 }
 
@@ -36,6 +46,15 @@ export const darBaja = async (id,{motivoBaja,baja}) =>{
         
     } catch (error) {
         console.log(error);
+    }
+}
+
+export const agregarNovedad = async (id,novedad) => {
+    try {
+        await axios.post(`${URL_NOVEDAD}/${id}`,novedad)
+        
+    } catch (error) {
+        throw error;
     }
 }
 

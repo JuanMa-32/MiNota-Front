@@ -94,7 +94,7 @@ export const CargoEdit = () => {
 
                 </div>
                 <button className="btn btn-primary btn-sm mt-3" type="submit">Editar </button>
-                <Link className='btn btn-light btn-sm mt-3 ms-2' to={`/cargo/listar/${idEsc}/0`}>Cancelar</Link>
+                <Link className='btn btn-light btn-sm mt-3 ms-2' to={`/cargo/listar/${idEsc}/0`}>Volver</Link>
             </form>
         </div>
     )

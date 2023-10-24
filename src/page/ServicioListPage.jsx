@@ -4,6 +4,7 @@ import { UserContext } from "../context/UserContext";
 import { useParams } from "react-router-dom";
 import { Paginator } from './../components/Paginator';
 import { BajaModal } from './../components/servicio/BajaModal';
+import { NovedadModal } from "../components/servicio/NovedadModal";
 
 
 
@@ -16,6 +17,7 @@ export const ServicioListPage = () => {
       const url = '/servicio/listar'
 
       const [visibleBaja, setvisibleBaja] = useState(false);
+      const [visibleNovedad, setvisibleBajaNovedad] = useState(false);
       const [idServicio, setidServicio] = useState(0)
       const handlerOpenFormBaja = (idService) => {
         setidServicio(idService)
@@ -24,10 +26,19 @@ export const ServicioListPage = () => {
       const handlerCloseFormBaja = () => {
         setvisibleBaja(false)
       }
+      const handlerOpenFormNovedad = (idService) => {
+        setidServicio(idService)
+        setvisibleBajaNovedad(true);
+      }
+      const handlerCloseFormNovedad = () => {
+        setvisibleBajaNovedad(false)
+      }
   return (
     <>    
     {!visibleBaja || <BajaModal handlerCloseFormBaja={handlerCloseFormBaja} idServicio={idServicio} ></BajaModal>}
-    <ServicioList handlerOpenFormBaja={handlerOpenFormBaja}></ServicioList>
+{!visibleNovedad || <NovedadModal handlerCloseFormNovedad={handlerCloseFormNovedad} idServicio={idServicio}></NovedadModal> }
+    
+    <ServicioList handlerOpenFormBaja={handlerOpenFormBaja} handlerOpenFormNovedad={handlerOpenFormNovedad}></ServicioList>
     <Paginator id={id} url={url} paginator={paginatorServicio}></Paginator>
     </>
   )

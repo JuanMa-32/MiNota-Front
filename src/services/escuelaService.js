@@ -52,7 +52,6 @@ export const findAllEscuelas = async () => {
 export const getEscuelaId = async (id) => {
     try {
         const response = await axios.get(`${URL}/${id}`);
-        console.log(response.data);
         return response;
     } catch (error) {
         console.log(error);

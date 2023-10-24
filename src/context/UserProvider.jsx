@@ -76,12 +76,15 @@ export const UserProvider = ({ children }) => {
         paginatorServicio,
         servicioSelected,
         errorsServicio,
+        errorsNovedad,
 
         //funciones
         handlerAddServicio,
         getServicio,
         handlerServicioSelected,
-        handlerBaja
+        handlerBaja,
+        handlerAddNovedad,
+        handlerEditServicio
 
     } = useServicio();
 
@@ -163,11 +166,14 @@ export const UserProvider = ({ children }) => {
                 paginatorServicio,
                 servicioSelected,
                 errorsServicio,
+                errorsNovedad,
                 //funciones
                 handlerAddServicio,
                 getServicio,
                 handlerServicioSelected,
                 handlerBaja,
+                handlerAddNovedad,
+                handlerEditServicio,
 
 
                 //USUARIO
