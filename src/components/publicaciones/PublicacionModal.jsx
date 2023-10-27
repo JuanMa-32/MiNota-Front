@@ -9,7 +9,7 @@ export const PublicacionModal = () => {
           <div className='modal-content'>
             <div className='modal-header'>
               <h5 className='modal-title'>
-               Publicar
+               Publicar Anuncio
               </h5>
             </div>
             <div className='modal-body'>

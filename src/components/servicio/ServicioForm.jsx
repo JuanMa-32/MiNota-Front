@@ -53,7 +53,6 @@ export const ServicioForm = ({ idCargo }) => {
         const { name, value } = target;
         if (name === "localidad") {
             const selectedLocalidad = localidades.find(localidad => localidad.id === parseInt(value));
-            console.log(selectedLocalidad);
             setusuario2({
                 ...usuario2,
                 [name]: selectedLocalidad

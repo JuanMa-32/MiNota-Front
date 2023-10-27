@@ -36,8 +36,8 @@ export const FormPublicacion = () => {
     return (
         <form onSubmit={onSubmit}>
                  <input type="hidden" name="id" value={id} />
-                 
-            <input className='form-control my-3 w-75' placeholder='titulo'
+                 <label htmlFor="country" className="form-label-sm">Titulo</label>
+            <input className='form-control  form-control-sm my-3 w-75' 
                 name='titulo'
                 value={titulo}
                 onChange={onInputChange} // se dispara cuando el valor de un elemento de entrada (input) o de selección (select) ha cambiado. 
@@ -55,7 +55,7 @@ export const FormPublicacion = () => {
             <button type='submit' className='btn btn-primary btn-sm '>
                 Publicar
             </button>
-            <button className='btn btn-light btn-sm ' type='button' onClick={handlerCloseForm}>
+            <button className='btn btn-dark btn-sm ms-2' type='button' onClick={handlerCloseForm}>
                 Cerrar
             </button>
         </form>

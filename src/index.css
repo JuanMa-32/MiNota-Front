@@ -83,6 +83,13 @@
         opacity: 1
     }
 }
+
+.custom-modal {
+  max-width: 29%; 
+}
+
+
+
 .boton-esquina {
   margin-right: 40px;
 }
@@ -174,3 +181,8 @@
   padding: 15px;
   background-color: #fff;
 }
+
+
+
+
+

@@ -1,13 +1,16 @@
 import React, { useContext } from 'react'
 import { UserContext } from './../../context/UserContext';
+import { Link } from 'react-router-dom';
 
 export const ServicioView = () => {
     const { servicioSelected } = useContext(UserContext);
     const { usuario,regimen, situacionRevista, alta, baja, observacion,cargo } = servicioSelected;
     
     return (
+        <>
+  <Link className='btn btn-success btn-sm mt-3 ms-2' to={`/servicio/editar/${servicioSelected.id}`}>Editar</Link>
+  <br /><br></br>
         <div className="row g-3">
-
             <div className="col-sm-2">
                 <label htmlFor="lastName" className="form-label-sm">CUIL</label>
                 <input type="text" diseabled className="form-control form-control-sm" id="lastName" disabled placeholder="" name="cuil" value={usuario?.cuil} />
@@ -58,5 +61,6 @@ export const ServicioView = () => {
                 <input type="text" diseabled className="form-control form-control-sm" id="lastName" disabled placeholder="" name="cuil" value={observacion} />
             </div>
         </div>
+        </>
     )
 }

@@ -14,6 +14,7 @@ export const EditarEscuela = () => {
     }, [id])
   return (
     <>
+    
       <NavBarSecundario id={id} ></NavBarSecundario>
     <EscuelaEditar></EscuelaEditar>
     </>

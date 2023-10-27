@@ -77,7 +77,7 @@ export const UserProvider = ({ children }) => {
         servicioSelected,
         errorsServicio,
         errorsNovedad,
-
+        mes,
         //funciones
         handlerAddServicio,
         getServicio,
@@ -167,6 +167,7 @@ export const UserProvider = ({ children }) => {
                 servicioSelected,
                 errorsServicio,
                 errorsNovedad,
+                mes,
                 //funciones
                 handlerAddServicio,
                 getServicio,

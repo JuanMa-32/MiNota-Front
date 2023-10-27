@@ -18,7 +18,7 @@ export const PublicacionList = () => {
      
       {!visibleFrom || <PublicacionModal />}
       <div className="text-end mb-3">
-        {visibleFrom || <button className="btn btn-sm btn-outline-secondary boton-esquina" onClick={handlerOpenForm}>
+        {visibleFrom || <button className="btn btn-sm btn-dark" onClick={handlerOpenForm}>
           + Publicacion
         </button>}
       </div>

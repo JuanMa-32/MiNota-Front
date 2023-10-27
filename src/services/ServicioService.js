@@ -22,9 +22,9 @@ export const edit = async (id,servicio) => {
     }
 }
 
-export const findAllServicio = async (idEscuela,page) => {
+export const findAllServicio = async (idEscuela,page,mes,anio) => {
     try {
-        const response = await axios.get(`${URL}/${idEscuela}/${page}`)
+        const response = await axios.get(`${URL}/${idEscuela}/${page}?mes=${mes}&anio=${anio}`)
         return response;
     } catch (error) {
         console.log(error);

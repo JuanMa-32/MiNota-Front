@@ -1,9 +1,9 @@
-import { useContext, useReducer, useState } from "react"
+import {  useReducer, useState } from "react"
 import { servicioReducer } from './../reducers/servicioReducer';
 import { agregarNovedad, darBaja, edit, findAllServicio, findByIdServicio, save } from "../services/ServicioService";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "../context/UserContext";
+
 
 
 const servicioInit = {
@@ -42,7 +42,7 @@ const servicioInit = {
     obligacion: '',
     funcion: '',
     observacion: '',
-    motivoBaja:''
+    motivoBaja: ''
 }
 
 const errorsServicioInit = {
@@ -72,10 +72,10 @@ const errorsServicioInit = {
     observacion: ''
 }
 
-const errorsNovedadInit ={
-    articulo:'',
-    desde:'',
-    hasta:''
+const errorsNovedadInit = {
+    articulo: '',
+    desde: '',
+    hasta: ''
 }
 
 export const useServicio = () => {
@@ -86,13 +86,39 @@ export const useServicio = () => {
     const [errorsServicio, seterrorsServicio] = useState(errorsServicioInit)
     const [errorsNovedad, seterrorsNovedad] = useState(errorsNovedadInit)
     const [servicioSelected, setservicioSelected] = useState(servicioInit)
+
     const navigate = useNavigate();
 
-    
+    const [mes, setmes] = useState('')
 
-    const getServicio = async (idEscuela, page = 0) => {
+    function obtenerNombreMes(numeroMes) {
+        const meses = [
+          "Enero",
+          "Febrero",
+          "Marzo",
+          "Abril",
+          "Mayo",
+          "Junio",
+          "Julio",
+          "Agosto",
+          "Septiembre",
+          "Octubre",
+          "Noviembre",
+          "Diciembre"
+        ];
+        const indice = numeroMes - 1;
+      
+        if (meses[indice]) {
+          return meses[indice];
+        } 
+      }
+
+
+    const getServicio = async (idEscuela, page = 0, mes, anio) => {
         try {
-            const response = await findAllServicio(idEscuela, page);
+            const response = await findAllServicio(idEscuela, page, mes, anio);
+            const nombreMes = obtenerNombreMes(mes);
+            setmes(nombreMes)
             setpaginatorServicio(response.data)
             dispatch({
                 type: 'loadingServicio',
@@ -123,12 +149,12 @@ export const useServicio = () => {
             }
         }
     }
-    const handlerEditServicio =async (id,servicio) => {
+    const handlerEditServicio = async (id, servicio) => {
         try {
-            const response = await edit(id,servicio)
+            const response = await edit(id, servicio)
             dispatch({
-                type:'updateServicio',
-                payload:response.data
+                type: 'updateServicio',
+                payload: response.data
             })
             Swal.fire('Servicio', 'Editado con exito!', 'success')
             navigate(`/servicio/listar/${idEscuela}/0`)
@@ -140,10 +166,10 @@ export const useServicio = () => {
     const handlerBaja = async (id, bajaFormulario) => {
         try {
             await darBaja(id, bajaFormulario);
-           
+
             Swal.fire('Servicio', 'Este servicio fue dado de baja', 'success')
             getServicio(idEscuela)//recargo el estado para que impacte en la lista de inmediato
-        }catch (error) {
+        } catch (error) {
             console.log(error);
         }
     }
@@ -157,14 +183,15 @@ export const useServicio = () => {
         }
     }
 
-    const handlerAddNovedad =async (id,novedad) => {
+    const handlerAddNovedad = async (id, novedad) => {
         try {
-            await agregarNovedad(id,novedad)
+            await agregarNovedad(id, novedad)
             Swal.fire('Novedad', 'Novedad agregada al servicio.', 'success')
+            seterrorsNovedad(errorsNovedadInit)
         } catch (error) {
             if (error.response && error.response.status == 400) {
                 seterrorsNovedad(error.response.data)
-            }else {
+            } else {
                 throw error;
             }
         }
@@ -180,6 +207,7 @@ export const useServicio = () => {
         servicioSelected,
         errorsServicio,
         errorsNovedad,
+        mes,
 
         //funciones
         handlerAddServicio,
