@@ -4,25 +4,25 @@ const URL = 'http://localhost:8080/servicio'
 const URL_NOVEDAD = 'http://localhost:8080/novedad'
 const URL_DEPARTAMENTOS = 'https://apis.datos.gob.ar/georef/api/municipios?provincia=mendoza&campos=id,nombre&max=100'
 
-export const save = async (servicio,idCargo) => {
+export const save = async (servicio, idCargo) => {
     try {
-        const response = await axios.post(`${URL}/${idCargo}`,servicio)
+        const response = await axios.post(`${URL}/${idCargo}`, servicio)
         return response;
     } catch (error) {
         throw error;
     }
 }
 
-export const edit = async (id,servicio) => {
+export const edit = async (id, servicio) => {
     try {
-        const response = await axios.put(`${URL}/edit/${id}`,servicio)
+        const response = await axios.put(`${URL}/edit/${id}`, servicio)
         return response;
     } catch (error) {
         console.log(error);
     }
 }
 
-export const findAllServicio = async (idEscuela,page,mes,anio) => {
+export const findAllServicio = async (idEscuela, page, mes, anio) => {
     try {
         const response = await axios.get(`${URL}/${idEscuela}/${page}?mes=${mes}&anio=${anio}`)
         return response;
@@ -40,19 +40,25 @@ export const findByIdServicio = async (id) => {
     }
 }
 
-export const darBaja = async (id,{motivoBaja,baja}) =>{
+export const darBaja = async (id,{motivoBaja, baja }) => {
     try {
-         await axios.put(`${URL}/baja/${id}?motivoBaja=${motivoBaja}&baja=${baja}`);
-        
+        return await axios.put(`${URL}/baja/${id}?motivoBaja=${motivoBaja}&baja=${baja}`);
     } catch (error) {
         console.log(error);
     }
 }
 
-export const agregarNovedad = async (id,novedad) => {
+export const anularBaja = async (id) => {
     try {
-        await axios.post(`${URL_NOVEDAD}/${id}`,novedad)
-        
+        return await axios.put(`${URL}/anular_baja/${id}`)
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const agregarNovedad = async (id, novedad) => {
+    try {
+        await axios.post(`${URL_NOVEDAD}/${id}`, novedad)
     } catch (error) {
         throw error;
     }

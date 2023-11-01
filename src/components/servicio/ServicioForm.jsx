@@ -4,18 +4,21 @@ import React, { useContext, useEffect, useState } from 'react'
 import { UserContext } from './../../context/UserContext';
 import { departamentosMdz } from '../../services/ServicioService';
 
-export const ServicioForm = ({ idCargo }) => {
+export const ServicioForm = ({ idCargo, reemplazo }) => {
 
     const { errorsServicio, servicioInit, handlerAddServicio, localidades,
         hanlderAddLocalidades, usuarioDni, handlerUsuarioDni, restablecerUsuario } = useContext(UserContext);
 
     const [servicioForm, setservicioForm] = useState(servicioInit)
-    const { usuario, alta, baja, diasCumplir, obligacion, funcion, observacion, situacionRevista } = servicioForm;
+    const { usuario, alta, baja, diasCumplir,
+        obligacion, funcion, observacion, situacionRevista } = servicioForm;
     const [dni, setdni] = useState(0)
 
     const [departamentos, setdepartamentos] = useState([])
     const [usuario2, setusuario2] = useState({})
     const [isUser, setisUser] = useState(false)
+
+    //traigo los dpto de mendoza para el form
     const getDpto = async () => {
         try {
             const response = await departamentosMdz();
@@ -24,18 +27,18 @@ export const ServicioForm = ({ idCargo }) => {
             console.log(error);
         }
     }
-
-
     useEffect(() => {
         hanlderAddLocalidades()
         getDpto()
     }, [])
 
+    //si el usuario buscado por dni es encontrado se setea o si se restablece tambien se setea.
     useEffect(() => {
         if (usuarioDni?.cuil) {
             setusuario2(usuarioDni)
             setisUser(true)
         } else {
+            setusuario2(usuarioDni)
             setisUser(false)
         }
     }, [usuarioDni])
@@ -48,7 +51,6 @@ export const ServicioForm = ({ idCargo }) => {
             [name]: value
         })
     };
-
     const onInputUsuarioChange = ({ target }) => {
         const { name, value } = target;
         if (name === "localidad") {
@@ -73,13 +75,13 @@ export const ServicioForm = ({ idCargo }) => {
         setservicioForm(updatedServicioForm2);
 
         handlerAddServicio(idCargo, updatedServicioForm2)
-        setusuario2({})
+
     }
 
+    //METODO para buscar por dni,por si el usuario ya esta en el sistema
     const onInputDni = ({ target }) => {
         setdni(target.value)
     }
-
     const onSubmitDni = (event) => {
         event.preventDefault();
         handlerUsuarioDni(dni)
@@ -93,7 +95,13 @@ export const ServicioForm = ({ idCargo }) => {
     };
     return (
         <div className="col-md-12">
-            <h5 className="mb-3">Agregar Servicio</h5>
+            <>
+                {reemplazo ?
+                    (<h5 className="mb-3">Agregar Reemplazo</h5>)
+                    :
+                    (<h5 className="mb-3">Agregar Servicio</h5>)
+                }
+            </>
 
             <form className="needs-validation" onSubmit={onSubmitDni}>
                 <div className="row g-3">
@@ -103,7 +111,7 @@ export const ServicioForm = ({ idCargo }) => {
                             <input type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="dni" value={dni} onChange={onInputDni} />
                             <div className="input-group-append">
                                 <button className="btn btn-light btn-sm" type="submit"><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
-                                <button type='button' className="btn btn-light btn-sm" onClick={() => restablecerUsuario()}><FontAwesomeIcon icon={faXmark} /></button>
+                                <button type='button' className="btn btn-light btn-sm" onClick={restablecerUsuario}><FontAwesomeIcon icon={faXmark} /></button>
                             </div>
                         </div>
                     </div>
@@ -406,15 +414,25 @@ export const ServicioForm = ({ idCargo }) => {
                     )}
                     {activeTab === 'SERVICIO' && (
                         <div className="row g-3">
-                            <div className="col-md-3">
-                                <label htmlFor="country" className="form-label-sm">Situación de revista</label>
-                                <select className="form-select form-select-sm" id="country" name="situacionRevista" value={situacionRevista} onChange={onInputChange}>
-                                    <option value="" disabled selected>Seleccionar</option>
-                                    <option value="Titular">Titular</option>
-                                    <option value="Reemplazo">Reemplazo</option>
-                                </select>
-                                <p className='text-danger'>{errorsServicio?.situacionRevista}</p>
-                            </div>
+                            <>
+                                {reemplazo ? (<div className="col-md-3">
+                                    <label htmlFor="country" className="form-label-sm">Situación de revista</label>
+                                    <select className="form-select form-select-sm" id="country" name="situacionRevista" value={situacionRevista} onChange={onInputChange}>
+                                        <option value="" disabled selected>Seleccionar</option>
+                                        <option value="Reemplazo">Reemplazo</option>
+                                    </select>
+
+                                </div>) :
+                                    (<div className="col-md-3">
+                                        <label htmlFor="country" className="form-label-sm">Situación de revista</label>
+                                        <select className="form-select form-select-sm" id="country" name="situacionRevista" value={situacionRevista} onChange={onInputChange}>
+                                            <option value="" disabled selected>Seleccionar</option>
+                                            <option value="Titular">Titular</option>
+                                        </select>
+                                    </div>)
+                                }
+                            </>
+
                             <div className="col-sm-2">
                                 <label htmlFor="lastName" className="form-label-sm">Fecha Alta</label>
                                 <input type="date" className="form-control form-control-sm" id="lastName" placeholder="" name="alta" value={alta} onChange={onInputChange} />
@@ -468,8 +486,13 @@ export const ServicioForm = ({ idCargo }) => {
                                 <p className='text-danger'>{errorsServicio?.observacion}</p>
                             </div>
 
-                            <button className="btn btn-primary btn-sm mt-3" type="submit">Agregar</button>
 
+                            <div className="col-sm-12">
+                                {reemplazo ? (<button className="btn btn-primary btn-sm mt-3" type="submit">Agregar Reemplazo</button>)
+                                    :
+                                    (<button className="btn btn-primary btn-sm mt-3" type="submit">Agregar</button>)
+                                }
+                            </div>
                         </div>
                     )}
 

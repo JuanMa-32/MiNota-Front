@@ -84,13 +84,14 @@ export const UserProvider = ({ children }) => {
         handlerServicioSelected,
         handlerBaja,
         handlerAddNovedad,
-        handlerEditServicio
+        handlerEditServicio,
+        handlerAnularBaja
 
     } = useServicio();
 
     const {
         //variables
-        usuarios,
+        alumnos,
         usuarioDni,
 
         //funciones
@@ -175,11 +176,12 @@ export const UserProvider = ({ children }) => {
                 handlerBaja,
                 handlerAddNovedad,
                 handlerEditServicio,
+                handlerAnularBaja,
 
 
                 //USUARIO
                 //variables
-                usuarios,
+                alumnos,
                 usuarioDni,
                 //funciones
                 getUsuarios,

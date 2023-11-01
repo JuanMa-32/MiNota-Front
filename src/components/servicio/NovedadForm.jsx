@@ -173,7 +173,7 @@ export const NovedadForm = ({ idServicio, handlerCloseFormNovedad }) => {
 
 <br />
                 <h6>Novedades Servicio</h6>
-                <table class="table table-sm" >
+                <table className="table table-sm" >
                     <thead>
                         <tr>
                             <th scope="col" style={{ fontSize: '13px' }}>Artículo</th>

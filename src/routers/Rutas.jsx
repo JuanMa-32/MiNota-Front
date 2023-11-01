@@ -22,6 +22,8 @@ import { ServicioFormPage } from '../page/ServicioFormPage';
 import { ServicioListPage } from '../page/ServicioListPage';
 import { ServicioViewPage } from '../page/ServicioViewPage';
 import { ServicioEditPage } from './../page/ServicioEditPage';
+import { ServicioRemplazoPage } from '../page/ServicioRemplazoPage';
+import { AlumnosListPage } from '../page/AlumnosListPage';
 
 
 export const Rutas = () => {
@@ -32,27 +34,30 @@ export const Rutas = () => {
                 <div className="d-flex">
                     <SideBar></SideBar>
                     <div className="content-container">
-                    <Routes>
-                        <Route path="escritorio" element={<PublicacionList />} />
-                        <Route path="/" element={<Navigate to="/escritorio" />} />
-                        <Route path="/escuela/registrar" element={<EscuelaForm/>} />
-                        <Route path="/escuela/listar" element={<EscuelasList/>} />
-                        <Route path="/escuela/ver/:id" element={<VerEscuela/>} />
-                        <Route path="/escuela/editar/:id" element={<EditarEscuela/>} />
-                        <Route path="/escuela/caracteristicas/:id" element={<EditarCaracteristicasEscuela/>}/>
-                        <Route path="/division/agregar/:id" element={<FormDivision />} />
-                        <Route path="/division/listar/:id" element={<DivisionesCursos />} />
-                        <Route path="/division/ver/:id" element={<DivisionPage />} />
-                        <Route path="/division/editar/:id" element={<DivisionEditPage />} />
-                        <Route path="/cargo/agregar/:id" element={<CargoFormPage />} />
-                        <Route path="/cargo/listar/:id/:page" element={<CargoListPage />} />
-                        <Route path="/cargo/ver/:id" element={<CargoVerPage />} />
-                        <Route path="/cargo/editar/:id" element={<CargoEditPage />} />
-                        <Route path="/servicio/cargar/:id" element={<ServicioFormPage />} />
-                        <Route path="/servicio/listar/:id/:page" element={<ServicioListPage />} />
-                        <Route path="/servicio/ver/:id" element={<ServicioViewPage />} />
-                        <Route path="/servicio/editar/:id" element={<ServicioEditPage />} />
-                    </Routes>
+                        <Routes>
+                            <Route path="escritorio" element={<PublicacionList />} />
+                            <Route path="/" element={<Navigate to="/escritorio" />} />
+                            <Route path="/escuela/registrar" element={<EscuelaForm />} />
+                            <Route path="/escuela/listar" element={<EscuelasList />} />
+                            <Route path="/escuela/ver/:id" element={<VerEscuela />} />
+                            <Route path="/escuela/editar/:id" element={<EditarEscuela />} />
+                            <Route path="/escuela/caracteristicas/:id" element={<EditarCaracteristicasEscuela />} />
+                            <Route path="/division/agregar/:id" element={<FormDivision />} />
+                            <Route path="/division/listar/:id" element={<DivisionesCursos />} />
+                            <Route path="/division/ver/:id" element={<DivisionPage />} />
+                            <Route path="/division/editar/:id" element={<DivisionEditPage />} />
+                            <Route path="/division/alumnos/:idDivision" element={<AlumnosListPage />} />
+                            <Route path="/cargo/agregar/:id" element={<CargoFormPage />} />
+                            <Route path="/cargo/listar/:id/:page" element={<CargoListPage />} />
+                            <Route path="/cargo/ver/:id" element={<CargoVerPage />} />
+                            <Route path="/cargo/editar/:id" element={<CargoEditPage />} />
+                            <Route path="/servicio/cargar/:id" element={<ServicioFormPage />} />
+                            <Route path="/servicio/listar/:id/:page" element={<ServicioListPage />} />
+                            <Route path="/servicio/ver/:id" element={<ServicioViewPage />} />
+                            <Route path="/servicio/editar/:id" element={<ServicioEditPage />} />
+                            <Route path="/servicio/:reemplazo/:id" element={<ServicioRemplazoPage />} />
+                           
+                        </Routes>
                     </div>
                 </div>
                 <Footer></Footer>

@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import { UserContext } from '../../context/UserContext';
 import { Link } from 'react-router-dom';
 import { findCargoDivision } from '../../services/divisionesService';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 
 export const DivisionView = () => {
@@ -34,7 +36,8 @@ export const DivisionView = () => {
 
   return (
     <div className="col-md-12">
-
+    
+      <Link to={`/division/alumnos/${divisionForm.id}`} className='btn btn-light btn-sm p-1'>Alumnos</Link>
       <form className="needs-validation" >
         <div className="row g-3">
           <div className="col-md-3">
@@ -70,7 +73,7 @@ export const DivisionView = () => {
           <div className="col-md-3">
             <label htmlFor="country" className="form-label-sm">Carrera</label>
             <select className="form-select form-select-sm" name="carrera" value={carrera} disabled>
-             
+
               <option value="Educacion primaria (Res. 3556/19)"> {carrera}</option>
             </select>
 
@@ -78,7 +81,7 @@ export const DivisionView = () => {
           <div className="col-md-3">
             <label htmlFor="country" className="form-label-sm">Modalidad</label>
             <select className="form-select form-select-sm" name="modalidad" value={modalidad} disabled>
-             
+
               <option value="presencial">{modalidad}</option>
             </select>
 
@@ -135,14 +138,52 @@ export const DivisionView = () => {
                   {servicio.usuario.cuil}
                 </td>
                 <td style={{ fontSize: '13px' }}>
-                  {servicio.usuario.apellido},{servicio.usuario.nombre}
+                  {servicio.usuario.apellido}, {servicio.usuario.nombre}
                 </td>
               </div>
             ))}
           </tr>
         </tbody>
       </table>
-      <h3>ACA IRA LA TABLA DE ALUMNOS...</h3>
+
+
+
+      <br></br>
+      <table className="table table-sm table-bordered table-hover">
+        <thead>
+          <tr>
+            <th colSpan="5" style={{ fontSize: '15px', textAlign: 'center' }}>Alumnos ({divisionForm?.alumnos?.length})</th>
+          </tr>
+          <tr>
+            <th scope="col" style={{ fontSize: '14px' }}>C. lectivo</th>
+            <th scope="col" style={{ fontSize: '14px' }}>Condiciòn</th>
+            <th scope="col" style={{ fontSize: '14px' }}>Documento</th>
+            <th scope="col" style={{ fontSize: '14px' }}>Persona</th>
+            <th scope="col" style={{ fontSize: '14px' }}>F. Nacimiento</th>
+            <th scope="col" style={{ fontSize: '14px' }}>Género</th>
+            <th scope="col" style={{ fontSize: '14px' }}>Desde</th>
+            <th scope="col" style={{ fontSize: '14px' }}></th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            divisionForm?.alumnos?.map(alumno =>
+              <tr >
+                <td style={{ fontSize: '13px' }}>{alumno.nombre}</td>
+                <td style={{ fontSize: '13px' }}>{alumno.nombre}</td>
+                <td style={{ fontSize: '13px' }}>{alumno.dni}</td>
+                <td style={{ fontSize: '13px' }}>{alumno.apellido},{alumno.nombre}</td>
+                <td style={{ fontSize: '13px' }}>{alumno.nacimiento}</td>
+                <td style={{ fontSize: '13px' }}>{alumno.genero}</td>
+                <td style={{ fontSize: '13px' }}>{alumno.desde}</td>
+                <td><Link to={`/`} className='btn btn-light btn-sm p-1'><FontAwesomeIcon icon={faMagnifyingGlass} size="2xs" /> </Link></td>
+              </tr>
+            )
+          }
+
+
+        </tbody>
+      </table>
     </div>
   )
 }

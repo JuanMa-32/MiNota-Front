@@ -1,6 +1,6 @@
-import {  useReducer, useState } from "react"
+import { useReducer, useState } from "react"
 import { servicioReducer } from './../reducers/servicioReducer';
-import { agregarNovedad, darBaja, edit, findAllServicio, findByIdServicio, save } from "../services/ServicioService";
+import { agregarNovedad, anularBaja, darBaja, edit, findAllServicio, findByIdServicio, save } from "../services/ServicioService";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
@@ -93,25 +93,25 @@ export const useServicio = () => {
 
     function obtenerNombreMes(numeroMes) {
         const meses = [
-          "Enero",
-          "Febrero",
-          "Marzo",
-          "Abril",
-          "Mayo",
-          "Junio",
-          "Julio",
-          "Agosto",
-          "Septiembre",
-          "Octubre",
-          "Noviembre",
-          "Diciembre"
+            "Enero",
+            "Febrero",
+            "Marzo",
+            "Abril",
+            "Mayo",
+            "Junio",
+            "Julio",
+            "Agosto",
+            "Septiembre",
+            "Octubre",
+            "Noviembre",
+            "Diciembre"
         ];
         const indice = numeroMes - 1;
-      
+
         if (meses[indice]) {
-          return meses[indice];
-        } 
-      }
+            return meses[indice];
+        }
+    }
 
 
     const getServicio = async (idEscuela, page = 0, mes, anio) => {
@@ -165,10 +165,48 @@ export const useServicio = () => {
 
     const handlerBaja = async (id, bajaFormulario) => {
         try {
-            await darBaja(id, bajaFormulario);
-
+            const response = await darBaja(id, bajaFormulario);
+            dispatch({
+                type: 'updateServicio',
+                payload: response.data
+            })
             Swal.fire('Servicio', 'Este servicio fue dado de baja', 'success')
-            getServicio(idEscuela)//recargo el estado para que impacte en la lista de inmediato
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const handlerAnularBaja = async (id) => {
+        try {
+            Swal.fire({
+                title: 'Esta seguro que desea anular la baja?',
+                text: "Cuidado la baja sera anulada!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, anular!'
+            }).then(async (result) => {
+                if (result.isConfirmed) {
+
+                    try {
+                        const response = await anularBaja(id);
+                        dispatch({
+                            type: 'updateServicio',
+                            payload: response.data
+                        })
+
+                        Swal.fire(
+                            'Servicio dado de alta!',
+                            'La baja fue anulada!',
+                            'success'
+                        );
+                        //navigate(`/cargo/listar/${idEsc}/${0}`)
+                    } catch (error) {
+                        console.log(error);
+                    }
+                }
+            })
         } catch (error) {
             console.log(error);
         }
@@ -215,6 +253,7 @@ export const useServicio = () => {
         handlerServicioSelected,
         handlerBaja,
         handlerAddNovedad,
-        handlerEditServicio
+        handlerEditServicio,
+        handlerAnularBaja
     }
 }

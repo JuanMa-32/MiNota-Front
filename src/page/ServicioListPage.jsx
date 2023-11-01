@@ -59,7 +59,7 @@ export const ServicioListPage = () => {
         <MesServicioModal handlerCloseFormMes={handlerCloseFormMes} idEscuela={id} />}
 
       <div className="text-end mb-3">
-        <button type="button" onClick={handlerOpenFormMes} class="btn btn-dark ">
+        <button type="button" onClick={handlerOpenFormMes} className="btn btn-dark ">
           {mes}'23 <FontAwesomeIcon icon={faArrowsRotate} />
         </button>
       </div>

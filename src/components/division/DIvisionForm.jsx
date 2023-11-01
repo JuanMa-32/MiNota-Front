@@ -92,7 +92,7 @@ export const DivisionForm = ({ idEscuela }) => {
 
         </div>
         <button className="btn btn-primary btn-sm mt-3" type="submit">Cargar </button>
-        <Link to={`/division/listar/${idEscuela}`} className='btn btn-danger btn-sm mt-3 ms-2'>Volver</Link>
+        <Link to={`/division/listar/${idEscuela}`} className='btn btn-light btn-sm mt-3 ms-2'>Volver</Link>
       </form>
     </div>
   )

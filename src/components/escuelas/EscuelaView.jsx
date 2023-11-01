@@ -82,7 +82,7 @@ export const EscuelaView = () => {
             <input disabled type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="cue" value={cue} onChange={onInputChange} />
           </div>
           <div className="col-sm-2">
-            <label htmlFor="lastName" className="form-label">SubCUE</label>
+            <label htmlFor="lastName" className="form-label-sm">SubCUE</label>
             <input disabled type="text" className="form-control form-control-sm" id="lastName" placeholder="" name="subCue" value={subCue} onChange={onInputChange} />
           </div>
           <div className="col-sm-5">

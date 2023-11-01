@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { startOfMonth, endOfMonth, addMonths, format } from 'date-fns';
@@ -17,7 +17,11 @@ export const BajaForm = ({ handlerCloseFormBaja, idServicio }) => {
   const { motivoBaja, baja } = bajaForm;
   const [selectedDate, setSelectedDate] = useState(null);
 
-  const { handlerBaja } = useContext(UserContext);
+  const { handlerBaja,handlerServicioSelected } = useContext(UserContext);
+
+  useEffect(() => {
+    handlerServicioSelected(idServicio)
+}, [idServicio])
 
   const handleDateChange = (date) => {
     setSelectedDate(date);

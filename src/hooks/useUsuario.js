@@ -1,6 +1,6 @@
 import React, { useReducer, useState } from 'react'
 import { usuarioReducer } from './../reducers/usuarioReducer';
-import { findAllUsuarios, findByDni } from './../services/usuarioService';
+import {  agregarAlumno, findAllAlumnos, findByDni } from './../services/usuarioService';
 const usuarioInit= {
     cuil:0,
     dni:0,
@@ -31,14 +31,16 @@ const usuarioInit= {
 }
 export const useUsuario = () => {
   
-    const [usuarios, dispatch] = useReducer(usuarioReducer,[]);
+    const [alumnos, dispatch] = useReducer(usuarioReducer,[]);
     const [usuarioDni, setusuarioDni] = useState(usuarioInit)
 
-    const getUsuarios = async () => {
+    const getUsuarios = async (idDivision) => {
+        
         try {
-            const response = await findAllUsuarios();
+          const response = await findAllAlumnos(idDivision);
+          console.log(response);
             dispatch({
-                type:'loadingUsuarios',
+                type:'loadingAlumnos',
                 payload:response.data
             })
         } catch (error) {
@@ -59,11 +61,21 @@ export const useUsuario = () => {
         setusuarioDni(usuarioInit)
     }
 
+    //alumnos
+    const handlerAddAlumno = async (idDivision,alumno) => {
+        try {
+            const response = await agregarAlumno(alumno,id);
+        } catch (error) {
+            console.log(error);
+        }
+    } 
+
   
     return {
         //variables
-        usuarios,
+        alumnos,
         usuarioDni,
+
 
         //funciones
         getUsuarios,

@@ -55,7 +55,7 @@ export const FormPublicacion = () => {
             <button type='submit' className='btn btn-primary btn-sm '>
                 Publicar
             </button>
-            <button className='btn btn-dark btn-sm ms-2' type='button' onClick={handlerCloseForm}>
+            <button className='btn btn-light btn-sm ms-2' type='button' onClick={handlerCloseForm}>
                 Cerrar
             </button>
         </form>

@@ -1,6 +1,6 @@
 export const usuarioReducer = (state = [],action) => {
     switch (action.type) {
-        case 'loadingUsuarios':
+        case 'loadingAlumnos':
             return action.payload;
     
         default:
