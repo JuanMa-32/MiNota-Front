@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { ServicioList } from "../components/servicio/ServicioList"
 import { UserContext } from "../context/UserContext";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Paginator } from './../components/Paginator';
 import { BajaModal } from './../components/servicio/BajaModal';
 import { NovedadModal } from "../components/servicio/NovedadModal";
@@ -47,7 +47,7 @@ export const ServicioListPage = () => {
   const handlerCloseFormMes = () => {
     setvisibleMes(false)
   }
-
+  const idEsc = sessionStorage.getItem('idEscuela');
 
 
 
@@ -74,6 +74,7 @@ export const ServicioListPage = () => {
 
       <ServicioList handlerOpenFormBaja={handlerOpenFormBaja} handlerOpenFormNovedad={handlerOpenFormNovedad} />
       <Paginator id={id} url={url} paginator={paginatorServicio} />
+      <Link to={`/escuela/ver/${idEsc}`} className='btn btn-light btn-sm mt-3 ms-2'>Volver</Link>
     </>
   )
 }

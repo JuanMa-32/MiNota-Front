@@ -15,6 +15,7 @@ export const DivisionPage = () => {
 
   return (
     <>
+      <Link to={`/division/alumnos/${id}`} className='btn btn-light btn-sm p-1'>Alumnos</Link>
       <h4 className="mb-3">División</h4>
       <Link to={`/division/editar/${id}`} className='btn btn-success btn-sm mt-3 ms-2'>Editar</Link>
       <button className='btn btn-danger btn-sm mt-3 ms-2' onClick={() => handlerDeleteDivision(id, idEsc)} >Eliminar</button>

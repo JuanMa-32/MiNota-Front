@@ -36,8 +36,6 @@ export const DivisionView = () => {
 
   return (
     <div className="col-md-12">
-    
-      <Link to={`/division/alumnos/${divisionForm.id}`} className='btn btn-light btn-sm p-1'>Alumnos</Link>
       <form className="needs-validation" >
         <div className="row g-3">
           <div className="col-md-3">
@@ -146,44 +144,48 @@ export const DivisionView = () => {
         </tbody>
       </table>
 
-
-
       <br></br>
-      <table className="table table-sm table-bordered table-hover">
+
+      <table className="table table-sm table-hover">
         <thead>
           <tr>
-            <th colSpan="5" style={{ fontSize: '15px', textAlign: 'center' }}>Alumnos ({divisionForm?.alumnos?.length})</th>
+            <th colSpan="5" className="text-center" style={{ fontSize: '14px' }}>
+              Alumnos ({divisionForm?.alumnos?.length})
+            </th>
           </tr>
           <tr>
             <th scope="col" style={{ fontSize: '14px' }}>C. lectivo</th>
-            <th scope="col" style={{ fontSize: '14px' }}>Condiciòn</th>
+            <th scope="col" style={{ fontSize: '14px' }}>Condición</th>
             <th scope="col" style={{ fontSize: '14px' }}>Documento</th>
             <th scope="col" style={{ fontSize: '14px' }}>Persona</th>
-            <th scope="col" style={{ fontSize: '14px' }}>F. Nacimiento</th>
+            <th scope="col" style={{ fontSize: '14px' }}> F. Nacimiento</th>
             <th scope="col" style={{ fontSize: '14px' }}>Género</th>
-            <th scope="col" style={{ fontSize: '14px' }}>Desde</th>
+            <th scope="col" style={{ fontSize: '14px' }}>Desde </th>
             <th scope="col" style={{ fontSize: '14px' }}></th>
           </tr>
+        
         </thead>
         <tbody>
-          {
-            divisionForm?.alumnos?.map(alumno =>
-              <tr >
-                <td style={{ fontSize: '13px' }}>{alumno.nombre}</td>
-                <td style={{ fontSize: '13px' }}>{alumno.nombre}</td>
-                <td style={{ fontSize: '13px' }}>{alumno.dni}</td>
-                <td style={{ fontSize: '13px' }}>{alumno.apellido},{alumno.nombre}</td>
-                <td style={{ fontSize: '13px' }}>{alumno.nacimiento}</td>
-                <td style={{ fontSize: '13px' }}>{alumno.genero}</td>
-                <td style={{ fontSize: '13px' }}>{alumno.desde}</td>
-                <td><Link to={`/`} className='btn btn-light btn-sm p-1'><FontAwesomeIcon icon={faMagnifyingGlass} size="2xs" /> </Link></td>
-              </tr>
-            )
-          }
-
-
+          {divisionForm?.alumnos?.map((alumno) => (
+            <tr>
+              <td style={{ fontSize: '11px' }} className="text-sm">{alumno.nombre}</td>
+              <td style={{ fontSize: '11px' }} className="text-sm">{alumno.nombre}</td>
+              <td style={{ fontSize: '11px' }} className="text-sm">{alumno.dni}</td>
+              <td style={{ fontSize: '11px' }} className="text-sm">{alumno.apellido}, {alumno.nombre}</td>
+              <td style={{ fontSize: '11px' }} className="text-sm">{alumno.nacimiento}</td>
+              <td style={{ fontSize: '11px' }} className="text-sm">{alumno.genero}</td>
+              <td style={{ fontSize: '11px' }} className="text-sm">{alumno.desde}</td>
+              <td>
+                <Link to={`/alumno/ver/${alumno.id}`} className="btn btn-light btn-sm p-1">
+                  <FontAwesomeIcon icon={faMagnifyingGlass} size="2xs" />
+                </Link>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
+
+
     </div>
   )
 }

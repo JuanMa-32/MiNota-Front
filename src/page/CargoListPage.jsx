@@ -21,6 +21,7 @@ export const CargoListPage = () => {
       <br></br><br></br>
       <CargoList></CargoList>
       <Paginator id={id} url={url} paginator={paginator}></Paginator>
+      <Link to={`/escuela/ver/${escuelaSeleccionada.id}`} className='btn btn-light btn-sm mt-3 ms-2'>Volver</Link>
     </>
 
   )

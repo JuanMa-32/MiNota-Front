@@ -87,11 +87,19 @@
 .custom-modal {
   max-width: 29%; 
 }
-
+.custom-modal-alumno {
+  max-width: 35%; 
+}
 
 
 .boton-esquina {
+  background: #9891c1;
+  color:white;
   margin-right: 40px;
+}
+.boton-esquina:hover {
+  background: #9891c1; 
+  color: white; 
 }
 
 
@@ -186,3 +194,17 @@
 
 
 
+.buttonAgregar {
+  background: #445cff;
+  color: white;
+  width: 100px; /* Establece el ancho del botón */
+  height: 25px; /* Establece la altura del botón */
+  padding: 2px 2px; /* Ajusta el espacio interno del botón para el texto */
+  font-size: 12px; /* Ajusta el tamaño del texto dentro del botón */
+}
+
+
+.buttonAgregar:hover {
+  background-color: #445cff; 
+  color: white; 
+}

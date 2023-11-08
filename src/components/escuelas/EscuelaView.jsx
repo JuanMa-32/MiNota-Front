@@ -769,7 +769,7 @@ export const EscuelaView = () => {
 
 
       </form>
-      <Link to={`/`} className='btn btn-danger btn-sm mt-3 ms-2'>Volver</Link>
+      <Link to={`/escuela/listar`} className='btn btn-light btn-sm mt-3 ms-2'>Volver</Link>
     </div>
 
   )

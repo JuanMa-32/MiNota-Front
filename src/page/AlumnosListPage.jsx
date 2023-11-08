@@ -9,24 +9,21 @@ import { ModalBuscarAlumno } from './../components/alumnos/ModalBuscarAlumno';
 export const AlumnosListPage = () => {
 
     const { idDivision } = useParams();
-    const { getUsuarios } = useContext(UserContext);
-    const [visibleBuscar, setvisibleBuscar] = useState(false);
+    const { getUsuarios, visibleBuscar, handlerOpenFormBuscar } = useContext(UserContext);
 
     useEffect(() => {
         getUsuarios(idDivision)
     }, [idDivision])
 
-    const handlerOpenFormBuscar = () => {
-        setvisibleBuscar(true);
-    }
-    const handlerCloseFormBuscar = () => {
-        setvisibleBuscar(false)
-    }
+
     return (
         <>
             {!visibleBuscar ||
-             <ModalBuscarAlumno handlerCloseFormBuscar={handlerCloseFormBuscar} />}
-            <Link className='btn btn-success btn-sm mt-3 ms-3'  onClick={handlerOpenFormBuscar}>Agregar</Link>
+                <ModalBuscarAlumno idDivision={idDivision} />}
+            <Link className='btn btn-sm' style={{ background: '#445cff', color: 'white' }} to={`/alumno/editar/`}>Mover entre divisiones</Link>
+            <Link className='btn btn-sm  ms-3' style={{ background: '#445cff', color: 'white' }} to={`/alumno/editar/`}>Pase a otra escuela</Link>
+            <Link className='btn btn-success btn-sm ms-3' onClick={handlerOpenFormBuscar}>Agregar alumno nuevo</Link>
+            <br /> <br />
             <AlumnosList></AlumnosList>
         </>
     )

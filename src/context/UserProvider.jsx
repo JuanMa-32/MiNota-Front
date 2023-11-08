@@ -93,11 +93,20 @@ export const UserProvider = ({ children }) => {
         //variables
         alumnos,
         usuarioDni,
+        visibleBuscar,
+        usuarioInit,
+        alumnoSelected,
 
         //funciones
         getUsuarios,
         handlerUsuarioDni,
-        restablecerUsuario
+        restablecerUsuario,
+        handlerAddAlumnoExistente,
+        handlerAddAlumno,
+        handlerOpenFormBuscar,
+        handlerCloseFormBuscar,
+        handlerAlumnoSelected,
+        handlerEditAlumno
     } = useUsuario();
 
     return (
@@ -183,10 +192,19 @@ export const UserProvider = ({ children }) => {
                 //variables
                 alumnos,
                 usuarioDni,
+                visibleBuscar,
+                usuarioInit,
+                alumnoSelected,
                 //funciones
                 getUsuarios,
                 handlerUsuarioDni,
-                restablecerUsuario
+                restablecerUsuario,
+                handlerAddAlumnoExistente,
+                handlerAddAlumno,
+                handlerOpenFormBuscar,
+                handlerCloseFormBuscar,
+                handlerAlumnoSelected,
+                handlerEditAlumno
             }
         }>
             {children}

@@ -171,7 +171,7 @@ export const NovedadForm = ({ idServicio, handlerCloseFormNovedad }) => {
                     </div>
                 </div>
 
-<br />
+                <br />
                 <h6>Novedades Servicio</h6>
                 <table className="table table-sm" >
                     <thead>

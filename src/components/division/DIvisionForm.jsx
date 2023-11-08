@@ -22,7 +22,7 @@ export const DivisionForm = ({ idEscuela }) => {
     hanlderAddDivision(divisionForm, idEscuela);
   }
   return (
-    <div className="col-md-10">
+    <div className="col-md-12">
       <h4 className="mb-3">División</h4>
       <hr />
       <form className="needs-validation" onSubmit={onSubmit}>
