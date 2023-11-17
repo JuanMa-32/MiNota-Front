@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { UserContext } from '../../context/UserContext'
 
+
 export const FormAlumno = ({ idDivision }) => {
     const { usuarioInit, handlerAddAlumno } = useContext(UserContext)
 
@@ -18,6 +19,7 @@ export const FormAlumno = ({ idDivision }) => {
         handlerAddAlumno(idDivision, alumnoForm)
     }
     return (
+        <>
         <div className="col-md-12">
             <h6>Verifique que los datos del alumno a incorporar al curso actual sean correctos.</h6>
             <form className="needs-validation" onSubmit={onSubmit}>
@@ -92,7 +94,7 @@ export const FormAlumno = ({ idDivision }) => {
                     <div className="col-sm-2">
                         <div className="form-group">
                             <label htmlFor="fecha">Ciclo lectivo</label>
-                            <input type="date" className="form-control form-control-sm" id="fecha" />
+                            <input disabled type="text" className="form-control form-control-sm" id="fecha" name="cicloLectivo" value={alumnoForm.cicloLectivo} onChange={onInputChange} />
                         </div>
 
                     </div>
@@ -100,5 +102,7 @@ export const FormAlumno = ({ idDivision }) => {
                 <button className="btn btn-primary btn-sm mt-3" type="submit">Guardar y editar alumno</button>
             </form>
         </div>
+       
+</>
     )
 }

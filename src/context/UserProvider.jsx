@@ -50,7 +50,8 @@ export const UserProvider = ({ children }) => {
         hanlderAddDivision,
         getDivisiones,
         hanlderDivisionSelected,
-        handlerDeleteDivision
+        handlerDeleteDivision,
+        handlerMoverAlumnos
 
     } = useDivision();
 
@@ -96,17 +97,20 @@ export const UserProvider = ({ children }) => {
         visibleBuscar,
         usuarioInit,
         alumnoSelected,
+        alumnosForm,
+        alumnosPaginador,
 
         //funciones
         getUsuarios,
         handlerUsuarioDni,
-        restablecerUsuario,
-        handlerAddAlumnoExistente,
         handlerAddAlumno,
+        handlerAddAlumnoExistente,
         handlerOpenFormBuscar,
         handlerCloseFormBuscar,
         handlerAlumnoSelected,
-        handlerEditAlumno
+        handlerEditAlumno,
+        restablecerListAlumnos,
+        getAlumnosForm
     } = useUsuario();
 
     return (
@@ -152,6 +156,7 @@ export const UserProvider = ({ children }) => {
                 getDivisiones,
                 hanlderDivisionSelected,
                 handlerDeleteDivision,
+                handlerMoverAlumnos,
 
 
                 //CARGO
@@ -195,16 +200,20 @@ export const UserProvider = ({ children }) => {
                 visibleBuscar,
                 usuarioInit,
                 alumnoSelected,
+                alumnosForm,
+                alumnosPaginador,
+
                 //funciones
                 getUsuarios,
                 handlerUsuarioDni,
-                restablecerUsuario,
-                handlerAddAlumnoExistente,
                 handlerAddAlumno,
+                handlerAddAlumnoExistente,
                 handlerOpenFormBuscar,
                 handlerCloseFormBuscar,
                 handlerAlumnoSelected,
-                handlerEditAlumno
+                handlerEditAlumno,
+                restablecerListAlumnos,
+                getAlumnosForm
             }
         }>
             {children}

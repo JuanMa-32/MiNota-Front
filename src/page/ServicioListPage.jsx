@@ -2,12 +2,13 @@ import { useContext, useEffect, useState } from "react";
 import { ServicioList } from "../components/servicio/ServicioList"
 import { UserContext } from "../context/UserContext";
 import { Link, useParams } from "react-router-dom";
-import { Paginator } from './../components/Paginator';
+
 import { BajaModal } from './../components/servicio/BajaModal';
 import { NovedadModal } from "../components/servicio/NovedadModal";
 import { MesServicioModal } from "../components/servicio/MesServicioModal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowsRotate } from "@fortawesome/free-solid-svg-icons";
+import { Paginator } from './../components/headers/Paginator';
 
 
 

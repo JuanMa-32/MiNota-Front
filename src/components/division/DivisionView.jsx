@@ -168,8 +168,8 @@ export const DivisionView = () => {
         <tbody>
           {divisionForm?.alumnos?.map((alumno) => (
             <tr>
-              <td style={{ fontSize: '11px' }} className="text-sm">{alumno.nombre}</td>
-              <td style={{ fontSize: '11px' }} className="text-sm">{alumno.nombre}</td>
+              <td style={{ fontSize: '11px' }} className="text-sm">{alumno.cicloLectivo}</td>
+              <td style={{ fontSize: '11px' }} className="text-sm">{alumno.condicion}</td>
               <td style={{ fontSize: '11px' }} className="text-sm">{alumno.dni}</td>
               <td style={{ fontSize: '11px' }} className="text-sm">{alumno.apellido}, {alumno.nombre}</td>
               <td style={{ fontSize: '11px' }} className="text-sm">{alumno.nacimiento}</td>

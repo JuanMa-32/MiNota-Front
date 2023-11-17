@@ -8,8 +8,7 @@ export const CargoFormPage = () => {
   useEffect(() => {
   }, [id])
   return (
-    <>
-       
+    <> 
         <CargoForm idEscuela={id}></CargoForm>
     </>
   )

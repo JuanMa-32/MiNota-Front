@@ -9,8 +9,8 @@ export const AlumnosRow = ({ alumno }) => {
       <td style={{ fontSize: '12px' }}>DNI {alumno.dni}</td>
       <td style={{ fontSize: '12px' }}>{alumno.apellido}, {alumno.nombre} </td>
       <td style={{ fontSize: '12px' }}>{alumno.genero} </td>
-      <td style={{ fontSize: '12px' }}>{alumno.nombre} </td>
-      <td style={{ fontSize: '12px' }}>{alumno.nombre} </td>
+      <td style={{ fontSize: '12px' }}>1ª </td>
+      <td style={{ fontSize: '12px' }}>U </td>
       <td style={{ fontSize: '12px' }}>{alumno.condicion}</td>
       <td style={{ fontSize: '12px' }}>{alumno.desde}</td>
       <td style={{ fontSize: '12px' }}>{alumno.hasta}</td>

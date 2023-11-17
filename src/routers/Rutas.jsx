@@ -27,6 +27,7 @@ import { AlumnosListPage } from '../page/AlumnosListPage';
 import { AlumnoFormPage } from '../page/AlumnoFormPage';
 import { AlumnoEditPage } from '../page/AlumnoEditPage';
 import { AlumnoViewPage } from '../page/AlumnoViewPage';
+import { AlumnosMoverPage } from '../page/AlumnosMoverPage';
 
 
 export const Rutas = () => {
@@ -51,10 +52,12 @@ export const Rutas = () => {
                             <Route path="/division/listar/:id" element={<DivisionesCursos />} />
                             <Route path="/division/ver/:id" element={<DivisionPage />} />
                             <Route path="/division/editar/:id" element={<DivisionEditPage />} />
-                            <Route path="/division/alumnos/:idDivision" element={<AlumnosListPage />} />
+                            <Route path="/division/alumnos/:idDivision/:page" element={<AlumnosListPage />} />
+                            <Route path="/division/mover_alumnos/:id" element={<AlumnosMoverPage />} />
                             <Route path="/alumno_division/agregar_nuevo/:idDivision" element={<AlumnoFormPage />}/>
                             <Route path="/alumno/editar/:id" element={<AlumnoEditPage />} />
                             <Route path="/alumno/ver/:id" element={<AlumnoViewPage />} />
+                          
                             {/* //cargo */}
                             <Route path="/cargo/agregar/:id" element={<CargoFormPage />} />
                             <Route path="/cargo/listar/:id/:page" element={<CargoListPage />} />

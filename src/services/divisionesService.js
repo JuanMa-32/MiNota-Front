@@ -47,6 +47,15 @@ export const findById = async (id) => {
     }
 }
 
+export const moverAlumnos = async (alumnos,idDivisionDestino,id) => {
+    try {
+        const response = await axios.put(`${URL}/mover_alumnos/${id}?idDivisionDestino=${idDivisionDestino}`,alumnos)
+        return response
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 export const findCargoDivision = async (id) => {
     try {
         const response = await axios.get(`${URL}/cargoDivision/${id}`)

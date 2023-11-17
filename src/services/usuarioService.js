@@ -2,7 +2,14 @@ import axios from "axios";
 
 const URL = 'http://localhost:8080/usuario';
 
-
+export const findByAlumno = async (nombre,apellido,page) => {
+    try {
+        const response = await axios.get(`${URL}/alumno/buscar/${page}?nombre=${nombre}&apellido=${apellido}`)
+        return response;
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 export const findByDni = async (dni) => {
     try {
@@ -20,6 +27,7 @@ export const AlumnofindById = async (id) => {
         console.log(error);
     }
 }
+
 export const agregarAlumno = async (alumno, id) => {
     try {
         const response = await axios.post(`${URL}/agregar_alumno/nuevo/${id}`, alumno)

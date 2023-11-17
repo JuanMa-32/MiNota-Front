@@ -1,9 +1,14 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { FormBuscarAlumno } from './FormBuscarAlumno'
 import { UserContext } from '../../context/UserContext'
 
-export const ModalBuscarAlumno = ({ idDivision }) => {
+
+
+
+export const ModalBuscarAlumno = ({ idDivision,page }) => {
     const { handlerCloseFormBuscar } = useContext(UserContext);
+
+    
     return (
         <div className='abrir-modal animacion fadeIn'>
             <div className='modal' style={{ display: "block" }} tabIndex="-1">
@@ -15,8 +20,9 @@ export const ModalBuscarAlumno = ({ idDivision }) => {
                             </h5>
                         </div>
                         <div className='modal-body'>
-                            <FormBuscarAlumno idDivision={idDivision} />
+                            <FormBuscarAlumno idDivision={idDivision} page={page} />
                             <br />
+                    
                             <button className="btn btn-light btn-sm" type="button" onClick={handlerCloseFormBuscar} >
                                 Cancelar
                             </button>

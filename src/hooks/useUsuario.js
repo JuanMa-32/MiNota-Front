@@ -1,6 +1,6 @@
 import React, { useReducer, useState } from 'react'
 import { usuarioReducer } from './../reducers/usuarioReducer';
-import { AlumnofindById, agregarAlumno, agregarAlumnoExistente, editAlumno, findAllAlumnos, findByDni } from './../services/usuarioService';
+import { AlumnofindById, agregarAlumno, agregarAlumnoExistente, editAlumno, findAllAlumnos, findByAlumno, findByDni } from './../services/usuarioService';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 const usuarioInit = {
@@ -32,18 +32,60 @@ const usuarioInit = {
     condicion: '',
     desde: '',
     causaEntrada: '',
-    cicloLectivo: ''
+    cicloLectivo: 2023
 }
+const alumnosFormInit = [{
+    cuil: 0,
+    dni: 0,
+    apellido: '',
+    nombre: '',
+    genero: '',
+    nacimiento: '',
+    calle: '',
+    numero: 0,
+    depto: '',
+    piso: '',
+    codigoPostal: 0,
+    barrio: '',
+    manzana: '',
+    casa: '',
+    referenciaDomicilio: '',
+    nivelEstudio: '',
+    ocupacion: '',
+    telefonoFijo: 0,
+    prestadora: '',
+    celular: 0,
+    estadoCivil: '',
+    obraSocial: '',
+    grupoSanguineo: '',
+    lugarNacimiento: '',
+    nacionalidad: '',
+    condicion: '',
+    desde: '',
+    causaEntrada: '',
+    cicloLectivo: 2023
+}]
 export const useUsuario = () => {
 
     const [alumnos, dispatch] = useReducer(usuarioReducer, []);
     const [usuarioDni, setusuarioDni] = useState(usuarioInit)
     const [alumnoSelected, setalumnoSelected] = useState(usuarioInit)
-
+    const [alumnosForm, setalumnosForm] = useState([])
+    const [alumnosPaginador, setalumnosPaginador] = useState({})
     const navigate = useNavigate()
 
-    const getUsuarios = async (idDivision) => {
 
+    const getAlumnosForm = async ( page,{nombre,apellido}) => {
+        try {
+            const response = await findByAlumno(nombre, apellido, page)
+            setalumnosForm(response.data.content)
+            setalumnosPaginador(response.data)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const getUsuarios = async (idDivision) => {
         try {
             const response = await findAllAlumnos(idDivision);
 
@@ -64,15 +106,17 @@ export const useUsuario = () => {
             console.log(error);
         }
     }
-
-    const restablecerUsuario = () => {
-        setusuarioDni(usuarioInit)
+    const restablecerListAlumnos = () => {
+        setalumnosForm(alumnosFormInit)
+        setalumnosPaginador({})
     }
+
+
 
     //alumnos
     const handlerAddAlumno = async (idDivision, alumno) => {
         try {
-            console.log(alumno);
+
             const response = await agregarAlumno(alumno, idDivision);
             dispatch({
                 type: 'addAlumno',
@@ -126,7 +170,7 @@ export const useUsuario = () => {
         setvisibleBuscar(true);
     }
     const handlerCloseFormBuscar = () => {
-        restablecerUsuario()
+        restablecerListAlumnos()//una vez que se cierra el modal, la lista de busqueda se vacia.
         setvisibleBuscar(false)
     }
 
@@ -138,17 +182,19 @@ export const useUsuario = () => {
         visibleBuscar,
         usuarioInit,
         alumnoSelected,
-
+        alumnosForm,
+        alumnosPaginador,
 
         //funciones
         getUsuarios,
         handlerUsuarioDni,
-        restablecerUsuario,
         handlerAddAlumno,
         handlerAddAlumnoExistente,
         handlerOpenFormBuscar,
         handlerCloseFormBuscar,
         handlerAlumnoSelected,
-        handlerEditAlumno
+        handlerEditAlumno,
+        restablecerListAlumnos,
+        getAlumnosForm
     }
 }

@@ -1,6 +1,6 @@
 import { useReducer, useState } from "react"
 import { divisionReducer } from "../reducers/divisionReducer"
-import { findAll, findById, remove, save, update } from './../services/divisionesService';
+import { findAll, findById, moverAlumnos, remove, save, update } from './../services/divisionesService';
 import Swal from "sweetalert2";
 import { useNavigate } from 'react-router-dom';
 
@@ -69,11 +69,11 @@ export const useDivision = () => {
           'La division ha sido actualizada con exito!',
         'success'
       );
-     console.log(id);
+      console.log(id);
       navigate(`/division/listar/${id}`)
     } catch (error) {
       if (error.response && error.response.status == 400) {
-      
+
         seterrors(error.response.data)
       } else {
         throw error;
@@ -117,6 +117,15 @@ export const useDivision = () => {
     })
   }
 
+  const handlerMoverAlumnos = async (alumnos, idDivisionDestino, id) => {
+    try {
+      const response = await moverAlumnos(alumnos, idDivisionDestino, id)
+      navigate(`/division/alumnos/${id}/0`)
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return {
 
     //Variables
@@ -130,6 +139,7 @@ export const useDivision = () => {
     hanlderAddDivision,
     getDivisiones,
     hanlderDivisionSelected,
-    handlerDeleteDivision
+    handlerDeleteDivision,
+    handlerMoverAlumnos
   }
 }

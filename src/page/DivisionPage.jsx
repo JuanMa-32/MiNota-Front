@@ -15,7 +15,15 @@ export const DivisionPage = () => {
 
   return (
     <>
-      <Link to={`/division/alumnos/${id}`} className='btn btn-light btn-sm p-1'>Alumnos</Link>
+    
+      <div class="">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="">
+  
+    <Link to={`/division/alumnos/${id}/${0}`} className='link-offset-2 link-underline link-underline-opacity-0'>Alumnos</Link>
+    </div>
+  </nav>
+</div>
       <h4 className="mb-3">División</h4>
       <Link to={`/division/editar/${id}`} className='btn btn-success btn-sm mt-3 ms-2'>Editar</Link>
       <button className='btn btn-danger btn-sm mt-3 ms-2' onClick={() => handlerDeleteDivision(id, idEsc)} >Eliminar</button>

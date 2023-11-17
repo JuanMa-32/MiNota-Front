@@ -1,9 +1,10 @@
 import React, { useContext, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom';
-import { Paginator } from '../components/Paginator';
+
 import { CargoList } from './../components/cargo/CargoList';
 import { UserContext } from '../context/UserContext';
 import { NavBarSecundario } from './../components/headers/NavBarSecundario';
+import { Paginator } from '../components/headers/Paginator';
 
 export const CargoListPage = () => {
   const { id, page } = useParams();

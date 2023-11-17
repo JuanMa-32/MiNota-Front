@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { AlumnosRow } from './AlumnosRow'
 import { UserContext } from '../../context/UserContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -28,7 +28,10 @@ export const AlumnosList = () => {
   }
 
 
-  let AlumnosFiltrados;
+  
+
+
+  let AlumnosFiltrados =[];
   const todosLosCamposVacios = Object.values(filtros).every((valor) => !valor);
   if (todosLosCamposVacios) {
     AlumnosFiltrados = alumnos;
