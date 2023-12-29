@@ -7,7 +7,7 @@ export const PaginadorAlumnos = ({ paginador, idDivision }) => {
         <>
             <nav aria-label="Page navigation example">
                 {paginador?.length === 0 ||
-                    <ul class="pagination  pagination-sm">
+                    <ul className="pagination  pagination-sm">
                         <li className={paginador.first ? 'page-item disabled' : 'page-item'}><Link to={`/division/alumnos/${idDivision}/0`} className='page-link'>Primera</Link> </li>
                         {paginador.number == 0 ||
                             <li className='page-item'> <Link to={`/division/alumnos/${idDivision}/${paginador.number - 1}`} className='page-link' >Atras</Link></li>

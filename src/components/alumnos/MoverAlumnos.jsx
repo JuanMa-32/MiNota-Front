@@ -71,8 +71,7 @@ export const MoverAlumnos = ({ id }) => {
 
     const onSubmit = (event) => {
         event.preventDefault()
-        console.log(alumnosSeleccionados.lenght + idDivisionDestino );
-        if ( idDivisionDestino === 0) {
+        if ( idDivisionDestino === 0 || alumnosSeleccionados.length === 0) {
             Swal.fire(
                 'Error',
                 'Hay campos obligatorios que completar',
@@ -202,9 +201,9 @@ export const MoverAlumnos = ({ id }) => {
                                 <td style={{ fontSize: '12px' }}>{alumno.hasta}</td>
                                 <td>
 
-                                    <div class="form-check form-switch">
+                                    <div className="form-check form-switch">
                                         <input
-                                            class="form-check-input"
+                                            className="form-check-input"
                                             type="checkbox"
                                             role="switch"
                                             id={`flexSwitchCheckDefault-${alumno.id}`}

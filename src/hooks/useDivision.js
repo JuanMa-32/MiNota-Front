@@ -120,6 +120,11 @@ export const useDivision = () => {
   const handlerMoverAlumnos = async (alumnos, idDivisionDestino, id) => {
     try {
       const response = await moverAlumnos(alumnos, idDivisionDestino, id)
+      Swal.fire(
+        'Alumnos Transferidos!',
+        'Los alumnos fueron transferidos!',
+        'success'
+      );
       navigate(`/division/alumnos/${id}/0`)
     } catch (error) {
       console.log(error);

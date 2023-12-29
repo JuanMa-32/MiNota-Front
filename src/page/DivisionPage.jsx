@@ -16,9 +16,9 @@ export const DivisionPage = () => {
   return (
     <>
     
-      <div class="">
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="">
+      <div className="">
+  <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <div className="">
   
     <Link to={`/division/alumnos/${id}/${0}`} className='link-offset-2 link-underline link-underline-opacity-0'>Alumnos</Link>
     </div>

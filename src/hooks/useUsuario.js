@@ -75,7 +75,7 @@ export const useUsuario = () => {
     const navigate = useNavigate()
 
 
-    const getAlumnosForm = async ( page,{nombre,apellido}) => {
+    const getAlumnosForm = async (page, { nombre, apellido }) => {
         try {
             const response = await findByAlumno(nombre, apellido, page)
             setalumnosForm(response.data.content)
@@ -159,6 +159,7 @@ export const useUsuario = () => {
                 payload: response.data
             })
             Swal.fire('Alumno', 'datos cargados correctamente!', 'success')
+            navigate(`/alumno/ver/${alumno.id}`)
         } catch (error) {
             console.log(error);
         }

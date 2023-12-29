@@ -1,7 +1,8 @@
 import { faAngleDown, faAngleUp, faBus, faDesktop, faMagnifyingGlass, faNewspaper, faRightToBracket, faSchool, faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import { AuthContext } from '../../auth/context/AuthContext'
 
 
 
@@ -10,7 +11,7 @@ import { NavLink } from 'react-router-dom'
 export const SideBar = () => {
 
   const [menuAbierto, setMenuAbierto] = useState(false);
-
+  const { handlerLogout } = useContext(AuthContext);
   // Función para alternar la visibilidad del menú
   const toggleMenu = () => {
     setMenuAbierto(!menuAbierto);
@@ -60,10 +61,10 @@ export const SideBar = () => {
           {menuAbierto && (
             <ul className="menu-desplegable">
               <li className="opcion">
-              <NavLink to="/escuela/listar" className="nav-link link-body-emphasis" >Listar escuelas</NavLink>
+                <NavLink to="/escuela/listar" className="nav-link link-body-emphasis" >Listar escuelas</NavLink>
               </li>
               <li className="opcion">
-              <NavLink to="/escuela/registrar" className="nav-link link-body-emphasis" >Agregar escuela</NavLink>
+                <NavLink to="/escuela/registrar" className="nav-link link-body-emphasis" >Agregar escuela</NavLink>
               </li>
             </ul>
           )}
@@ -98,11 +99,15 @@ export const SideBar = () => {
             </a>
           </li>
           <li>
-            <a href="#" className="nav-link link-body-emphasis">
+            <button className="nav-link link-body-emphasis"
+              onClick={handlerLogout}
+            >
               <svg className="bi pe-none me-2" width="5" height="16"><use xlinkHref="#people-circle" /></svg>
               <FontAwesomeIcon icon={faRightToBracket} className="icon-spacing" />
               Salir
-            </a>
+
+            </button>
+
           </li>
         </ul>
       </div>

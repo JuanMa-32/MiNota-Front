@@ -1,10 +1,11 @@
-import axios from "axios";
 
-const URL = 'http://localhost:8080/cargo'
+import cargoApi from './../apis/cargoApi';
+
+const URL = ''
 
 export const save = async (id,cargo) => {
     try {
-        const response = await axios.post(`${URL}/${id}`,cargo)
+        const response = await cargoApi.post(`${URL}/${id}`,cargo)
         return response;
     } catch (error) {
         throw error;
@@ -12,7 +13,7 @@ export const save = async (id,cargo) => {
 }
 export const update = async (idCargo,cargo) => {
     try {
-        const response = await axios.put(`${URL}/${idCargo}`,cargo)
+        const response = await cargoApi.put(`${URL}/${idCargo}`,cargo)
         return response;
     } catch (error) {
         throw error;
@@ -21,7 +22,7 @@ export const update = async (idCargo,cargo) => {
 
 export const remove = async (id,idEscuela) => {
     try {
-        await axios.delete(`${URL}/${id}/${idEscuela}`)
+        await cargoApi.delete(`${URL}/${id}/${idEscuela}`)
     } catch (error) {
         console.log(error);
     }
@@ -29,7 +30,7 @@ export const remove = async (id,idEscuela) => {
 
 export const findAll = async (id,page=0) => {
     try {
-        const response = await axios.get(`${URL}/${id}/${page}`)
+        const response = await cargoApi.get(`${URL}/${id}/${page}`)
         return response
     } catch (error) {
         console.log(error);
@@ -38,7 +39,7 @@ export const findAll = async (id,page=0) => {
 
 export const findById = async (id) => {
     try {
-        const response = await axios.get(`${URL}/${id}`)
+        const response = await cargoApi.get(`${URL}/${id}`)
         return response;
     } catch (error) {
         console.log(error);

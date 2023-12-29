@@ -1,11 +1,12 @@
-import axios from "axios";
 
-const URL = 'http://localhost:8080/escuela'
+import escuelaApi from './../apis/escuelaApi';
+
+const URL = ''
 
 //post-put
 export const save = async (escuela) => {
     try {
-        const response = await axios.post(URL, escuela)
+        const response = await escuelaApi.post(URL, escuela)
         return response;
     } catch (error) {
         console.log(error);
@@ -14,7 +15,7 @@ export const save = async (escuela) => {
 
 export const editar = async (escuela,id) => {
     try {
-        const response = await axios.put(`${URL}/editar/${id}`,escuela)
+        const response = await escuelaApi.put(`${URL}/editar/${id}`,escuela)
         return response;
     } catch (error) {
         console.log(error);
@@ -23,7 +24,7 @@ export const editar = async (escuela,id) => {
 
 export const editarCaracteristicas = async (escuela,id) => {
     try {
-        const response = await axios.put(`${URL}/caracteristicas/${id}`,escuela)
+        const response = await escuelaApi.put(`${URL}/caracteristicas/${id}`,escuela)
         return response;
     } catch (error) {
         console.log(error);
@@ -33,7 +34,7 @@ export const editarCaracteristicas = async (escuela,id) => {
 //GET
 export const getLocalidades = async () => {
     try {
-        const response = await axios.get(`${URL}/localidades`)
+        const response = await escuelaApi.get(`${URL}/localidades`)
         return response;
     } catch (error) {
         console.log(error);
@@ -42,7 +43,7 @@ export const getLocalidades = async () => {
 
 export const findAllEscuelas = async () => {
     try {
-        const response = await axios.get(URL);
+        const response = await escuelaApi.get(URL);
         return response
     } catch (error) {
         console.log(error);
@@ -51,7 +52,7 @@ export const findAllEscuelas = async () => {
 
 export const getEscuelaId = async (id) => {
     try {
-        const response = await axios.get(`${URL}/${id}`);
+        const response = await escuelaApi.get(`${URL}/${id}`);
         return response;
     } catch (error) {
         console.log(error);

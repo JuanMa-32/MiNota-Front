@@ -1,10 +1,11 @@
-import axios from "axios"
 
-const URL = 'http://localhost:8080/publicacion'
+import publicacionApi from "../apis/publicacionApi";
+
+const URL = ''
 
 export const findAll = async () =>  {
     try {
-        const response = await axios.get(URL);
+        const response = await publicacionApi.get(URL);
         return response;
     } catch (error) {
        throw error;
@@ -13,7 +14,7 @@ export const findAll = async () =>  {
 
 export const save = async (publicacion) => {
     try {
-        const response = await axios.post(URL,publicacion)
+        const response = await publicacionApi.post(URL,publicacion)
         return response;
     } catch (error) {
         throw error;
@@ -22,7 +23,7 @@ export const save = async (publicacion) => {
 
 export const update = async ({titulo,cuerpo,id}) => {
     try {
-        const response = await axios.put(`${URL}/${id}`,{
+        const response = await publicacionApi.put(`${URL}/${id}`,{
             titulo,
             cuerpo
         })
